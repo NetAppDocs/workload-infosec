@@ -1,0 +1,64 @@
+---
+sidebar: sidebar
+permalink: bedrock-capabilities.html
+keywords: amazon bedrock, ai agent, read-only, diagnostic tools, aws cli, ontap cli, ssh, safety controls, mutating verbs, data retention, foundation models, anthropic claude, cross-region inference, temperature, max tokens, reasoning steps, structured json, billing, usage limits, ai consumption, workload factory
+summary: "The AI agent has read-only access to the AWS CLI and ONTAP CLI diagnostic tools."
+---
+= Bedrock AI agent capabilities
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+The AI agent has access to two read-only diagnostic tools:
+
+[cols="2,3,4",options="header"]
+|===
+|Tool |Capability |Safety controls
+
+|AWS CLI (read-only)
+|Execute read-only AWS CLI commands (`describe`, `list`, `get`)
+|Blocks all mutating verbs (`create`, `delete`, `modify`, `update`, `put`, `remove`). Maximum 10 commands per step. Output truncated at 20 KB.
+
+|ONTAP CLI (read-only)
+|Execute read-only ONTAP CLI commands using SSH
+|Blocks all mutating verbs (`delete`, `destroy`, `create`, `modify`, `move`). Output truncated.
+|===
+
+The agent cannot modify, create, or delete any resources. It can only observe and diagnose.
+
+== Data retention by Bedrock
+
+Per AWS policy, Amazon Bedrock does not store or use your inputs and outputs to train or improve foundation models. For on-demand inference (which Workload Factory uses), your data is processed transiently and not retained by AWS after the response is returned.
+
+== Model and parameters
+
+[cols="2,3",options="header"]
+|===
+|Parameter |Value
+
+|Model
+|Anthropic Claude (using a cross-region inference profile)
+
+|Temperature
+|0 (deterministic, no randomness)
+
+|Max output tokens
+|2,048
+
+|Max reasoning steps
+|15 per analysis
+
+|Output format
+|Structured JSON (summary, severity, root cause, corrective actions)
+|===
+
+== Billing and usage limits
+
+* Bedrock inference is billed to your AWS account (your inference profile, your credentials).
+* Workload Factory tracks usage internally to provide visibility into AI consumption.
+* Per-account monthly cost tracking is available.
+
+// 10-JUNE-2026 migrate onboarding guide

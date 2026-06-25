@@ -1,0 +1,39 @@
+---
+sidebar: sidebar
+permalink: least-privilege-requirements.html
+keywords: least privilege, iam permissions, iam role, session policies, external id, confused deputy, sts, assumerole, tiered permissions, read-only, credential tiers, tag-based conditions, resource-level access, secrets manager, fsxsecret, permission validation, ask-me, arn scoping, security controls, aws credentials, cross-account
+summary: "You can restrict Workload Factory IAM permissions at any time to align with least-privilege requirements."
+---
+
+= Learn about least privilege requirements for Workload Factory
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+You can restrict Workload Factory IAM permissions at any time to align with least-privilege requirements, including:
+
+* Limiting access to specific resources (ARNs)
+* Applying IAM conditions (for example, tags and CIDR ranges)
+
+Workload Factory also provides an Ask-Me advisory flow that helps customers safely refine permissions by suggesting restriction options and generating an updated policy to apply in AWS.
+
+This enables customers to move from initial onboarding to securely scoped, resource-level access.
+
+Workload Factory uses a tiered permission model aligned with least privilege. You choose which capability tiers to enable when adding AWS credentials. You can start with read-only discovery and expand as needed.
+
+All permissions are granted through an IAM role in your AWS account that Workload Factory assumes via STS with an external ID. Each API call is further scoped with an inline session policy, ensuring only the minimum actions needed for that specific operation are used.
+
+== Security controls
+
+* *External ID*: Every cross-account role assumption requires a unique external ID to prevent confused deputy attacks.
+* *Session policies*: Each operation uses an inline session policy that restricts temporary credentials to only the specific actions needed, even if the role grants broader permissions.
+* *Tag-based conditions*: Security group modifications are restricted to Workload Factory-created resources only.
+* *Secret ARN scoping*: Secrets Manager access is restricted to secrets matching the `FSxSecret*` naming pattern.
+* *Credential tiers*: You control which tiers are enabled. Start with Tier 1 (read-only) and enable tiers 2 and 3 when ready.
+* *Permission validation*: The system detects missing permissions at runtime and reports the specific action and resource that failed, enabling targeted remediation.
+
+
+// 10-JUNE-2026 migrate onboarding guide

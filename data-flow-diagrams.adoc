@@ -1,0 +1,32 @@
+---
+sidebar: sidebar
+permalink: data-flow-diagrams.html
+keywords: data flow, diagrams, workflow, aws api, ontap operations, lambda link, amazon bedrock, ai event analysis, sts assumerole, session policies, kms, envelope encryption, ontap password, lambda deployment, offboarding, data removal, fsx for ontap, credentials flow, discovery, monitoring
+summary: "Data flow diagrams show how information moves between the systems."
+---
+
+= Workload Factory data flow diagrams
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+The following data flow diagrams show how information moves between the systems.
+
+image::workflow-1.png[Workflow 1: Discovering and monitoring (Read only AWS API calls)]
+
+image::workflow-2.png[Workflow 2: ONTAP operations (using Lambda link)]
+
+image::workflow-3.png[Workflow 3: AI powered event analysis (Amazon Bedrock)]
+
+image::workflow-4.png[Workflow 4: AWS credentials flow (STS AssumeRole and session policies)]
+
+image::workflow-5.png[Workflow 5: KMS envelope encryption (ONTAP password storage)]
+
+image::workflow-6.png[Workflow 6: Lambda link deployment and lifecycle]
+
+image::workflow-7.png[Workflow 7: Customer offboarding and data removal]
+
+// 10-JUNE-2026 migrate onboarding guide

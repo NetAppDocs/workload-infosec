@@ -1,0 +1,46 @@
+---
+sidebar: sidebar
+permalink: learn-about-workload-factory-infosec.html
+keywords: infosec, security, data handling, data retention, data collection, permissions, credentials, iam, assume role, least privilege, compliance, soc 2, govcloud, amazon bedrock, lambda, link, fsx for ontap, logging, audit, access control, onboarding, hardening
+summary: "Workload Factory infosec focuses on data-handling practices and access requirements, including data collection, retention, storage locations, lifecycle management, and permissions models across capabilities, with guidance for least-privilege configurations and potential hardening."
+---
+
+= Learn about Workload Factory infosec
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Workload Factory infosec focuses on data-handling practices and access requirements, including data collection, retention, storage locations, lifecycle management, and permissions models across capabilities, with guidance for least-privilege configurations and potential hardening.
+ 
+Workload Factory infosec enables security and infosec teams to independently assess Workload Factory architecture, data exposure, access model, and compliance posture. The content in this section provides a consolidated reference that supports a consistent and efficient security review and onboarding process, including:
+
+* Data handling, retention, and transfer for Workload Factory workflows
+* Credentials and connectivity:
+** AWS credential onboarding (assume role) and required permissions for different trust levels
+** Link (Lambda-based) architecture, protocols, and permission planes
+* Bedrock usage for AI features (where applicable)
+* Logging, auditability, security controls, and compliance statements
+* GovCloud
+
+== Onboarding components
+
+When you onboard Workload Factory, you should consider the following components:
+
+* AWS account integration +
+Onboarding is performed using an IAM assume-role model, where a customer-managed role (provided as an ARN) is registered with the Workload Factory credentials service. This role defines the permissions Workload Factory can use within the customer account.
+* Scoped permissions model +
+Access is governed by feature-specific IAM permissions, ensuring that each Workload Factory capability operates with the minimum required privileges. All permissions are explicitly defined and justified per feature.
+* Connectivity architecture +
+Workload Factory establishes secure connectivity to customer AWS environments (VPCs) and FSx for ONTAP resources. This enables management and orchestration operations across the deployed infrastructure.
+* Link execution path (when applicable) +
+For operations that require direct interaction with ONTAP (for example, REST API calls that are not exposed through AWS APIs), Workload Factory uses a customer-deployed Link, implemented as an AWS Lambda function running in the customer's AWS environment. Workload Factory invokes the Link through AWS-native Lambda invocation, and the Link then performs the required operation from within the customer account and VPC boundary. This design is secure because Workload Factory never needs direct network access into ONTAP from outside the customer environment; execution stays inside the customer-controlled AWS account, access can be limited through IAM permissions and security groups, and the communication path is restricted to only the specific operations required.
+* Amazon Bedrock enablement for AI features when required.
+
+== Compliance
+
+Workload Factory is covered under NetApp's SOC 2 Type II compliance program. SOC 2 reports are available under NDA upon request.
+
+// 10-JUNE-2026 migrate onboarding guide

@@ -1,0 +1,50 @@
+---
+sidebar: sidebar
+permalink: ask-me-privacy.html
+keywords: Ask Me, data handling, privacy, user data, prompts, knowledge base, audit logging, feedback data, ephemeral storage, model resilience, multi-model fallback, availability, jwt authentication, llm-as-a-judge, prompt injection, system prompt hardening, domain scoping, tool-use governance, sandboxed data access, read-only, token limits, secret scrubbing, source attribution, soc 2, iso 27001, compliance, generative ai, session data, anonymized
+summary: "Ask Me in Workload Factory includes data handling and privacy features."
+---
+
+= Ask Me data handling and privacy
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Ask Me in Workload Factory includes the following data handling and privacy features:
+
+* *User data in prompts*: User queries are processed by a managed AI service that does not use customer inputs to train or improve its foundation models.
+* *Knowledge base content*: Contains only curated, published NetApp documentation. No customer data is included.
+* *Operational data*: When a user queries their own resources, the retrieved data is held only in ephemeral, in-memory storage for the duration of the session. It is not persisted or shared.
+* *Audit logging*: Query metadata (anonymized user ID, timestamps, durations) is logged for audit. Sensitive fields are scrubbed.
+* *Feedback data*: User feedback is stored separately and linked to a query ID, never to personally identifiable information beyond the anonymized user ID.
+
+== Model resilience and availability
+
+Ask Me employs a multi-model fallback chain across multiple cloud regions. If the primary model is throttled or unavailable, the system automatically fails over to alternative models, ensuring service continuity. All models in the chain are subject to the same security controls, system prompt hardening, and data isolation guarantees.
+
+== Ask Me security summary
+
+Ask Me integrates generative AI with layered, defense-in-depth security controls:
+
+* Pre-generation:
+** JWT authentication
+** Dedicated security classification model (LLM-as-a-judge)
+** Prompt injection detection
+* During generation:
+** System prompt hardening
+** Domain scoping
+** Tool-use governance
+** Sandboxed data access
+** Read-only query enforcement
+* Post-generation:
+** Token limits
+** Audit logging
+** Secret scrubbing
+** Source attribution
+
+The architecture ensures that customer data is never used for model training, is never persisted beyond the session, and is never accessible across tenants, while leveraging managed cloud AI services with established compliance certifications (SOC 2, ISO 27001, and others).
+
+// 10-JUNE-2026 migrate onboarding guide

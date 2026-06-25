@@ -1,0 +1,41 @@
+---
+sidebar: sidebar
+permalink: cloudwatch-monitoring-permissions.html
+keywords: cloudwatch, monitoring permissions, optional permissions, monitoring stack, putmetricdata, putdashboard, putmetricalarm, describealarms, dashboards, alarms, logs, cloudwatch logs, sns, alert notifications, secrets manager, ontap credentials, file system metrics, iam permissions
+summary: "CloudWatch permissions are optional, though they are required for a separate deployment."
+---
+
+= Workload Factory CloudWatch monitoring permissions
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+CloudWatch permissions are optional, though they are required for a separate deployment.
+
+If you deploy the optional monitoring stack:
+
+[cols="2,4",options="header"]
+|===
+|Permission |Purpose
+
+|fsx:Describe* / fsx:ListTagsForResource
+|Collect file system metrics
+
+|cloudwatch:PutMetricData / cloudwatch:PutDashboard / cloudwatch:PutMetricAlarm / cloudwatch:DescribeAlarms / cloudwatch:Delete*
+|Manage dashboards and alarms
+
+|logs:CreateLogGroup / logs:CreateLogStream / logs:PutLogEvents
+|Publish event logs
+
+|sns:Publish
+|Send alert notifications
+
+|secretsmanager:GetSecretValue
+|Retrieve ONTAP credentials for monitoring
+|===
+
+
+// 10-JUNE-2026 migrate onboarding guide

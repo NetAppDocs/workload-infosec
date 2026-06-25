@@ -1,0 +1,60 @@
+---
+sidebar: sidebar
+permalink: lambda-permissions.html
+keywords: lambda link, credentials, permissions, lambda execution role, vpc networking, ec2, eni, ip management, secrets manager, getsecretvalue, ontap credentials, cloudwatch logs, resource-based policy, invokefunction, getfunction, updatefunctioncode, getfunctionconfiguration, iam permissions, workload factory, vpc, fsx for ontap
+summary: "When configured with Secrets Manager support, the Link retrieves ONTAP credentials directly from your AWS Secrets Manager at runtime."
+---
+
+= Lambda link credentials and permissions
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+When configured with Secrets Manager support, the Link retrieves ONTAP credentials directly from your AWS Secrets Manager at runtime. This means the actual password transits only within your VPC, from Secrets Manager to the Lambda to the ONTAP endpoint.
+
+== Permissions granted to Lambda link
+
+The Lambda execution role requires the following permissions:
+
+[cols="2,4",options="header"]
+|===
+|Permission |Purpose
+
+|ec2:CreateNetworkInterface / ec2:DescribeNetworkInterfaces / ec2:DeleteNetworkInterface
+|Standard VPC-attached Lambda networking
+
+|ec2:AssignPrivateIpAddresses / ec2:UnassignPrivateIpAddresses
+|VPC ENI IP management
+
+|secretsmanager:GetSecretValue (scoped to `FSxSecret*`)
+|Retrieve ONTAP credentials (only when Secrets Manager is enabled)
+
+|CloudWatch Logs (using a managed policy)
+|Lambda execution logging
+|===
+
+== Permissions granted to Workload Factory
+
+The Lambda link resource-based policy grants the Workload Factory service principal the following permissions:
+
+[cols="2,4",options="header"]
+|===
+|Permission |Purpose
+
+|lambda:InvokeFunction
+|Execute the Lambda
+
+|lambda:GetFunction
+|Health and status checks
+
+|lambda:UpdateFunctionCode
+|Version upgrades (image updates)
+
+|lambda:GetFunctionConfiguration
+|Configuration verification
+|===
+
+// 10-JUNE-2026 migrate onboarding guide

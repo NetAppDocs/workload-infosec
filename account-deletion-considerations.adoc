@@ -1,0 +1,44 @@
+---
+sidebar: sidebar
+permalink: account-deletion-considerations.html
+keywords: account deletion, data removal, credentials, ontap credentials, links, lambda, cloudformation, iam role, fsx for ontap, auto-capacity, arp, mysql, notification channels, cloudwatch, aws account cleanup, cascading delete
+summary: "When you delete a Workload Factory account, make sure you safely remove any data currently associated with your account."
+---
+
+= Infosec considerations for Workload Factory account deletion
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+When you delete a Workload Factory account, make sure you safely remove any data currently associated with your account.
+
+.Steps
+
+. Delete all file systems using the FSx service DELETE route:
+.. Triggers the AWS `DeleteFileSystemCommand`.
+.. Cascades: Deletes ONTAP credentials (passwords), dissociates all links from that file system, and asynchronously deletes the `bluexp_file_system` row after AWS confirms deletion.
+.. Auto-capacity and ARP configurations self-heal: Background jobs detect the file system no longer exists and delete the configurations automatically.
+
+. Delete all credentials using the Credentials service DELETE route:
+.. Transactional: Deletes the credentials row and all `resource_association` rows.
+.. Does not cascade to file systems, volumes, links, or other configurations.
+
+. Delete all links using the Link service DELETE route:
+.. Deletes `link`, `link_association`, and `deployment` rows from MySQL.
++
+IMPORTANT: The Lambda function is NOT deleted from your AWS account—only the logical database record is removed.
+
+. Delete notification channels using the Notification service DELETE route:
+.. Removes `notification_channel` rows per account and channel type.
+
+. Manual actions not automated by Workload Factory:
+.. Delete the IAM role CloudFormation stack from your AWS account.
+.. Delete the Link Lambda CloudFormation stack from your AWS account.
+.. (Optional) Delete the CloudWatch monitoring stack if deployed.
+
+. Auto-cleanup set up inside the NetApp account cleans up all file system and volume details.
+
+// 10-JUNE-2026 migrate onboarding guide
