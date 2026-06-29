@@ -1,5 +1,5 @@
 settings:
-  name: "Product Name"
+  name: "Information Security for Workload Factory"
   internal:
     pdf_enabled: true
   prod:
@@ -8,7 +8,7 @@ settings:
 
 sidebar: 
   entries:
-    - title: Learn about Workload Factory infosec
+    - title: Learn about information security for Workload Factory
       url: /learn-about-workload-factory-infosec.html
     - title: Data handling
       entries:
