@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: ask-me-assistant.html
 keywords: Ask Me, generative ai, rag, retrieval-augmented generation, llm, prompt injection, prompt security, security classifier, llm-as-a-judge, domain scoping, tool-use governance, data isolation, privacy, model training, cross-tenant, conversation history, agentic security, output controls, token limit, temperature control, soc 2, iso 27001, hipaa, knowledge base, source attribution, sandbox, read-only, audit, streaming, privilege escalation, data exfiltration, social engineering, fsx for ontap
-summary: "Ask Me is a generative AI-powered intelligent assistant embedded within NetApp Workload Factory. It provides customers with real-time, conversational support for Amazon FSx for NetApp ONTAP and Workload Factory topics, including product guidance, best-practice recommendations, and operational queries against their own cloud resources."
+summary: "Ask Me is a generative AI-powered intelligent assistant embedded within NetApp Workload Factory. It provides you with real-time, conversational support for Amazon FSx for NetApp ONTAP and Workload Factory topics, including product guidance, best-practice recommendations, and operational queries against their own cloud resources."
 ---
 
 = Learn about the Ask Me assistant in Workload Factory
@@ -13,7 +13,7 @@ summary: "Ask Me is a generative AI-powered intelligent assistant embedded withi
 :imagesdir: ../media/
 
 [.lead]
-Ask Me is a generative AI-powered intelligent assistant embedded within NetApp Workload Factory. It provides customers with real-time, conversational support for Amazon FSx for NetApp ONTAP and Workload Factory topics, including product guidance, best-practice recommendations, and operational queries against their own cloud resources.
+Ask Me is a generative AI-powered intelligent assistant embedded within NetApp Workload Factory. It provides you with real-time, conversational support for Amazon FSx for NetApp ONTAP and Workload Factory topics, including product guidance, best-practice recommendations, and operational queries against their own cloud resources.
 
 Ask Me is designed with security-first principles, ensuring that all generative AI interactions are governed, auditable, and compliant with enterprise-grade security standards.
 

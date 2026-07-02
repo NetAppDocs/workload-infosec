@@ -36,27 +36,23 @@ sidebar:
           url: /aws-credential-flow.html
         - title: Workload Factory AWS credential retention
           url: /aws-credential-retention.html
+        - title: Learn about Workload Factory credential types
+          url: /credential-types.html
+        - title: Considerations for Workload Factory credentials
+          url: /credential-considerations.html          
     - title: Least privilege requirements
       entries:
         - title: Learn about least privilege requirements for Workload Factory
           url: /least-privilege-requirements.html
-        - title: Tier 1 Workload Factory required permissions
-          url: /tier-1-permissions.html
-        - title: Tier 2 Workload Factory operations and remediation permissions
-          url: /tier-2-permissions.html
-        - title: Tier 3 Workload Factory filesystem permissions
-          url: /tier-3-permissions.html
-        - title: Workload Factory link permissions
-          url: /link-permissions.html
         - title: CloudWatch monitoring permissions
           url: /cloudwatch-monitoring-permissions.html
-    - title: ASK Me assistant
+    - title: Ask Me assistant
       entries:
-        - title: Learn about the ASK Me assistant in Workload Factory
+        - title: Learn about the Ask Me assistant in Workload Factory
           url: /ask-me-assistant.html
-        - title: ASK Me authentication and access control
+        - title: Ask Me authentication and access control
           url: /ask-me-access.html
-        - title: ASK Me data handling and privacy
+        - title: Ask Me data handling and privacy
           url: /ask-me-privacy.html
     - title: AWS Lambda link
       entries:
@@ -64,16 +60,10 @@ sidebar:
           url: /lambda-link.html
         - title: Lambda link requests, ports, and calls
           url: /lambda-requests.html
-        - title: Lambda link credentials and permissions
+        - title: Lambda link permissions
           url: /lambda-permissions.html
         - title: Lambda link upgrades and lifecycle
-          url: /lambda-upgrades.html
-    - title: AWS and ONTAP permissions
-      entries:
-        - title: Learn about Workload Factory credential types
-          url: /credential-types.html
-        - title: Notes about Workload Factory credentials
-          url: /credential-notes.html
+          url: /lambda-upgrades.html 
     - title: AWS Bedrock
       entries:
         - title: Learn about AWS Bedrock usage in Workload Factory

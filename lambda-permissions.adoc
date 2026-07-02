@@ -13,11 +13,14 @@ summary: "When configured with Secrets Manager support, the Link retrieves ONTAP
 :imagesdir: ../media/
 
 [.lead]
-When configured with Secrets Manager support, the Link retrieves ONTAP credentials directly from your AWS Secrets Manager at runtime. This means the actual password transits only within your VPC, from Secrets Manager to the Lambda to the ONTAP endpoint.
+
+Link permissions are optional, though they are required for ONTAP-native operations.
+
+When configured with Secrets Manager support, the link retrieves ONTAP credentials directly from your AWS Secrets Manager at runtime. This means the actual password transits only within your VPC, from Secrets Manager to the Lambda to the ONTAP endpoint.
 
 == Permissions granted to Lambda link
 
-The Lambda execution role requires the following permissions:
+The Lambda execution role requires the following permissions when deploying a link in your VPC:
 
 [cols="2,4",options="header"]
 |===
