@@ -1,0 +1,96 @@
+---
+sidebar: sidebar
+permalink: learn-ai-features.html
+keywords: ai features, generative ai, ask me, latency analysis, ems event analysis, amazon bedrock, inference profile, security, data handling
+summary: "Workload Factory includes generative AI features such as Ask Me, latency analysis, and EMS event analysis, powered through Amazon Bedrock in your AWS account."
+---
+
+== Learn about generative AI features in Workload Factory
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Workload Factory includes generative AI features that help you understand your environment faster, investigate issues more efficiently, and take informed action. These features use Amazon Bedrock for model inference and are designed with enterprise security controls.
+
+Generative AI features are optional and are enabled by default.
+
+=== Generative AI features overview
+
+Workload Factory currently applies generative AI to the following features:
+
+* *Ask Me assistant*:
+Provides conversational guidance for Workload Factory and Amazon FSx for NetApp ONTAP topics. Ask Me uses retrieval-augmented generation (RAG) with curated NetApp documentation and can provide source-backed responses.
+* *Latency analysis*:
+Analyzes storage and workload telemetry to help identify likely latency contributors and recommended corrective actions.
+* *EMS event analysis*:
+Analyzes ONTAP EMS events and related context to help you understand event significance, probable root cause, and next steps.
+
+=== Ask Me overview
+
+Ask Me is an embedded AI assistant in Workload Factory. It is designed to improve task success for administrators by answering operational and product questions in natural language.
+
+Ask Me includes the following security characteristics:
+
+* Uses a curated knowledge base rather than open internet access.
+* Applies layered prompt and policy controls before response generation.
+* Keeps data processing scoped to the active user session.
+* Provides source attribution to support answer validation.
+
+For deeper implementation and security details, see link:ask-me-assistant.html[Learn about the Ask Me assistant in Workload Factory^] and link:ask-me-privacy.html[Ask Me data handling and privacy^].
+
+=== Latency analysis overview
+
+Latency analysis uses generative AI to interpret storage performance context and return a prioritized explanation of possible bottlenecks. This helps reduce investigation time compared to manual correlation across multiple metrics.
+
+For this analysis, Workload Factory can send relevant deployment metadata, volume and QoS context, aggregate utilization, interface details, NFS client signals, and recent ONTAP events needed for diagnostic reasoning.
+
+=== EMS event analysis overview
+
+EMS event analysis uses generative AI to translate event data into an operator-focused summary. The analysis helps you move from raw events to practical action by identifying likely impact and suggested remediation direction.
+
+For this analysis, Workload Factory can send the EMS message and catalog details, related SVM information, and relevant FSx file system metadata.
+
+=== AWS Bedrock overview for generative AI features
+
+Workload Factory uses Amazon Bedrock for AI inference, with execution in your AWS account and under your configured credentials and inference profile.
+
+Bedrock-related behavior for these features includes:
+
+* AI features remain off until you configure Bedrock prerequisites and permissions.
+* Inference follows your selected Bedrock inference profile (including cross-region profile behavior when applicable).
+* Data sent for analysis is limited to feature-relevant diagnostic context.
+* File content, file names, and AWS credentials are not sent for Bedrock analysis.
+
+For Bedrock-specific requirements, data scope, and operational details, see link:bedrock-opt-in.html[AWS Bedrock opt-in requirements^], link:bedrock.html[Learn about AWS Bedrock usage in Workload Factory^], and link:bedrock-capabilities.html[Bedrock AI agent capabilities^].
+
+==== AWS Bedrock usage in Workload Factory
+Workload Factory uses Amazon Bedrock for AI-powered storage event analysis and latency diagnostics. Bedrock inference runs in your AWS account using your credentials and your inference profile.
+
+There are many reasons to send data to Bedrock for analysis, but Workload Factory limits the data sent to only what is necessary for specific AI features. The following sections describe what data is sent to Bedrock, and what data is not sent.
+
+== For latency analysis
+
+* File system deployment information (generation, type, throughput capacity)
+* Volume configuration (name, size, aggregate placement, QoS policy)
+* Real-time performance metrics (QoS workload statistics, per-volume latency breakdown)
+* Aggregate capacity and utilization
+* Network interface (LIF) configuration
+* Connected NFS client information
+* Recent ONTAP events (last 24 hours, severity NOTICE and above)
+
+== For EMS event analysis
+
+* The EMS event message and catalog details
+* Storage VM (SVM) information
+* FSx file system metadata from AWS
+
+== What is not sent
+
+* File content or file names
+* User data stored on volumes
+* AWS access keys or credentials
+* Customer-identifiable information beyond resource IDs
+

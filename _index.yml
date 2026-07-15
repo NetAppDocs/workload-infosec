@@ -1,14 +1,30 @@
 indexpage:
-  title: # Unquoted string 
-  lead: # Quoted string
-  summary: # Quoted string 
-  keywords: # Unquoted comma-delimited list of keywords 
+  title: Information security for NetApp Workload Factory 
+  lead: Workload Factory includes security and data protection guidance, including how data is collected, stored, retained, and accessed. Use this reference to understand the architecture, permissions, and compliance posture, and to support a faster, consistent security review and onboarding process.
+  summary: "Workload Factory includes security and data protection guidance, including how data is collected, stored, retained, and accessed. Use this reference to understand the architecture, permissions, and compliance posture, and to support a faster, consistent security review and onboarding process."
+  keywords: information security, data protection, NetApp, Workload Factory
   tiles: 
-    # Tile definition 
-    - title: # Quoted or unquoted string
+    - title: Data handling
+      links: 
+        # Link definition
+        - title: # Quoted or unquoted string
+          url: # Path to target
+    - title: Data transfer and connectivity
+      links:
+        # Link definition
+        - title: # Quoted or unquoted string
+          url: # Path to target
+        # Next link on this tile (title/url pair)
+    - title: Credentials and permissions
       links: 
         # Link definition
         - title: # Quoted or unquoted string
           url: # Path to target
         # Next link on this tile (title/url pair)
-    # Next tile on this page (title/links)
+    - title: AI features
+      links: 
+        # Link definition
+        - title: Ask Me
+          url: # Path to target
+        - title: AWS Bedrock
+          url: # Path to target    
