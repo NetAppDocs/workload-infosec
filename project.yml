@@ -49,7 +49,7 @@ sidebar:
     - title: AI usage and features
       entries:
         - title: Learn about AI features
-          url: /learn-ai-features.adoc
+          url: /learn-ai-features.html
         - title: AWS Bedrock opt-in requirements
           url: /bedrock-opt-in.html
         - title: AWS Bedrock AI agent capabilities
