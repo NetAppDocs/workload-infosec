@@ -2,9 +2,9 @@
 sidebar: sidebar
 permalink: bedrock-capabilities.html
 keywords: amazon bedrock, ai agent, read-only, diagnostic tools, aws cli, ontap cli, ssh, safety controls, mutating verbs, data retention, foundation models, anthropic claude, cross-region inference, temperature, max tokens, reasoning steps, structured json, billing, usage limits, ai consumption, workload factory
-summary: "The AI agent has read-only access to the AWS CLI and ONTAP CLI diagnostic tools."
+summary: "Read-only Bedrock tool boundaries, model runtime constraints, and data-retention behavior."
 ---
-= Bedrock AI agent capabilities
+= AI tool use by AWS Bedrock in NetApp Workload Factory
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -12,7 +12,7 @@ summary: "The AI agent has read-only access to the AWS CLI and ONTAP CLI diagnos
 :imagesdir: ../media/
 
 [.lead]
-The AI agent has access to two read-only diagnostic tools:
+AWS Bedrock uses the AWS CLI and the ONTAP CLI diagnostic tools in a read-only manner. Data is only used transiently for diagnostic purposes and is not retained by NetApp Workload Factory or AWS. 
 
 [cols="2,3,4",options="header"]
 |===
@@ -29,7 +29,7 @@ The AI agent has access to two read-only diagnostic tools:
 
 The agent cannot modify, create, or delete any resources. It can only observe and diagnose.
 
-== Data retention by Bedrock
+== Data retention and model training boundaries
 
 Per AWS policy, Amazon Bedrock does not store or use your inputs and outputs to train or improve foundation models. For on-demand inference (which Workload Factory uses), your data is processed transiently and not retained by AWS after the response is returned.
 
@@ -54,6 +54,8 @@ Per AWS policy, Amazon Bedrock does not store or use your inputs and outputs to 
 |Output format
 |Structured JSON (summary, severity, root cause, corrective actions)
 |===
+
+For IAM prerequisites and feature enablement steps, Refer to link:bedrock-opt-in.html[AWS Bedrock opt-in requirements^].
 
 == Billing and usage limits
 

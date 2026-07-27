@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: connections.html
 keywords: connections, network, management plane, aws apis, sts, assumerole, external id, fsx for ontap, ec2, vpc, cloudformation, secrets manager, ontap rest api, ontap ssh, link lambda, connector, message broker, bearer token, redis, group a, group b, group c, group d, group e, cloudformation custom resource, vpc endpoints, inbound, outbound, security group, private subnet, encryption at rest, aes-256, envelope encryption, credential protection, govcloud, amazon bedrock, proxy-forwarder
-summary: "Workload Factory connection details."
+summary: "Trust paths, protocols, and boundary controls for Workload Factory connectivity."
 ---
 
 = Workload Factory connections
@@ -13,26 +13,28 @@ summary: "Workload Factory connection details."
 :imagesdir: ../media/
 
 [.lead]
-The following list describes why each connection is needed:
+This connection map identifies the trust paths, protocols, and account boundaries required for Workload Factory network and IAM integration.
+
+This page is the primary reference for cross-system connectivity paths and trust boundaries.
 
 * *Workload Factory to AWS APIs* (discovery and management): +
-Used for DescribeFileSystems, DescribeVolumes, CreateVolume, UpdateVolume, DeleteVolume, CreateFileSystem, CreateBackup, DescribeBackups, plus EC2/VPC APIs for subnet and security group discovery. The Collector service scans approximately every 5 hours, with on-demand calls for all CRUD operations. All calls use STS-assumed temporary credentials with an ExternalId.
+Used for DescribeFileSystems, DescribeVolumes, CreateVolume, UpdateVolume, DeleteVolume, CreateFileSystem, CreateBackup, DescribeBackups, and EC2/VPC APIs for subnet and security group discovery. The Collector service scans about every 5 hours, and CRUD operations run on demand. All calls use STS-assumed temporary credentials with an ExternalId.
 
 * *Workload Factory to customer AWS account resources* (orchestration and automation): +
-Includes CloudFormation stack deployment (IAM role provisioning, FSx creation using templates), STS AssumeRole (cross-account access), CloudWatch alarm creation (monitoring Lambda), S3 presigned URL generation for CloudFormation templates, and `lambda:InvokeFunction` to trigger the Link Lambda.
+Includes CloudFormation stack deployment for IAM role provisioning and FSx creation, STS AssumeRole for cross-account access, CloudWatch alarm creation for Lambda monitoring, S3 presigned URL generation for CloudFormation templates, and `lambda:InvokeFunction` to trigger the Link Lambda.
 
 * *Link Lambda to ONTAP management endpoint* (ONTAP REST/SSH not available through AWS APIs): +
-Specific operations include EMS event retrieval, QoS/latency statistics, volume efficiency settings, aggregate capacity, SVM management, igroup/LUN operations, anti-ransomware status checks, SnapMirror configuration, NFS client information, and cluster version queries. Protocols: HTTPS/443 (REST) and SSH/22 (CLI). Link Lambda runs inside the customer VPC for private subnet access without exposing ONTAP publicly.
+Specific operations include EMS event retrieval, QoS and latency statistics, volume efficiency settings, aggregate capacity checks, SVM management, igroup/LUN operations, anti-ransomware status checks, SnapMirror configuration, NFS client information, and cluster version queries. Protocols are HTTPS/443 (REST) and SSH/22 (CLI). Link Lambda runs inside the customer VPC for private subnet access without exposing ONTAP publicly.
 
 * *Link Lambda to AWS Secrets Manager* (ONTAP credential retrieval): +
-Used only when the customer stores ONTAP admin credentials in Secrets Manager (alternative: credentials encrypted in Workload Factory MySQL using KMS envelope encryption). The proxy-forwarder passes `x-aws-secret-arn` (Base64-encoded) in headers; Link Lambda calls `GetSecretValue` to retrieve the password at execution time. This keeps the password within your account boundary and is never transmitted from Workload Factory.
+Used only when the customer stores ONTAP admin credentials in Secrets Manager (alternative: credentials encrypted in Workload Factory MySQL using KMS envelope encryption). The proxy-forwarder passes `x-aws-secret-arn` (Base64-encoded) in headers, and Link Lambda calls `GetSecretValue` to retrieve the password at execution time. This keeps the password within your account boundary and prevents transmission from Workload Factory.
 
 * *Workload Factory and customer components to Amazon Bedrock* (AI features): +
-Used only when AI features are enabled. Used exclusively by the Event Analyzer service for EMS analysis and latency diagnostics. Bedrock is called using your own assumed credentials and their inference profile ARN, so data does not flow to NetApp's account. Sent to Bedrock: EMS event JSON, QoS statistics, volume configuration, aggregate data, node information. Only active when AI features are explicitly enabled and an inference profile is configured per organization (`ai_analyzer_config` table).
+Used only when AI features are enabled. The Event Analyzer service uses this path for EMS analysis and latency diagnostics. Bedrock runs with your assumed credentials and inference profile ARN, so data does not flow to NetApp's account. Data sent to Bedrock includes EMS event JSON, QoS statistics, volume configuration, aggregate data, and node information. The path is active only when an inference profile is configured per organization (`ai_analyzer_config` table).
 
 Connections are grouped by the purpose they serve.
 
-== Group A — Management plane (AWS API, direct with assumed credentials)
+== Group A — AWS management plane trust path (assumed credentials)
 
 [cols="2,2,1,3,3,4",options="header"]
 |===
@@ -114,7 +116,7 @@ The proxy-forwarder resolves which Link to use through three strategies (priorit
 . Target ID (FSx file system ID): Finds the associated Link.
 . Agent/Connector ID: Routes through the message broker to the Connector.
 
-== Group C — Link Lambda (deployed in your VPC)
+== Group C — AWS Lambda link (deployed in your VPC)
 
 [cols="2,2,1,3,3,4",options="header"]
 |===
@@ -135,12 +137,9 @@ The proxy-forwarder resolves which Link to use through three strategies (priorit
 |Private subnet access to ONTAP without public exposure
 |===
 
-Payload sent to Lambda:
+For Lambda request payload scope, request types, and port-level behavior, Refer to link:lambda-requests.html[Lambda link requests, ports, and calls^].
 
-* HTTPS: `{url, method, data, queryParams, endpoint (ONTAP IP), headers (Authorization), requestType: 'https'}`
-* SSH: `{ssh: {command, host, username, password}, requestType: 'ssh'}`
-
-Link Lambda requires outbound 443 (ONTAP REST, AWS APIs) and outbound 22 (ONTAP SSH) in its security group.
+For IAM invocation scope and credential permissions, Refer to link:lambda-permissions.html[Lambda link credentials and permissions^].
 
 == Group D — Connector/NetApp Console Agent (EC2 in your VPC, outbound-only)
 
@@ -170,7 +169,7 @@ Link Lambda requires outbound 443 (ONTAP REST, AWS APIs) and outbound 22 (ONTAP 
 |Execute proxied ONTAP operations
 |===
 
-Key design: Workload Factory never initiates inbound connections to the Connector. The Connector initiates all connections outbound. Work is queued in Redis streams; the Connector polls using `GET /message-broker/v1/requests`, retrieves tasks, executes them locally, and responds using `POST /message-broker/v1/responses`.
+Key design: Workload Factory never initiates inbound connections to the Connector. The Connector initiates all outbound connections. Work is queued in Redis streams; the Connector polls `GET /message-broker/v1/requests`, retrieves tasks, executes them locally, and responds with `POST /message-broker/v1/responses`.
 
 == Group E — CloudFormation custom resource callbacks
 

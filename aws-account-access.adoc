@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: aws-account-access.html
 keywords: aws account access, sts, assumerole, temporary credentials, iam role, trust policy, external id, confused deputy, cross-account access, role arn, cloudformation, access key, session token, credential onboarding, least privilege
-summary: "Workload Factory connection details."
+summary: "How Workload Factory uses STS AssumeRole and external IDs for secure AWS account access."
 ---
 
 = Access Workload Factory AWS account
@@ -13,7 +13,7 @@ summary: "Workload Factory connection details."
 :imagesdir: ../media/
 
 [.lead]
-Workload Factory uses AWS `sts:AssumeRole` to obtain temporary credentials for your AWS account. No long-term AWS credentials or access keys are stored.
+Workload Factory uses AWS `sts:AssumeRole` to obtain temporary credentials for your AWS account, so long-term AWS access keys are not stored by the service.
 
 [role="tabbed-block"]
 ====

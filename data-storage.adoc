@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: data-storage.html
 keywords: data storage, data retention, credentials, encryption, kms, aes, aws secrets manager, amazon bedrock, sts, redis, dynamodb, timestream, cloudformation, terraform, cloudwatch, s3, fsx for ontap, ontap, eda metrics, ai usage, audit records, opentelemetry, signoz, vpc, vpc endpoints, account deletion, configuration snapshots, arp, ttl, us-east-1, us-west-2
-summary: "Workload Factory data storage considerations."
+summary: "Storage locations, retention timelines, and VPC data-boundary behavior for Workload Factory data."
 ---
 
 = Data storage in Workload Factory
@@ -13,7 +13,7 @@ summary: "Workload Factory data storage considerations."
 :imagesdir: ../media/
 
 [.lead]
-Workload Factory data storage considerations include:
+This reference outlines what data Workload Factory retains, where it is stored, and how retention limits affect security review and offboarding.
 
 * What information is kept
 * Where information is held
@@ -21,12 +21,12 @@ Workload Factory data storage considerations include:
 * What information leaves the VPC
 * Account deletion considerations
 
-== What information is kept
+== Data classes retained by Workload Factory
 
 Workload Factory keeps the following data:
 
 * FSx configuration snapshots (refreshed on each scan)
-* ONTAP credentials (AES-encrypted with KMS envelope encryption; persistent until the user deletes)
+* ONTAP credential references or AES-encrypted with KMS envelope encryption for credential material (depending on selected credential mode)
 * EDA metrics
 * CloudFormation templates (7-day Expires header)
 * AI usage and cost data
@@ -52,18 +52,16 @@ Workload Factory keeps the following data:
 
 == How long information is kept
 
-* *ONTAP credentials (MySQL)*: Indefinite, until the user explicitly deletes
-* *STS assumed-role tokens (Redis)*: <= 30 minutes (AWS-imposed)
-* *FSx response cache (Redis)*: 20 minutes (hardcoded)
-* *S3 CloudFormation/Terraform templates*: 7 days (configurable using an environment variable)
-* *Auto-capacity retry counters (Redis)*: 1 hour
-* *Restore-from-backup tracking*: 7 days (hardcoded)
-* *AI usage metrics (Timestream)*: 24 hours hot / 180 days cold (hardcoded)
-* *EDA performance metrics (DynamoDB)*: Indefinite (no TTL configured)
-* *Audit records*: Governed by the NetApp Console retention policy (not controlled by Workload Factory)
-* *CloudWatch logs*: 14 days
+This section summarizes retention categories. Refer to the linked primary references for detailed values and policy behavior.
+
+* *Credential and STS token retention*: Refer to link:aws-credential-retention.html[Workload Factory AWS credential retention^]
+* *Platform cache and workflow state retention*: Refer to link:data-storage.html#where-information-is-kept[Where information is kept^] for storage context.
+* *Operational metric and telemetry retention*: Refer to link:operational-logs-and-events.html[Operational security logs for NetApp Workload Factory^]
+* *Audit record retention*: Governed by the NetApp Console retention policy (not controlled by Workload Factory)
 
 == What information leaves the VPC
+
+This section summarizes outbound data categories. Refer to linked pages for protocol-level and feature-level details.
 
 * *Management plane traffic to the Workload Factory service*: FSx configuration, volume metadata, resource identifiers, and operational commands flow over HTTPS to the Workload Factory service tier for all management operations.
 * *Audit records to the NetApp Console Audit Service*: Every tracked operation sends the following information:
@@ -77,9 +75,16 @@ Workload Factory keeps the following data:
 ** timestamps
 ** IP address
 ** workspaceId
-* *Amazon Bedrock (stays in your AWS account)*: EMS event details, SVM information, and FSx file system metadata are sent to Bedrock for AI analysis. This uses your inference profile ARN and assumed-role credentials, so data stays within your AWS account boundary (not sent to NetApp).
-* *Standard AWS API calls*: FSx, EC2, STS, S3, Secrets Manager. These can be routed through VPC endpoints if configured.
-* *OpenTelemetry traces to SigNoz*: Service names, request IDs, latency, and error information. This is cluster-internal within the Workload Factory service VPC and does not leave to external networks.
-* *Bedrock traffic stays in your AWS account* (your credentials, your region): Management and audit traffic goes to NetApp-controlled endpoints.
+* *AI analysis traffic*: Refer to link:learn-ai-features.html[Learn about generative AI features in Workload Factory^] and link:bedrock-opt-in.html[AWS Bedrock opt-in requirements^]
+* *AWS service API traffic*: Refer to link:connections.html[Workload Factory connections^]
+* *Telemetry export*: Refer to link:operational-logs-and-events.html[Operational security logs for NetApp Workload Factory^]
+
+Primary references for related data controls include:
+
+* Data class collection scope: link:data-handling.html[Learn about data handling in Workload Factory^]
+* Credential and token retention: link:aws-credential-retention.html[Workload Factory AWS credential retention^]
+* KMS and credential encryption model: link:kms-workflows.html[Use KMS in Workload Factory workflows^]
+* Operational metrics and telemetry definitions: link:operational-logs-and-events.html[Operational security logs for NetApp Workload Factory^]
+* Account offboarding and cleanup: link:account-deletion-considerations.html[Infosec considerations for Workload Factory account deletion^]
 
 // 10-JUNE-2026 migrate onboarding guide

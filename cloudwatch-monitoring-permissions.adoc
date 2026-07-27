@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: cloudwatch-monitoring-permissions.html
 keywords: cloudwatch, monitoring permissions, optional permissions, monitoring stack, putmetricdata, putdashboard, putmetricalarm, describealarms, dashboards, alarms, logs, cloudwatch logs, sns, alert notifications, secrets manager, ontap credentials, file system metrics, iam permissions
-summary: "CloudWatch permissions are optional, though they are required for a separate deployment."
+summary: "Optional IAM permissions required to deploy and run the CloudWatch monitoring stack."
 ---
 
 = Workload Factory CloudWatch monitoring permissions
@@ -13,7 +13,7 @@ summary: "CloudWatch permissions are optional, though they are required for a se
 :imagesdir: ../media/
 
 [.lead]
-CloudWatch permissions are optional, though they are required for a separate deployment.
+CloudWatch monitoring permissions are optional and apply only when you deploy the separate monitoring stack.
 
 If you deploy the optional monitoring stack:
 

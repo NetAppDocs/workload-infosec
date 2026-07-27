@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: lambda-permissions.html
 keywords: lambda link, credentials, permissions, lambda execution role, vpc networking, ec2, eni, ip management, secrets manager, getsecretvalue, ontap credentials, cloudwatch logs, resource-based policy, invokefunction, getfunction, updatefunctioncode, getfunctionconfiguration, iam permissions, workload factory, vpc, fsx for ontap
-summary: "When configured with Secrets Manager support, the Link retrieves ONTAP credentials directly from your AWS Secrets Manager at runtime."
+summary: "IAM permission boundaries for Lambda link execution, invocation, and ONTAP credential retrieval."
 ---
 
 = Lambda link credentials and permissions
@@ -13,12 +13,15 @@ summary: "When configured with Secrets Manager support, the Link retrieves ONTAP
 :imagesdir: ../media/
 
 [.lead]
+Lambda link permission boundaries define the IAM access required for Lambda execution and Workload Factory invocation.
 
 Link permissions are optional, though they are required for ONTAP-native operations.
 
 When configured with Secrets Manager support, the link retrieves ONTAP credentials directly from your AWS Secrets Manager at runtime. This means the actual password transits only within your VPC, from Secrets Manager to the Lambda to the ONTAP endpoint.
 
-== Permissions granted to Lambda link
+For request-path and port requirements, Refer to link:lambda-requests.html[Lambda link requests, ports, and calls^].
+
+== Lambda execution role permissions
 
 The Lambda execution role requires the following permissions when deploying a link in your VPC:
 
@@ -39,7 +42,7 @@ The Lambda execution role requires the following permissions when deploying a li
 |Lambda execution logging
 |===
 
-== Permissions granted to Workload Factory
+== Workload Factory invocation permissions
 
 The Lambda link resource-based policy grants the Workload Factory service principal the following permissions:
 
@@ -59,5 +62,7 @@ The Lambda link resource-based policy grants the Workload Factory service princi
 |lambda:GetFunctionConfiguration
 |Configuration verification
 |===
+
+For deployment lifecycle and update behavior tied to `lambda:UpdateFunctionCode`, Refer to link:lambda-upgrades.html[Lambda link upgrades and lifecycle^].
 
 // 10-JUNE-2026 migrate onboarding guide

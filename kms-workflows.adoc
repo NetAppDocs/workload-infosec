@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: kms-workflows.html
 keywords: kms, encryption at rest, fsx for ontap, ebs volumes, aws kms key, describekey, listkeys, listaliases, creategrant, credential protection, envelope encryption, aes-256-cbc, data encryption key, dek, master key, ontap credentials, aws secrets manager, link lambda, govcloud
-summary: "Describes where encryption at rest applies and how KMS can be used with relevant AWS services in Workload Factory workflows."
+summary: "Encryption-at-rest scope and KMS responsibilities for FSx data and credential protection workflows."
 ---
 
 = Use KMS in Workload Factory workflows
@@ -13,9 +13,9 @@ summary: "Describes where encryption at rest applies and how KMS can be used wit
 :imagesdir: ../media/
 
 [.lead]
-This section describes where encryption at rest applies and how KMS can be used with relevant AWS services in Workload Factory workflows.
+This guidance outlines encryption-at-rest scope and key-management responsibilities across Workload Factory and AWS services.
 
-== KMS keys (FSx encryption at rest)
+== KMS encryption-at-rest scope for FSx
 
 When creating an FSx for ONTAP file system through Workload Factory, you can optionally specify your own AWS KMS key for data-at-rest encryption. If no key is specified, the AWS-managed default FSx key is used.
 

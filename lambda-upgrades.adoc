@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: lambda-upgrades.html
 keywords: lambda link, upgrades, lifecycle, container image, updatefunctioncode, cloudformation, terraform, health checks, deployment, removal, connector, console agent, serverless, vm, pods, ontap rest, control plane, data services, networking, credentials, operational overhead, workload factory
-summary: "Workload Factory can update the Lambda link container image to deploy improvements or security patches without requiring you to redeploy the CloudFormation stack."
+summary: "Lifecycle and update controls for Lambda link deployment, monitoring, and image patch management."
 ---
 
 = Lambda link upgrades and lifecycle
@@ -13,9 +13,11 @@ summary: "Workload Factory can update the Lambda link container image to deploy 
 :imagesdir: ../media/
 
 [.lead]
+Lambda link lifecycle controls cover deployment, health monitoring, and controlled image updates with minimal operational exposure.
+
 Workload Factory can update the Lambda link container image to deploy improvements or security patches without requiring you to redeploy the CloudFormation stack. This uses the `lambda:UpdateFunctionCode` permission.
 
-== Lifecycle
+== Lifecycle control points
 
 * *Deployment*: Automated via CloudFormation (or Terraform) stack deployment
 * *Monitoring*: Health checks detect connectivity issues; failure counters track reliability
@@ -23,35 +25,6 @@ Workload Factory can update the Lambda link container image to deploy improvemen
 
 == Lambda link versus console agent
 
-The Lambda link and the Connector console agent serve different purposes and have different security and operational implications. The following table compares the tools.
-
-[cols="2,3,3",options="header"]
-|===
-|Dimension |Link (Lambda-based) |Connector (VM/Pods-based)
-
-|Runtime model
-|Serverless (AWS Lambda), customer-deployed
-|Customer-deployed VM/containers; runs NetApp console service pods
-
-|Primary scope
-|Control-plane ONTAP REST operations (only when AWS APIs do not support the operation)
-|Orchestration plus support for data services
-
-|Data services support
-|Does not host data services
-|Can host data services (runs NetApp console service pods)
-
-|Operational overhead
-|No always-on VM
-|VM lifecycle management and upgrades
-
-|Networking
-|Needs connectivity to ONTAP endpoint; might need Workload Factory endpoint connectivity
-|Needs connectivity to managed resources and required endpoints
-
-|Credentials
-|ONTAP credentials via Secrets Manager or Workload Factory; AWS role ARN stored in Workload Factory
-|Depends on deployed services; typically broader operational footprint
-|===
+The architecture comparison is documented in link:lambda-link.html[Learn about using Lambda link with Workload Factory^].
 
 // 10-JUNE-2026 migrate onboarding guide

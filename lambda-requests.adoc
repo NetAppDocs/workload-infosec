@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: lambda-requests.html
 keywords: lambda link, requests, ports, https, ssh, ontap rest api, ontap cli, health check, port 443, port 22, network requirements, outbound, secrets manager, credential retrieval, invokefunction, iam authorization, invocation payload, management endpoint, vpc, fsx for ontap
-summary: "Lambda link handles HTTPS, SSH, and health check requests."
+summary: "Outbound network paths, ports, and invocation boundaries for Lambda link requests."
 ---
 
 = Lambda link requests, ports, and calls
@@ -13,13 +13,15 @@ summary: "Lambda link handles HTTPS, SSH, and health check requests."
 :imagesdir: ../media/
 
 [.lead]
-Lambda link handles these types of requests:
+Lambda link request and port boundaries define required outbound connectivity and IAM-authorized invocation.
+
+For the full cross-system connectivity map, Refer to link:connections.html[Workload Factory connections^].
 
 * *HTTPS (ONTAP REST API)*: Proxies HTTPS calls to the ONTAP management endpoint (port 443) for volume, SVM, and cluster operations.
 * *SSH (ONTAP CLI)*: Executes read-only ONTAP CLI commands on port 22 for diagnostics and performance data.
 * *Health check*: Returns status and supported features.
 
-== Network requirements
+== Outbound network boundaries
 
 [cols="1,1,3,3",options="header"]
 |===
@@ -50,5 +52,7 @@ Workload Factory calls the Lambda via the AWS Lambda API (`lambda:InvokeFunction
 * The target ONTAP management endpoint (IP/hostname)
 * The operation to perform (REST API path or SSH command)
 * Authentication information (either inline credentials or a Secrets Manager ARN reference)
+
+For IAM permission scope and Secrets Manager controls, Refer to link:lambda-permissions.html[Lambda link credentials and permissions^].
 
 // 10-JUNE-2026 migrate onboarding guide

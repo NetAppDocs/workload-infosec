@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: data-handling.html
 keywords: data handling, configuration, metadata, operational logs, telemetry, file system, volume, flexvol, flexgroup, snaplock, flexcache, snapmirror, snapshot, export policy, nfs, cifs, s3, anti-ransomware protection, arp, replication, igroups, luns, iscsi, fcp, svm, aggregate, utilization metrics, eda, dynamodb, kms, encryption, qos, deduplication, compression, ontap, fsx for ontap, vpc, cloudtrail, data collection, data retention
-summary: "Workload Factory data handling is described using the following categories, configuration and metadata, operational logs and events, and telemetry."
+summary: "Data handling categories for configuration data, operational logs and events, and telemetry."
 ---
 
 = Learn about data handling in Workload Factory
@@ -13,13 +13,19 @@ summary: "Workload Factory data handling is described using the following catego
 :imagesdir: ../media/
 
 [.lead]
-Workload Factory data handling is described using the following categories:
+Workload Factory data handling is organized into categories that define what operational data is processed and how each data class fits in the security model.
 
 * Configuration and metadata
 * Operational logs and events
 * Telemetry
 
-== Configuration and metadata
+== Configuration and metadata collection scope
+
+Primary references for related controls include:
+
+* Storage locations and retention timelines: link:data-storage.html[Data storage in Workload Factory^]
+* Metrics definitions and telemetry collection: link:operational-logs-and-events.html[Operational security logs for NetApp Workload Factory^]
+* Encryption scope and key management: link:kms-workflows.html[Use KMS in Workload Factory workflows^]
 
 Configuration data and metadata collection details:
 
@@ -134,7 +140,7 @@ Configuration data and metadata collection details:
 
 * Utilization metrics (for EDA)
 ** Collection cadence: Every 12 hours for capacity/throughput; every 20 minutes for latency
-** Retention: 14 days in DynamoDB (auto-deleted by TTL)
+** Retention and storage details are documented in link:operational-logs-and-events.html[Operational security logs for NetApp Workload Factory^]
 ** Granularity: Normalized to approximately 60 datapoints per time range
 
 // 10-JUNE-2026 migrate onboarding guide

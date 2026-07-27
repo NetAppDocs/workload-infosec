@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: ask-me-access.html
 keywords: Ask Me, authentication, access control, jwt, token authentication, rs256, middleware, user identity, credential management, secrets vault, log scrubbing, secret redaction, container security, non-root, least privilege, cors, cross-origin resource sharing, infrastructure security, generative ai
-summary: "Ask Me in Workload Factory includes authentication and access control security features."
+summary: "Authentication, access-control, and runtime secret-protection controls for Ask Me."
 ---
 
 = Ask Me authentication and access control
@@ -13,13 +13,13 @@ summary: "Ask Me in Workload Factory includes authentication and access control 
 :imagesdir: ../media/
 
 [.lead]
-Ask Me in Workload Factory includes the following authentication and access control security features:
+Ask Me access security in Workload Factory centers on authenticated sessions, user-level accountability, and protected secret handling during runtime operations.
 
 * *Industry-standard token authentication*: Every request is authenticated using signed JWT tokens validated with cryptographic key verification, including audience, issuer, and algorithm checks (RS256).
 * *Middleware-enforced authentication*: Authentication is enforced at the service boundary. Unauthenticated or expired tokens are rejected before reaching any application logic or generative AI pipeline.
 * *User identity scoping*: Each authenticated session carries a verified user identity, ensuring that all generative AI interactions and logs are attributable to a specific user.
 
-== Credential and secret management
+== Credential protection and secret handling
 
 * *Secure vault storage*: All sensitive credentials used by the service are stored in a managed secrets vault and retrieved at runtime. No secrets are stored in application code, configuration files, or container images.
 * *Log scrubbing*: A configurable mechanism automatically redacts sensitive values (credentials, tokens, passwords, access keys, certificates) from all application logs before they are written.

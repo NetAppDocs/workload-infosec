@@ -13,11 +13,11 @@ summary: "Workload Factory includes generative AI features such as Ask Me, laten
 :imagesdir: ../media/
 
 [.lead]
-Workload Factory includes generative AI features that help you understand your environment faster, investigate issues more efficiently, and take informed action. These features use Amazon Bedrock for model inference and are designed with enterprise security controls.
+Workload Factory includes generative AI features that accelerate diagnosis while enforcing security controls for model access, data scope, and runtime behavior.
 
 Generative AI features are optional and are enabled by default.
 
-=== Generative AI features overview
+=== Security-scoped AI feature overview
 
 Workload Factory currently applies generative AI to the following features:
 
@@ -32,14 +32,13 @@ Analyzes ONTAP EMS events and related context to help you understand event signi
 
 Ask Me is an embedded AI assistant in Workload Factory. It is designed to improve task success for administrators by answering operational and product questions in natural language.
 
-Ask Me includes the following security characteristics:
+Key Ask Me security controls include authenticated access, policy-constrained generation, and session-scoped processing.
 
-* Uses a curated knowledge base rather than open internet access.
-* Applies layered prompt and policy controls before response generation.
-* Keeps data processing scoped to the active user session.
-* Provides source attribution to support answer validation.
+For primary-reference control details, refer to:
 
-For deeper implementation and security details, see link:ask-me-assistant.html[Learn about the Ask Me assistant in Workload Factory^] and link:ask-me-privacy.html[Ask Me data handling and privacy^].
+* link:ask-me-access.html[Ask Me authentication and access control^]
+* link:ask-me-privacy.html[Ask Me data handling and privacy^]
+* link:ask-me-assistant.html[Learn about the Ask Me assistant in Workload Factory^]
 
 === Latency analysis overview
 
@@ -57,40 +56,13 @@ For this analysis, Workload Factory can send the EMS message and catalog details
 
 Workload Factory uses Amazon Bedrock for AI inference, with execution in your AWS account and under your configured credentials and inference profile.
 
-Bedrock-related behavior for these features includes:
+Primary references for Bedrock controls include:
 
-* AI features remain off until you configure Bedrock prerequisites and permissions.
-* Inference follows your selected Bedrock inference profile (including cross-region profile behavior when applicable).
-* Data sent for analysis is limited to feature-relevant diagnostic context.
-* File content, file names, and AWS credentials are not sent for Bedrock analysis.
+* link:bedrock-opt-in.html[AWS Bedrock opt-in requirements^]: permissions and enablement prerequisites
+* link:bedrock-capabilities.html[AI tool use by AWS Bedrock in NetApp Workload Factory^]: read-only tool boundaries, runtime constraints, and retention behavior
 
-For Bedrock-specific requirements, data scope, and operational details, see link:bedrock-opt-in.html[AWS Bedrock opt-in requirements^], link:bedrock.html[Learn about AWS Bedrock usage in Workload Factory^], and link:bedrock-capabilities.html[Bedrock AI agent capabilities^].
+For feature-specific data handling scope:
 
-==== AWS Bedrock usage in Workload Factory
-Workload Factory uses Amazon Bedrock for AI-powered storage event analysis and latency diagnostics. Bedrock inference runs in your AWS account using your credentials and your inference profile.
-
-There are many reasons to send data to Bedrock for analysis, but Workload Factory limits the data sent to only what is necessary for specific AI features. The following sections describe what data is sent to Bedrock, and what data is not sent.
-
-== For latency analysis
-
-* File system deployment information (generation, type, throughput capacity)
-* Volume configuration (name, size, aggregate placement, QoS policy)
-* Real-time performance metrics (QoS workload statistics, per-volume latency breakdown)
-* Aggregate capacity and utilization
-* Network interface (LIF) configuration
-* Connected NFS client information
-* Recent ONTAP events (last 24 hours, severity NOTICE and above)
-
-== For EMS event analysis
-
-* The EMS event message and catalog details
-* Storage VM (SVM) information
-* FSx file system metadata from AWS
-
-== What is not sent
-
-* File content or file names
-* User data stored on volumes
-* AWS access keys or credentials
-* Customer-identifiable information beyond resource IDs
+* Ask Me: link:ask-me-privacy.html[Ask Me data handling and privacy^]
+* Latency and EMS analyses: link:operational-logs-and-events.html[Operational security logs for NetApp Workload Factory^]
 

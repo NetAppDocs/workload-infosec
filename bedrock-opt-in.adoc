@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: bedrock-opt-in.html
 keywords: amazon bedrock, opt-in, ai features, enable ai, disable ai, inference profile, cross-region inference, invokemodel, listinferenceprofiles, getinferenceprofile, iam permissions, lambda link, ssh, inference profile arn, workload factory settings, aws region
-summary: "AI features are disabled by default. You can enable the AI features."
+summary: "Security prerequisites and IAM requirements for enabling Bedrock-powered AI features."
 ---
 = AWS Bedrock opt-in requirements
 :hardbreaks:
@@ -12,11 +12,14 @@ summary: "AI features are disabled by default. You can enable the AI features."
 :imagesdir: ../media/
 
 [.lead]
-AI features are disabled by default. You can enable the AI features.
+AI features require IAM permissions, an inference profile, and connectivity controls before they can be enabled.
+
+AI features are disabled by default. 
 
 Bedrock inference executes in the AWS region specified by your inference profile. If you use a cross-region inference profile, AWS might route the request to any region in the profile's configuration per standard AWS Bedrock behavior. Data does not leave AWS infrastructure.
 
 .Before you begin
+Complete the following security prerequisites before enabling AI features:
 
 * Make sure your account includes an AWS Bedrock inference profile.
 * Have a connected Lambda link with SSH capability for diagnostic data collection.

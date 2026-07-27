@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: operational-logs-and-events.html
 keywords: operational logs, events, eda metrics, cloudwatch, volume metrics, file system metrics, iops, throughput, latency, storage capacity, cpu utilization, network throughput, disk iops, storage efficiency, computed metrics, collection schedule, retention, dynamodb, ttl, telemetry, opentelemetry, otlp, signoz, aws timestream, audit, token counts, fsx for ontap
-summary: "The following metrics are for operational logs and events, volume-level CloudWatch metrics (collected per volume), file system-level CloudWatch metrics (collected per file system), computed metrics, collection schedule and retention."
+summary: "Primary reference for metric definitions, collection cadence, and retention behavior for operational logs and events."
 ---
 
-= Operational logs and events: EDA metrics specification
+= Operational security logs for NetApp Workload Factory
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -19,6 +19,8 @@ The following metrics are for operational logs and events:
 * File system-level CloudWatch metrics (collected per file system)
 * Computed metrics
 * Collection schedule and retention
+
+This page is the primary reference for operational metric definitions, collection cadence, and retention details.
 
 == Volume-level CloudWatch metrics (collected per volume)
 
