@@ -5,7 +5,7 @@ keywords: lambda link, upgrades, lifecycle, container image, updatefunctioncode,
 summary: "Lifecycle and update controls for Lambda link deployment, monitoring, and image patch management."
 ---
 
-= Lambda link upgrades and lifecycle
+= Lambda link upgrades and lifecycle in NetApp Workload Factory
 :hardbreaks:
 :nofooter:
 :icons: font

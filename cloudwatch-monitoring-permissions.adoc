@@ -5,7 +5,7 @@ keywords: cloudwatch, monitoring permissions, optional permissions, monitoring s
 summary: "Optional IAM permissions required to deploy and run the CloudWatch monitoring stack."
 ---
 
-= Workload Factory CloudWatch monitoring permissions
+= CloudWatch monitoring permissions in NetApp Workload Factory
 :hardbreaks:
 :nofooter:
 :icons: font

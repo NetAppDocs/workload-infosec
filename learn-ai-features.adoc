@@ -5,7 +5,7 @@ keywords: ai features, generative ai, ask me, latency analysis, ems event analys
 summary: "Workload Factory includes generative AI features such as Ask Me, latency analysis, and EMS event analysis, powered through Amazon Bedrock in your AWS account."
 ---
 
-== Learn about generative AI features in Workload Factory
+== Learn about generative AI features in NetApp Workload Factory
 :hardbreaks:
 :nofooter:
 :icons: font

@@ -4,7 +4,7 @@ permalink: bedrock-opt-in.html
 keywords: amazon bedrock, opt-in, ai features, enable ai, disable ai, inference profile, cross-region inference, invokemodel, listinferenceprofiles, getinferenceprofile, iam permissions, lambda link, ssh, inference profile arn, workload factory settings, aws region
 summary: "Security prerequisites and IAM requirements for enabling Bedrock-powered AI features."
 ---
-= AWS Bedrock opt-in requirements
+= AWS Bedrock opt-in requirements for NetApp Workload Factory
 :hardbreaks:
 :nofooter:
 :icons: font

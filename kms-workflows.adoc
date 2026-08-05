@@ -5,7 +5,7 @@ keywords: kms, encryption at rest, fsx for ontap, ebs volumes, aws kms key, desc
 summary: "Encryption-at-rest scope and KMS responsibilities for FSx data and credential protection workflows."
 ---
 
-= Use KMS in Workload Factory workflows
+= Use KMS in NetApp Workload Factory workflows
 :hardbreaks:
 :nofooter:
 :icons: font

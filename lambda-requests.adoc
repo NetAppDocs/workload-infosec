@@ -5,7 +5,7 @@ keywords: lambda link, requests, ports, https, ssh, ontap rest api, ontap cli, h
 summary: "Outbound network paths, ports, and invocation boundaries for Lambda link requests."
 ---
 
-= Lambda link requests, ports, and calls
+= Lambda link requests, ports, and calls in NetApp Workload Factory
 :hardbreaks:
 :nofooter:
 :icons: font

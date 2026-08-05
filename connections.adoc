@@ -5,7 +5,7 @@ keywords: connections, network, management plane, aws apis, sts, assumerole, ext
 summary: "Trust paths, protocols, and boundary controls for Workload Factory connectivity."
 ---
 
-= Workload Factory connections
+= Connections in NetApp Workload Factory
 :hardbreaks:
 :nofooter:
 :icons: font

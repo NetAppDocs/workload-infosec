@@ -5,7 +5,7 @@ keywords: lambda link, aws lambda, vpc, fsx for ontap, ontap, cloudformation, co
 summary: "Lambda link architecture and trust boundaries for ONTAP-native operations in your AWS account."
 ---
 
-= Learn about using Lambda link with Workload Factory
+= Learn about using Lambda link with NetApp Workload Factory
 :hardbreaks:
 :nofooter:
 :icons: font

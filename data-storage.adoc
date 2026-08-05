@@ -5,7 +5,7 @@ keywords: data storage, data retention, credentials, encryption, kms, aes, aws s
 summary: "Storage locations, retention timelines, and VPC data-boundary behavior for Workload Factory data."
 ---
 
-= Data storage in Workload Factory
+= Data storage in NetApp Workload Factory
 :hardbreaks:
 :nofooter:
 :icons: font

@@ -5,7 +5,7 @@ keywords: data handling, configuration, metadata, operational logs, telemetry, f
 summary: "Data handling categories for configuration data, operational logs and events, and telemetry."
 ---
 
-= Learn about data handling in Workload Factory
+= Learn about data handling in NetApp Workload Factory
 :hardbreaks:
 :nofooter:
 :icons: font

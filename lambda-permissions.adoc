@@ -5,7 +5,7 @@ keywords: lambda link, credentials, permissions, lambda execution role, vpc netw
 summary: "IAM permission boundaries for Lambda link execution, invocation, and ONTAP credential retrieval."
 ---
 
-= Lambda link credentials and permissions
+= Link credentials and permissions for NetApp Workload Factory
 :hardbreaks:
 :nofooter:
 :icons: font

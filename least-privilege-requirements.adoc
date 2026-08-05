@@ -5,7 +5,7 @@ keywords: least privilege, iam permissions, iam role, session policies, external
 summary: "You can restrict Workload Factory IAM permissions at any time to align with least-privilege requirements."
 ---
 
-= Learn about least privilege requirements for Workload Factory
+= Learn about least privilege requirements for NetApp Workload Factory
 :hardbreaks:
 :nofooter:
 :icons: font

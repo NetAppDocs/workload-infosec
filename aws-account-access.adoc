@@ -5,7 +5,7 @@ keywords: aws account access, sts, assumerole, temporary credentials, iam role, 
 summary: "How Workload Factory uses STS AssumeRole and external IDs for secure AWS account access."
 ---
 
-= Access Workload Factory AWS account
+= Access to NetApp Workload Factory AWS accounts
 :hardbreaks:
 :nofooter:
 :icons: font

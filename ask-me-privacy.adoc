@@ -5,7 +5,7 @@ keywords: Ask Me, data handling, privacy, user data, prompts, knowledge base, au
 summary: "Privacy boundaries and data-handling controls for Ask Me interactions and session scope."
 ---
 
-= Ask Me data handling and privacy
+= Ask Me data handling and privacy in NetApp Workload Factory
 :hardbreaks:
 :nofooter:
 :icons: font

@@ -5,7 +5,7 @@ keywords: account deletion, data removal, credentials, ontap credentials, links,
 summary: "When you delete a Workload Factory account, make sure you safely remove any data currently associated with your account."
 ---
 
-= Infosec considerations for Workload Factory account deletion
+= Information security for NetApp Workload Factory account deletion
 :hardbreaks:
 :nofooter:
 :icons: font

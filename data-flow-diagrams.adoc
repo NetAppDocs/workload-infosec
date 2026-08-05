@@ -5,7 +5,7 @@ keywords: data flow, diagrams, workflow, aws api, ontap operations, lambda link,
 summary: "Trust-boundary diagrams for discovery, automation, AI analysis, and offboarding data flows."
 ---
 
-= Workload Factory data flow diagrams
+= Data flow diagrams for NetApp Workload Factory
 :hardbreaks:
 :nofooter:
 :icons: font

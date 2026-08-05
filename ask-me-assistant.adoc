@@ -5,7 +5,7 @@ keywords: Ask Me, generative ai, rag, retrieval-augmented generation, llm, promp
 summary: "Architecture and security controls for the Ask Me assistant in NetApp Workload Factory."
 ---
 
-= Learn about the Ask Me assistant in Workload Factory
+= Learn about the Ask Me assistant in NetApp Workload Factory
 :hardbreaks:
 :nofooter:
 :icons: font
