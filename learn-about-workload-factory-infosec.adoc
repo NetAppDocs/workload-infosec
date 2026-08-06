@@ -16,18 +16,22 @@ summary: "NetApp Workload Factory takes information security and data protection
 Information security is a core part of NetApp Workload Factory design and operation. This overview covers data handling, credential boundaries, and compliance posture.
 
 == Data handling control domains
-Workload Factory data handling includes using the following categories:
+Data handling in NetApp Workload Factory includes the following categories:
 
 * Configuration and metadata
 * Operational logs and events
 * Telemetry
 
-Primary references for these domains include link:data-handling.html[Learn about data handling in Workload Factory^], link:data-storage.html[Data storage in Workload Factory^], and link:operational-logs-and-events.html[Operational security logs for NetApp Workload Factory^].
+Refer to the following reference pages for these domains: 
+
+* link:data-handling.html[Learn about data handling in Workload Factory^]
+* link:data-storage.html[Data storage in Workload Factory^] 
+* link:operational-logs-and-events.html[Operational security logs for NetApp Workload Factory^]
 
 == Credentials and connectivity
 Workload Factory uses an IAM assume-role model and scoped execution paths for credentials and connectivity.
 
-Primary references include:
+Refer to the following reference pages for more information on credentials and connectivity:
 
 * AWS account onboarding and STS flow: link:aws-account-access.html[Access Workload Factory AWS account^] and link:aws-credential-flow.html[Workload Factory AWS credential flow^]
 * Credential retention and least privilege controls: link:aws-credential-retention.html[Workload Factory AWS credential retention^] and link:least-privilege-requirements.html[Learn about least privilege requirements for Workload Factory^]
@@ -36,9 +40,9 @@ Primary references include:
 
 == Onboarding to Workload Factory
 
-Onboarding combines identity onboarding, permission scoping, connectivity setup, and optional AI enablement.
+Onboarding to Workload Factory combines identity onboarding, permission scoping, connectivity setup, and optional AI enablement.
 
-Primary onboarding references include:
+Refer to the following reference pages for more information about onboarding to Workload Factory:
 
 * AWS account integration and trust setup: link:aws-account-access.html[Access Workload Factory AWS account^]
 * Credential flow and token lifecycle: link:aws-credential-flow.html[Workload Factory AWS credential flow^] and link:aws-credential-retention.html[Workload Factory AWS credential retention^]
@@ -51,5 +55,3 @@ Primary onboarding references include:
 Compliance and security for NetApp Workload Factory are a top priority for NetApp. All workloads in Workload Factory run on Amazon FSx for NetApp ONTAP. In addition to link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/security.html[AWS security features^], NetApp Workload Factory has link:https://trust.netapp.com/[SOC2 Type 1, SOC2 Type 2, and HIPAA compliance^]. 
 
 Amazon FSx for NetApp ONTAP for NetApp Workload Factory is an link:https://aws.amazon.com/solutions/guidance/deploying-enterprise-apps-with-netapp-bluexp-workload-factory-for-aws-and-amazon-fsx-for-netapp-ontap/[AWS solution for deploying enterprise apps^] created with Well-Architected best practices in mind. 
-
-// 10-JUNE-2026 migrate onboarding guide

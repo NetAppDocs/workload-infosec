@@ -13,6 +13,8 @@ summary: "Primary reference for metric definitions, collection cadence, and rete
 :imagesdir: ../media/
 
 [.lead]
+This is the primary reference for operational metric definitions, collection cadence, and retention details. 
+
 The following metrics are for operational logs and events:
 
 * Volume-level CloudWatch metrics (collected per volume)
@@ -20,7 +22,19 @@ The following metrics are for operational logs and events:
 * Computed metrics
 * Collection schedule and retention
 
-This page is the primary reference for operational metric definitions, collection cadence, and retention details.
+== About operational metrics
+
+* Computed metrics use this formula:
+** Throughput (Bytes/Second) = (NetworkSentBytes + NetworkReceivedBytes) / period
+* Volume and cluster metrics are refreshed every 12 hours
+* Latency metrics are refreshed every 20 minutes
+* DynamoDB items auto-expire after 14 days
+
+== About telemetry data collection
+
+* OpenTelemetry traces exported via OTLP HTTP to SigNoz (internal observability)
+* AI usage metering (token counts, model costs) stored in AWS Timestream
+* NetApp Console audit records (action name, status, request/response metadata, timestamps)
 
 == Volume-level CloudWatch metrics (collected per volume)
 
@@ -182,21 +196,3 @@ This page is the primary reference for operational metric definitions, collectio
 |DynamoDB
 |14 days (TTL)
 |===
-
-== Other notes about metrics
-
-* Computed metrics use this formula:
-** Throughput (Bytes/Second) = (NetworkSentBytes + NetworkReceivedBytes) / period
-* Volume and cluster metrics are refreshed every 12 hours.
-* Latency metrics are refreshed every 20 minutes.
-* DynamoDB items auto-expire after 14 days.
-
-== Telemetry
-
-Some notes about telemetry data collection:
-
-* OpenTelemetry traces exported via OTLP HTTP to SigNoz (internal observability)
-* AI usage metering (token counts, model costs) stored in AWS Timestream
-* NetApp Console audit records (action name, status, request/response metadata, timestamps)
-
-// 10-JUNE-2026 migrate onboarding guide

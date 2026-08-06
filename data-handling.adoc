@@ -13,7 +13,7 @@ summary: "Data handling categories for configuration data, operational logs and 
 :imagesdir: ../media/
 
 [.lead]
-Workload Factory data handling is organized into categories that define what operational data is processed and how each data class fits in the security model.
+Workload Factory data handling is organized into categories that describe the operational data processed by the service and how each data class fits within the security model.
 
 * Configuration and metadata
 * Operational logs and events

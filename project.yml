@@ -10,10 +10,10 @@ sidebar:
   entries:
     - title: Learn about information security for Workload Factory
       url: /learn-about-workload-factory-infosec.html
-    - title: Data handling
+    - title: Data protection
       entries:
-        - title: Learn about data handling in Workload Factory
-          url: /data-handling.html
+        - title: Learn about data protection in Workload Factory
+          url: /data-protection.html
         - title: Operational logs and events
           url: /operational-logs-and-events.html
         - title: Data storage in Workload Factory
