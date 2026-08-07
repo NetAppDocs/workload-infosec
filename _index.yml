@@ -6,25 +6,45 @@ indexpage:
   tiles: 
     - title: Data handling
       links: 
-        # Link definition
-        - title: # Quoted or unquoted string
-          url: # Path to target
-    - title: Data transfer and connectivity
+        - title: Data handling and storage in Workload Factory
+          url: /data-handling.html
+        - title: Operational logs and events in Workload Factory
+          url: /operational-logs-and-events.html
+    - title: Networking and connectivity
       links:
-        # Link definition
-        - title: # Quoted or unquoted string
-          url: # Path to target
-        # Next link on this tile (title/url pair)
+        - title: Networking in Workload Factory
+          url: /networking.html
+        - title: Connections in Workload Factory
+          url: /connections.html
+        - title: Lambda links in Workload Factory
+          url: /lambda-link.html    
     - title: Credentials and permissions
       links: 
-        # Link definition
-        - title: # Quoted or unquoted string
-          url: # Path to target
-        # Next link on this tile (title/url pair)
+        - title: Learn about credential types
+          url: /credential-types.html
+        - title: Credential considerations
+          url: /credential-considerations.html
+        - title: Least privilege requirements
+          url: /least-privilege-requirements.html  
     - title: AI features
       links: 
-        # Link definition
+        - title: Learn about AI features in Workload Factory
+          url: /learn-ai-features.html
         - title: Ask Me
-          url: # Path to target
+          url: /ask-me-assistant.html
         - title: AWS Bedrock
-          url: # Path to target    
+          url: /bedrock-capabilities.html  
+    - title: Knowledge and support
+      links:
+        - title: Register for support
+          url: /support-registration.html
+        - title: Get help
+          url: /get-help.html
+    - title: Blogs & community
+      links:
+        - title: NetApp Console
+          url: https://www.netapp.com/console
+        - title: NetApp Data Services
+          url: https://www.netapp.com/data-services/
+        - title: NetApp Community
+          url: https://community.netapp.com/                
