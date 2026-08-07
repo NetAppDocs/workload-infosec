@@ -1,0 +1,25 @@
+= AI model parameters and billing for NetApp Workload Factory
+:toc: macro
+:toclevels: 2
+
+toc::[]
+
+This page documents model configuration and usage/billing boundaries relevant to governance.
+
+== Model and parameters
+
+[cols="2,3",options="header"]
+|===
+|Parameter |Value
+|Model |Anthropic Claude (using a cross-region inference profile)
+|Temperature |0 (deterministic, no randomness)
+|Max output tokens |2,048
+|Max reasoning steps |15 per analysis
+|Output format |Structured JSON (summary, severity, root cause, corrective actions)
+|===
+
+== Billing and usage limits
+
+* Bedrock inference is billed to your AWS account (your inference profile, your credentials).
+* Workload Factory tracks usage internally to provide visibility into AI consumption.
+* Per-account monthly cost tracking is available.

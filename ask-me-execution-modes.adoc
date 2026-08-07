@@ -1,0 +1,23 @@
+= Ask Me execution modes for NetApp Workload Factory
+:toc: macro
+:toclevels: 2
+
+toc::[]
+
+When Ask Me uses tool integrations (for example, querying the customer’s own Workload Factory resources), tool execution is controlled through layered safeguards.
+
+== Tool execution safeguards
+
+* Authorization-scoped tools operate within the authenticated user’s permissions.
+* Tool execution timeout limits long-running operations.
+* Ephemeral data sandbox stores tool-retrieved data in session scope and is destroyed when the session ends.
+The sandbox disables external access, file I/O, network calls, and extension loading at the engine level.
+* Read-only query enforcement validates generated queries through a strict allowlist.
+* Prompt-enforced and code-enforced security are applied independently.
+* Tool call auditability logs tool name, parameters, timestamps, and result status with sensitive value scrubbing.
+
+== Output controls
+
+* Token limit enforcement
+* Deterministic output for classification/security-critical operations (temperature 0)
+* Streaming with early termination and cleanup

@@ -1,0 +1,47 @@
+= Account deletion checklist for NetApp Workload Factory
+:toc: macro
+:toclevels: 2
+
+toc::[]
+
+When you delete a Workload Factory account, make sure you safely remove any data currently associated with your account.
+
+== Workflow 7 diagram: Customer offboarding and data removal
+
+image::workflow-7.png[Workflow 7: Customer offboarding and data removal]
+
+== Steps
+
+. Delete all file systems using the FSx service DELETE route:
++
+a. Triggers the AWS `DeleteFileSystemCommand`.
++
+b. Cascades: deletes ONTAP credentials (passwords), dissociates all links from that file system, and asynchronously deletes the `bluexp_file_system` row after AWS confirms deletion.
++
+c. Auto-capacity and ARP configurations self-heal: background jobs detect the file system no longer exists and delete the configurations automatically.
+
+. Delete all credentials using the Credentials service DELETE route:
++
+a. Transactional: deletes the credentials row and all `resource_association` rows.
++
+b. Does not cascade to file systems, volumes, links, or other configurations.
+
+. Delete all links using the Link service DELETE route:
++
+a. Deletes `link`, `link_association`, and `deployment` rows from MySQL.
++
+NOTE: The Lambda function is NOT deleted from your AWS account—only the logical database record is removed.
+
+. Delete notification channels using the Notification service DELETE route:
++
+a. Removes `notification_channel` rows per account and channel type.
+
+. Manual actions not automated by Workload Factory:
++
+a. Delete the IAM role CloudFormation stack from your AWS account.
++
+b. Delete the Link Lambda CloudFormation stack from your AWS account.
++
+c. (Optional) Delete the CloudWatch monitoring stack if deployed.
+
+. Auto-cleanup set up inside the NetApp account cleans up all file system and volume details.

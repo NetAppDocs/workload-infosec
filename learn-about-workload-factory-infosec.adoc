@@ -13,45 +13,117 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ../media/
 
 [.lead]
-Information security is a core part of NetApp Workload Factory design and operation. This overview covers data handling, credential boundaries, and compliance posture.
+Option 1: 
 
-== Data handling control domains
-Data handling in NetApp Workload Factory includes the following categories:
+Information security is a core part of NetApp Workload Factory design and operation. This documentation set is designed to help security and cloud platform teams review Workload Factory and complete onboarding with a clear, auditable sequence.
 
-* Configuration and metadata
-* Operational logs and events
-* Telemetry
+Workload Factory is a SaaS lifecycle management platform designed to help users optimize workloads (such as storage operations, VMware-related workflows, EDA projects, and database environments) using Amazon FSx for NetApp ONTAP.
 
-Refer to the following reference pages for these domains: 
+== What security teams typically need to approve
+Security review and onboarding usually focuses on four questions:
 
-* link:data-handling.html[Learn about data handling in Workload Factory^]
-* link:data-storage.html[Data storage in Workload Factory^] 
-* link:operational-logs-and-events.html[Operational security logs for NetApp Workload Factory^]
+. *Shared responsibility boundaries*
+Where NetApp responsibility ends and where customer configuration begins.
 
-== Credentials and connectivity
-Workload Factory uses an IAM assume-role model and scoped execution paths for credentials and connectivity.
+. *Authentication and authorization controls*
+How Workload Factory accesses customer AWS accounts, how permissions are scoped, and how least privilege is enforced.
 
-Refer to the following reference pages for more information on credentials and connectivity:
+. *Data handling, residency, and privacy*
+What operational data classes exist, where they are stored, how long they are retained, and what information may leave the customer environment.
 
-* AWS account onboarding and STS flow: link:aws-account-access.html[Access Workload Factory AWS account^] and link:aws-credential-flow.html[Workload Factory AWS credential flow^]
-* Credential retention and least privilege controls: link:aws-credential-retention.html[Workload Factory AWS credential retention^] and link:least-privilege-requirements.html[Learn about least privilege requirements for Workload Factory^]
-* Link architecture, network boundaries, and permission planes: link:lambda-link.html[Learn about using Lambda link with Workload Factory^], link:lambda-requests.html[Lambda link requests, ports, and calls^], and link:lambda-permissions.html[Lambda link credentials and permissions^]
-* Bedrock AI prerequisites and runtime controls: link:bedrock-opt-in.html[AWS Bedrock opt-in requirements^] and link:bedrock-capabilities.html[AI tool use by AWS Bedrock in NetApp Workload Factory^]
+. *Auditability and monitoring*
+What can be monitored (audit records, metrics, telemetry), how long it is retained, and what evidence can be collected during onboarding.
 
-== Onboarding to Workload Factory
+== How to use this guide (recommended reading path)
+. Start with the security model:
+* link:security-model-at-a-glance-netapp-workload-factory.adoc[Security model at a glance for NetApp Workload Factory]
+* link:shared-responsibility-boundaries-netapp-workload-factory.adoc[Shared responsibility boundaries for NetApp Workload Factory]
 
-Onboarding to Workload Factory combines identity onboarding, permission scoping, connectivity setup, and optional AI enablement.
+. Review trust paths and connectivity:
+* link:connectivity-trust-paths-netapp-workload-factory.adoc[Connectivity and trust paths for NetApp Workload Factory]
+* link:data-flow-diagrams-netapp-workload-factory.adoc[Data flow diagrams for NetApp Workload Factory]
 
-Refer to the following reference pages for more information about onboarding to Workload Factory:
+. Review identity and least privilege:
+* link:aws-account-integration-netapp-workload-factory.adoc[AWS account integration for NetApp Workload Factory]
+* link:least-privilege-tiers-netapp-workload-factory.adoc[Least privilege permission tiers for NetApp Workload Factory]
 
-* AWS account integration and trust setup: link:aws-account-access.html[Access Workload Factory AWS account^]
-* Credential flow and token lifecycle: link:aws-credential-flow.html[Workload Factory AWS credential flow^] and link:aws-credential-retention.html[Workload Factory AWS credential retention^]
-* Permission scoping model: link:least-privilege-requirements.html[Learn about least privilege requirements for Workload Factory^]
-* Link architecture and execution paths: link:lambda-link.html[Learn about using Lambda link with Workload Factory^], link:lambda-requests.html[Lambda link requests, ports, and calls^], and link:lambda-permissions.html[Lambda link credentials and permissions^]
-* Optional AI enablement and controls: link:bedrock-opt-in.html[AWS Bedrock opt-in requirements^] and link:bedrock-capabilities.html[AI tool use by AWS Bedrock in NetApp Workload Factory^]
+. Review data handling and deletion:
+* link:data-handling-residency-netapp-workload-factory.adoc[Data handling and residency for NetApp Workload Factory]
+* link:account-deletion-checklist-netapp-workload-factory.adoc[Account deletion checklist for NetApp Workload Factory]
 
-== Compliance and security
+. Optional: review AI and VPC components if your intended workflows require them:
+* link:ai-controls-overview-netapp-workload-factory.adoc[AI controls overview for NetApp Workload Factory]
+* link:lambda-link-overview-netapp-workload-factory.adoc[Lambda link overview for NetApp Workload Factory]
 
+== What you can do during onboarding to speed approval
+* Start with Tier 1 (read-only) permissions and expand only as required.
+* Use AWS CloudTrail to validate sts:AssumeRole activity for the integration role.
+* Decide upfront whether you need ONTAP-native operations (which may require deploying Lambda link or NetApp Console agent).
+* Decide upfront whether generative AI is permitted and whether residency constraints require single-region inference profiles.
+
+== Compliance and security posture for NetApp Workload Factory
+
+Compliance and security for NetApp Workload Factory are a top priority for NetApp.
+
+Workload Factory has SOC2 Type 1, SOC2 Type 2, and HIPAA compliance.
+
+All workloads in Workload Factory run on Amazon FSx for NetApp ONTAP.
+
+NOTE: Your overall compliance posture depends on your AWS configuration, IAM controls, network boundaries, logging/monitoring, and operational processes.
 Compliance and security for NetApp Workload Factory are a top priority for NetApp. All workloads in Workload Factory run on Amazon FSx for NetApp ONTAP. In addition to link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/security.html[AWS security features^], NetApp Workload Factory has link:https://trust.netapp.com/[SOC2 Type 1, SOC2 Type 2, and HIPAA compliance^]. 
 
 Amazon FSx for NetApp ONTAP for NetApp Workload Factory is an link:https://aws.amazon.com/solutions/guidance/deploying-enterprise-apps-with-netapp-bluexp-workload-factory-for-aws-and-amazon-fsx-for-netapp-ontap/[AWS solution for deploying enterprise apps^] created with Well-Architected best practices in mind. 
+
+Option 2: 
+
+= Information security is a core part of NetApp Workload Factory design and operation.
+This guide helps Information Security, Cloud Platform, and Storage teams evaluate and onboard Workload Factory in a way that supports enterprise security requirements.
+
+== What Workload Factory does (security context)
+
+NetApp Workload Factory is a SaaS life-cycle management platform designed to help you optimize and manage workloads (for example, storage, VMware migrations, EDA projects, and database environments) using Amazon FSx for NetApp ONTAP.
+Your workloads run in AWS, and Workload Factory interacts with AWS and (when required) ONTAP management endpoints through well-defined credential and connectivity paths.
+
+== Core security principles used in this guide
+
+Confidentiality::
+Protect data from unauthorized access through identity controls, least privilege, encryption, and network boundaries.
+
+Integrity::
+Protect systems and configurations from unauthorized or unintended change using permission scoping, change control, and auditability.
+
+Availability::
+Ensure authorized users can access the service and workloads through resilient AWS designs and operational monitoring.
+
+== What security teams typically need to understand
+
+Shared responsibility boundaries::
+Where NetApp and AWS responsibilities end and where customer configuration begins.
+
+Authentication and authorization controls::
+How Workload Factory authenticates into your AWS account and how you scope permissions.
+
+Data handling and privacy::
+What data categories exist (metadata, logs, telemetry), where they are stored, how long they are retained, and what may leave the VPC.
+
+Auditability and monitoring::
+What signals are available to support detection, troubleshooting, and investigations.
+
+== Recommended reading order
+
+* Security review:
+** xref:security-model-at-a-glance.adoc[Security model at a glance for NetApp Workload Factory]
+** xref:shared-responsibility-boundaries.adoc[Shared responsibility boundaries for NetApp Workload Factory]
+** xref:data-handling-and-residency.adoc[Data handling and residency for NetApp Workload Factory]
+** xref:connectivity-and-trust-paths.adoc[Connectivity and trust paths for NetApp Workload Factory]
+** xref:compliance-and-security-posture.adoc[Compliance and security posture for NetApp Workload Factory]
+
+* Onboarding:
+** xref:onboarding-security-workflow.adoc[Onboarding security workflow for NetApp Workload Factory]
+** xref:aws-account-integration.adoc[AWS account integration for NetApp Workload Factory]
+** xref:least-privilege-permission-tiers.adoc[Least privilege permission tiers for NetApp Workload Factory]
+** xref:lambda-link-overview.adoc[Lambda link overview for NetApp Workload Factory] (if required)
+
+* AI diagnostics (optional, disabled by default):
+** xref:bedrock-opt-in.adoc[Bedrock opt-in for NetApp Workload Factory AI diagnostics]
+** xref:ai-tool-boundaries.adoc[AI tool boundaries for NetApp Workload Factory]

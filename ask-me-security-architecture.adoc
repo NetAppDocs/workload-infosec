@@ -1,0 +1,41 @@
+= Ask Me security architecture for NetApp Workload Factory
+:toc: macro
+:toclevels: 2
+
+toc::[]
+
+Ask Me is a generative AI-powered assistant embedded within NetApp Workload Factory.
+It provides real-time, conversational support for Amazon FSx for NetApp ONTAP and Workload Factory topics.
+
+== RAG architecture in Ask Me
+
+Ask Me uses retrieval-augmented generation (RAG).
+
+* Curated knowledge base: responses are grounded in a managed corpus of verified, published NetApp documentation.
+* Retrieval scoring and filtering: only sufficiently relevant content is included in the model context.
+* No internet access: the model cannot fetch, browse, or scrape external content.
+* Source attribution: responses include references to the source documents used.
+
+== Multi-layer prompt security
+
+* Layer 1: Security classifier (LLM-as-a-judge) blocks malicious queries (prompt injection, privilege escalation, data exfiltration, social engineering, policy violations).
+Blocked queries are logged; the generative model never sees blocked queries.
+* Layer 2: System prompt hardening prevents user input from overriding system instructions.
+* Layer 3: Domain scoping limits responses to FSx ONTAP and Workload Factory topics.
+* Layer 4: Tool-use governance validates parameters and runs queries in a hardened sandbox; the model cannot execute arbitrary operations.
+
+== Model data isolation and privacy
+
+* No model training on customer data
+* Request-level isolation (no cross-tenant data leakage)
+* Session-scoped conversation context with bounded history
+* No persistent model memory
+* Managed inference infrastructure
+
+== Tool-use and agentic security
+
+* Authorization-scoped tools (user permission boundaries enforced)
+* Strict tool execution timeouts
+* Ephemeral, session-scoped sandbox for retrieved data
+* Read-only query enforcement with allowlisting
+* Tool call auditability with sensitive parameter scrubbing

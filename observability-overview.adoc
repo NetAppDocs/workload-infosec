@@ -1,0 +1,21 @@
+= Observability overview for NetApp Workload Factory
+:toc: macro
+:toclevels: 2
+
+toc::[]
+
+Observability signals help support operational monitoring, troubleshooting, and investigations.
+In NetApp Workload Factory, observability includes metrics, telemetry, and operational records.
+
+== Telemetry and operational records (high level)
+
+Workload Factory uses the following telemetry and operational record types:
+
+* OpenTelemetry traces exported via OTLP HTTP to SigNoz (internal observability)
+* AI usage metering (token counts, model costs) stored in AWS Timestream
+* NetApp Console audit records (action name, status, request/response metadata, timestamps)
+
+== Related pages
+
+* xref:metrics-and-telemetry-reference.adoc[Metrics and telemetry reference for NetApp Workload Factory]
+* xref:audit-logging.adoc[Audit logging for NetApp Workload Factory (to be completed)]

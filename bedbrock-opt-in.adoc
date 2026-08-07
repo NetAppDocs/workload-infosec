@@ -1,0 +1,46 @@
+= Bedrock opt-in for NetApp Workload Factory AI diagnostics
+:toc: macro
+:toclevels: 2
+
+toc::[]
+
+AI diagnostics require IAM permissions, an inference profile, and connectivity controls before they can be enabled.
+
+AI diagnostics are disabled by default.
+
+== Before you begin
+
+* Make sure your account includes an AWS Bedrock inference profile.
+* Have a connected Lambda link with SSH capability for diagnostic data collection.
+
+== Steps
+
+. Grant Bedrock permissions in your IAM role:
++
+* `bedrock:InvokeModel`
+* `bedrock:InvokeModelWithResponseStream`
+* `bedrock:ListInferenceProfiles`
+* `bedrock:GetInferenceProfile`
+
+. Configure the inference profile ARN in Workload Factory settings.
+
+If any prerequisite is missing, the system reports the specific missing component and AI features remain inactive.
+
+== Disable AI diagnostics
+
+To disable AI diagnostics:
+
+* Remove the Bedrock permissions from your IAM role, or
+* Delete the Bedrock configuration in Workload Factory settings.
+
+AI diagnostics become unavailable immediately with no residual data processing.
+
+== Region and cross-region inference profiles
+
+Bedrock inference executes in the AWS region specified by your inference profile.
+If you use a cross-region inference profile, AWS might route the request to any region in the profile’s configuration per standard AWS Bedrock behavior.
+Data does not leave AWS infrastructure.
+
+== Workflow 3 diagram: AI powered event analysis using Amazon Bedrock
+
+image::workflow-3.png[Workflow 3: AI powered event analysis (Amazon Bedrock)]

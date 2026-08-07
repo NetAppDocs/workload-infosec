@@ -1,41 +1,21 @@
----
-sidebar: sidebar
-permalink: cloudwatch-monitoring-permissions.html
-keywords: cloudwatch, monitoring permissions, optional permissions, monitoring stack, putmetricdata, putdashboard, putmetricalarm, describealarms, dashboards, alarms, logs, cloudwatch logs, sns, alert notifications, secrets manager, ontap credentials, file system metrics, iam permissions
-summary: "Optional IAM permissions required to deploy and run the CloudWatch monitoring stack."
----
+= CloudWatch monitoring permissions for NetApp Workload Factory (optional stack)
+:toc: macro
+:toclevels: 2
 
-= CloudWatch monitoring permissions in NetApp Workload Factory
-:hardbreaks:
-:nofooter:
-:icons: font
-:linkattrs:
-:imagesdir: ../media/
+toc::[]
 
-[.lead]
 CloudWatch monitoring permissions are optional and apply only when you deploy the separate monitoring stack.
+
+== Permissions (optional monitoring stack)
 
 If you deploy the optional monitoring stack:
 
-[cols="2,4",options="header"]
+[cols="2,3",options="header"]
 |===
 |Permission |Purpose
-
-|fsx:Describe* / fsx:ListTagsForResource
-|Collect file system metrics
-
-|cloudwatch:PutMetricData / cloudwatch:PutDashboard / cloudwatch:PutMetricAlarm / cloudwatch:DescribeAlarms / cloudwatch:Delete*
-|Manage dashboards and alarms
-
-|logs:CreateLogGroup / logs:CreateLogStream / logs:PutLogEvents
-|Publish event logs
-
-|sns:Publish
-|Send alert notifications
-
-|secretsmanager:GetSecretValue
-|Retrieve ONTAP credentials for monitoring
+|fsx:Describe* / fsx:ListTagsForResource |Collect file system metrics
+|cloudwatch:PutMetricData / cloudwatch:PutDashboard / cloudwatch:PutMetricAlarm / cloudwatch:DescribeAlarms / cloudwatch:Delete* |Manage dashboards and alarms
+|logs:CreateLogGroup / logs:CreateLogStream / logs:PutLogEvents |Publish event logs
+|sns:Publish |Send alert notifications
+|secretsmanager:GetSecretValue |Retrieve ONTAP credentials for monitoring
 |===
-
-
-// 10-JUNE-2026 migrate onboarding guide

@@ -1,0 +1,22 @@
+= Ask Me privacy and availability for NetApp Workload Factory
+:toc: macro
+:toclevels: 2
+
+toc::[]
+
+Ask Me privacy controls limit data exposure, keep session processing isolated, and maintain privacy boundaries for user interactions.
+
+== Data handling and privacy
+
+* User data in prompts: processed by a managed AI service that does not use customer inputs to train or improve foundation models.
+* Knowledge base content: curated, published NetApp documentation only; no customer data is included.
+* Operational data: when a user queries their own resources, retrieved data is held only in ephemeral, in-memory storage for the duration of the session.
+It is not persisted or shared.
+* Audit logging: query metadata (anonymized user ID, timestamps, durations) is logged; sensitive fields are scrubbed.
+* Feedback data: stored separately and linked to a query ID (not to direct personally identifying data beyond anonymized user ID).
+
+== Availability and isolation controls
+
+Ask Me employs a multi-model fallback chain across multiple cloud regions.
+If the primary model is throttled or unavailable, the system can fail over to alternative models.
+All models are subject to the same security controls, system prompt hardening, and isolation guarantees.

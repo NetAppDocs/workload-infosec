@@ -1,0 +1,29 @@
+= ONTAP execution options for NetApp Workload Factory
+:toc: macro
+:toclevels: 2
+
+toc::[]
+
+Some workflows require ONTAP-native operations that are not exposed through AWS APIs.
+NetApp Workload Factory supports execution options that keep these operations inside your AWS account boundary.
+
+== Execution options
+
+Lambda link (AWS Lambda in your VPC)::
+Executes ONTAP REST and read-only ONTAP CLI diagnostics from within your VPC, without exposing ONTAP publicly.
+
+Connector/NetApp Console Agent (EC2 in your VPC, outbound-only)::
+Executes proxied ONTAP operations where the agent initiates outbound connections and Workload Factory never initiates inbound connections to the agent.
+
+== Security considerations
+
+* Network boundaries: confirm required outbound ports (443/22) and destinations.
+* Credential boundaries: decide whether ONTAP credentials are stored in Workload Factory (envelope encrypted) or referenced from AWS Secrets Manager.
+* Auditability: confirm operational records for component activity and failures.
+* Lifecycle management: confirm how updates and removal occur.
+
+== Related pages
+
+* xref:lambda-link-overview.adoc[Lambda link overview for NetApp Workload Factory]
+* xref:connectivity-and-trust-paths.adoc[Connectivity and trust paths for NetApp Workload Factory]
+* xref:encryption-and-key-management.adoc[Encryption and key management for NetApp Workload Factory]

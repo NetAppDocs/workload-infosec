@@ -1,0 +1,40 @@
+= Lambda link overview for NetApp Workload Factory
+:toc: macro
+:toclevels: 2
+
+toc::[]
+
+Link is an AWS Lambda function deployed in your VPC that keeps ONTAP-native operations inside your AWS account boundary when those operations are not exposed by the AWS FSx API.
+
+For the full cross-system connectivity map, refer to xref:connectivity-and-trust-paths.adoc[Connectivity and trust paths for NetApp Workload Factory].
+
+== Link security architecture
+
+== Workflow 2 diagram: ONTAP operations using Lambda link
+
+image::workflow-2.png[Workflow 2: ONTAP operations (using Lambda link)]
+
+[cols="2,3",options="header"]
+|===
+|Property |Detail
+|Compute |AWS Lambda (container image)
+|Runtime |Node.js 22
+|Deployment |CloudFormation stack in your AWS account
+|VPC placement |Your subnets, your security groups
+|Timeout |10 seconds per invocation
+|Invocation |Synchronous (RequestResponse)
+|Package type |Container image (from NetApp ECR)
+|===
+
+== Lambda link versus console agent
+
+The Lambda link and the Connector console agent serve different purposes and have different security and operational implications.
+
+[cols="1,2,2",options="header"]
+|===
+|Dimension |Link (Lambda-based) |Connector (VM/Pods-based)
+|Runtime model |Serverless (AWS Lambda), customer-deployed |Customer-deployed VM/containers; runs NetApp console service pods
+|Primary scope |Control-plane ONTAP REST operations (only when AWS APIs do not support the operation) |Orchestration plus support for data services
+|Data services support |Does not host data services |Can host data services (runs NetApp console service pods)
+|Operational overhead |No always-on VM |VM lifecycle management and upgrades
+|===

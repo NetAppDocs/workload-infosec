@@ -1,0 +1,95 @@
+---
+sidebar: sidebar
+permalink: shared-responsibility-boundaries.html
+keywords: infosec, security, data handling, data retention, data collection, permissions, credentials, iam, assume role, least privilege, compliance, soc 2, govcloud, amazon bedrock, lambda, link, fsx for ontap, logging, audit, access control, onboarding, hardening
+summary: "NetApp Workload Factory takes information security and data protection practices seriously, focusing on data-handling practices and access requirements with guidance for least-privilege configurations and potential hardening."
+---
+
+= Shared responsibility boundaries for NetApp Workload Factory
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+Option 1: 
+This page clarifies responsibilities across NetApp (Workload Factory), AWS, and the customer.
+
+== Responsibility summary
+Workload Factory is a SaaS control plane that helps manage and optimize workloads using Amazon FSx for NetApp ONTAP. Workloads run in AWS; customers control their AWS accounts, networking, keys, and data access policies.
+
+== Shared responsibility matrix (high level)
+
+|===
+|Control area |NetApp Workload Factory |AWS |Customer
+
+|SaaS platform security
+|Operate and secure the Workload Factory SaaS platform
+|N/A
+|Review vendor documentation and evidence package
+
+|Identity to customer AWS account
+|AssumeRole using ExternalId; scope requests using session policies
+|Provide STS service
+|Create IAM role, trust policy, and permissions; conduct access reviews
+
+|Customer network security
+|No inbound internet access required for customer VPC components (design intent)
+|Provide networking primitives and endpoints
+|Design VPC/subnets/SG/NACL; optionally use VPC endpoints; control egress
+
+|Encryption and key management
+|Protect service-stored secrets (where applicable) and follow least privilege
+|Provide FSx encryption at rest and KMS services
+|Choose KMS key strategy and manage key policies
+
+|Observability and auditability
+|Generate telemetry/metrics and audit records (feature-dependent)
+|Provide CloudTrail/CloudWatch services
+|Monitor integration role activity in CloudTrail; define SIEM requirements
+
+|Offboarding and deletion
+|Clean up service-side operational state per retention policy behavior
+|Delete AWS resources when requested
+|Delete AWS resources and stacks; remove IAM trust
+|===
+
+== Where to find details
+* Trust paths and ports: link:connectivity-trust-paths-netapp-workload-factory.adoc[Connectivity and trust paths for NetApp Workload Factory]
+* Credential retention: link:credential-retention-netapp-workload-factory.adoc[Credential retention for NetApp Workload Factory]
+* Data egress and residency: link:data-handling-residency-netapp-workload-factory.adoc[Data handling and residency for NetApp Workload Factory]
+* Offboarding checklist: link:account-deletion-checklist-netapp-workload-factory.adoc[Account deletion checklist for NetApp Workload Factory]
+
+Option 2: 
+= Shared responsibility boundaries for NetApp Workload Factory
+
+== Why this matters
+
+Security responsibility is shared across NetApp (SaaS operation), AWS (cloud infrastructure and managed services), and you (customer configuration).
+Clear boundaries help teams approve onboarding faster and attach the correct evidence in internal review tickets.
+
+== NetApp responsibilities (service side)
+
+NetApp is responsible for operating and securing the Workload Factory SaaS platform, including service-side handling of stored configuration references and operational data as documented in this guide.
+
+== AWS responsibilities (cloud platform)
+
+AWS is responsible for security of the cloud infrastructure and managed services used by your deployment and workflows (for example, IAM/STS, FSx for ONTAP, CloudWatch, KMS, Secrets Manager, CloudFormation, Lambda, and networking primitives).
+
+== Customer responsibilities (your configuration)
+
+You are responsible for:
+
+* AWS IAM roles, trust policies, and least-privilege permissions
+* VPC controls (subnets, security groups, routing, endpoints, and egress)
+* Credential governance (including ONTAP credentials if required by your workflows)
+* Encryption and key management decisions (for example, optional customer-managed KMS keys for FSx for ONTAP)
+* Monitoring, alerting, retention policies, and incident response processes
+
+== Evidence to capture
+
+* IAM role trust relationship (including external ID condition)
+* IAM permission tier selection and policy artifacts
+* Network boundary decision (AWS API-only vs VPC execution component such as Lambda link)
+* Observability decisions and retention expectations
+* AI enablement decision (AI diagnostics are disabled by default unless explicitly enabled)

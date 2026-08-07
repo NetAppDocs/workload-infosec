@@ -1,0 +1,56 @@
+= Encryption and key management for NetApp Workload Factory
+:toc: macro
+:toclevels: 2
+
+toc::[]
+
+This guidance outlines encryption-at-rest scope and key-management responsibilities across Workload Factory and AWS services.
+
+== KMS encryption-at-rest scope for FSx
+
+When creating an FSx for ONTAP file system through Workload Factory, you can optionally specify your own AWS KMS key for data-at-rest encryption.
+If no key is specified, the AWS-managed default FSx key is used.
+
+What is encrypted::
+All data stored on the underlying EBS volumes backing the FSx for ONTAP file system (AWS FSx encryption at rest).
+
+Key ownership::
+The KMS key resides in your AWS account.
+
+Permissions required for key selection and use::
+Workload Factory requires:
+
+* `kms:DescribeKey`
+* `kms:ListKeys`
+* `kms:ListAliases`
+* `kms:CreateGrant` (to allow the FSx service to use the key)
+
+Key access pattern::
+Workload Factory never directly encrypts or decrypts data with your KMS key.
+It passes the key ID to the AWS FSx API during file system creation; AWS FSx performs cryptographic operations.
+
+== Credential protection (service-side envelope encryption)
+
+When you store ONTAP credentials (admin passwords) through Workload Factory, they are protected using envelope encryption before being persisted.
+
+=== Workflow 5 diagram: KMS envelope encryption for ONTAP password storage
+
+image::workflow-5.png[Workflow 5: KMS envelope encryption (ONTAP password storage)]
+
+Encryption method::
+AES-256-CBC with a unique data encryption key (DEK) per credential record.
+
+Envelope encryption flow::
+. A unique 256-bit DEK is generated per credential.
+. The DEK encrypts the credential (password).
+. The DEK itself is encrypted with a master key and stored alongside the encrypted credential.
+. The plaintext DEK is never stored.
+
+Encryption context::
+Each data key is cryptographically bound to its specific credential record, preventing key reuse across records.
+
+Alternative: AWS Secrets Manager::
+Instead of storing encrypted passwords in the service, you can store ONTAP credentials in AWS Secrets Manager in your own account.
+Workload Factory never sees or stores the password; it passes the Secrets Manager ARN to Lambda link, which retrieves the password at runtime within your VPC.
+
+NOTE: AWS Secrets Manager is required for GovCloud accounts.

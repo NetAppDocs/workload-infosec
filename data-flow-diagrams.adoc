@@ -1,39 +1,44 @@
----
-sidebar: sidebar
-permalink: data-flow-diagrams.html
-keywords: data flow, diagrams, workflow, aws api, ontap operations, lambda link, amazon bedrock, ai event analysis, sts assumerole, session policies, kms, envelope encryption, ontap password, lambda deployment, offboarding, data removal, fsx for ontap, credentials flow, discovery, monitoring
-summary: "Trust-boundary diagrams for discovery, automation, AI analysis, and offboarding data flows."
----
-
 = Data flow diagrams for NetApp Workload Factory
-:hardbreaks:
-:nofooter:
-:icons: font
-:linkattrs:
-:imagesdir: ../media/
+:toc: macro
+:toclevels: 2
 
-[.lead]
-The data flow diagrams show how data moves across trust boundaries for discovery, automation, AI analysis, and offboarding flows.
+toc::[]
 
-image::workflow-1.png[Workflow 1: Discovering and monitoring (Read only AWS API calls)]
+Use the workflow diagrams referenced in this section to understand how data moves across trust boundaries for discovery, automation, AI analysis, credential handling, encryption, deployment, and offboarding.
 
-image::workflow-2.png[Workflow 2: ONTAP operations (using Lambda link)]
+The diagrams are embedded on the pages where they are most relevant so they stay in context.
 
-image::workflow-3.png[Workflow 3: AI powered event analysis (Amazon Bedrock)]
+== Diagram directory
 
-image::workflow-4.png[Workflow 4: AWS credentials flow (STS AssumeRole and session policies)]
+[cols="1,3,3",options="header"]
+|===
+|Workflow |What it explains |Where to view it
 
-image::workflow-5.png[Workflow 5: KMS envelope encryption (ONTAP password storage)]
+|1
+|Discovering and monitoring (read-only AWS API calls)
+|xref:connectivity-and-trust-paths.adoc#dfd-workflow-1[Connectivity and trust paths for NetApp Workload Factory]
 
-image::workflow-6.png[Workflow 6: Lambda link deployment and lifecycle]
+|2
+|ONTAP operations (using Lambda link)
+|xref:lambda-link-overview.adoc#dfd-workflow-2[Lambda link overview for NetApp Workload Factory]
 
-image::workflow-7.png[Workflow 7: Customer offboarding and data removal]
+|3
+|AI powered event analysis (Amazon Bedrock)
+|xref:bedrock-opt-in.adoc#dfd-workflow-3[Bedrock opt-in for NetApp Workload Factory AI diagnostics]
 
-Primary references for each diagram domain include:
+|4
+|AWS credentials flow (STS AssumeRole and session policies)
+|xref:aws-credential-flow.adoc#dfd-workflow-4[AWS credential flow for NetApp Workload Factory]
 
-* Credential onboarding, session policy, and retention: link:aws-account-access.html[Access Workload Factory AWS account^], link:aws-credential-flow.html[Workload Factory AWS credential flow^], and link:aws-credential-retention.html[Workload Factory AWS credential retention^]
-* Lambda link network and IAM control planes: link:lambda-requests.html[Lambda link requests, ports, and calls^] and link:lambda-permissions.html[Lambda link credentials and permissions^]
-* Data classes, storage, and telemetry: link:data-handling.html[Learn about data handling in Workload Factory^], link:data-storage.html[Data storage in Workload Factory^], and link:operational-logs-and-events.html[Operational security logs for NetApp Workload Factory^]
-* Encryption and offboarding controls: link:kms-workflows.html[Use KMS in Workload Factory workflows^] and link:account-deletion-considerations.html[Infosec considerations for Workload Factory account deletion^]
+|5
+|KMS envelope encryption (ONTAP password storage)
+|xref:encryption-and-key-management.adoc#dfd-workflow-5[Encryption and key management for NetApp Workload Factory]
 
-// 10-JUNE-2026 migrate onboarding guide
+|6
+|Lambda link deployment and lifecycle
+|xref:lambda-link-lifecycle.adoc#dfd-workflow-6[Lambda link lifecycle for NetApp Workload Factory]
+
+|7
+|Customer offboarding and data removal
+|xref:account-deletion-checklist.adoc#dfd-workflow-7[Account deletion checklist for NetApp Workload Factory]
+|===

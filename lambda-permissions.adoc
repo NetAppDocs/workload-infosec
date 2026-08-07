@@ -1,68 +1,40 @@
----
-sidebar: sidebar
-permalink: lambda-permissions.html
-keywords: lambda link, credentials, permissions, lambda execution role, vpc networking, ec2, eni, ip management, secrets manager, getsecretvalue, ontap credentials, cloudwatch logs, resource-based policy, invokefunction, getfunction, updatefunctioncode, getfunctionconfiguration, iam permissions, workload factory, vpc, fsx for ontap
-summary: "IAM permission boundaries for Lambda link execution, invocation, and ONTAP credential retrieval."
----
+= Lambda link IAM permissions for NetApp Workload Factory
+:toc: macro
+:toclevels: 2
 
-= Link credentials and permissions for NetApp Workload Factory
-:hardbreaks:
-:nofooter:
-:icons: font
-:linkattrs:
-:imagesdir: ../media/
+toc::[]
 
-[.lead]
 Lambda link permission boundaries define the IAM access required for Lambda execution and Workload Factory invocation.
 
 Link permissions are optional, though they are required for ONTAP-native operations.
 
-When configured with Secrets Manager support, the link retrieves ONTAP credentials directly from your AWS Secrets Manager at runtime. This means the actual password transits only within your VPC, from Secrets Manager to the Lambda to the ONTAP endpoint.
+When configured with Secrets Manager support, the link retrieves ONTAP credentials directly from your AWS Secrets Manager at runtime.
+This means the actual password transits only within your VPC, from Secrets Manager to the Lambda to the ONTAP endpoint.
 
-For request-path and port requirements, Refer to link:lambda-requests.html[Lambda link requests, ports, and calls^].
+For request-path and port requirements, refer to xref:lambda-link-ports-and-calls.adoc[Lambda link ports and calls for NetApp Workload Factory].
 
 == Lambda execution role permissions
 
 The Lambda execution role requires the following permissions when deploying a link in your VPC:
 
-[cols="2,4",options="header"]
+[cols="2,3",options="header"]
 |===
 |Permission |Purpose
-
-|ec2:CreateNetworkInterface / ec2:DescribeNetworkInterfaces / ec2:DeleteNetworkInterface
-|Standard VPC-attached Lambda networking
-
-|ec2:AssignPrivateIpAddresses / ec2:UnassignPrivateIpAddresses
-|VPC ENI IP management
-
-|secretsmanager:GetSecretValue (scoped to `FSxSecret*`)
-|Retrieve ONTAP credentials (only when Secrets Manager is enabled)
-
-|CloudWatch Logs (using a managed policy)
-|Lambda execution logging
+|ec2:CreateNetworkInterface / ec2:DescribeNetworkInterfaces / ec2:DeleteNetworkInterface |Standard VPC-attached Lambda networking
+|ec2:AssignPrivateIpAddresses / ec2:UnassignPrivateIpAddresses |VPC ENI IP management
+|secretsmanager:GetSecretValue (scoped to FSxSecret*) |Retrieve ONTAP credentials (only when Secrets Manager is enabled)
+|CloudWatch Logs (managed policy) |Lambda execution logging
 |===
 
 == Workload Factory invocation permissions
 
 The Lambda link resource-based policy grants the Workload Factory service principal the following permissions:
 
-[cols="2,4",options="header"]
+[cols="2,3",options="header"]
 |===
 |Permission |Purpose
-
-|lambda:InvokeFunction
-|Execute the Lambda
-
-|lambda:GetFunction
-|Health and status checks
-
-|lambda:UpdateFunctionCode
-|Version upgrades (image updates)
-
-|lambda:GetFunctionConfiguration
-|Configuration verification
+|lambda:InvokeFunction |Execute the Lambda
+|lambda:GetFunction |Health and status checks
+|lambda:UpdateFunctionCode |Version upgrades (image updates)
+|lambda:GetFunctionConfiguration |Configuration verification
 |===
-
-For deployment lifecycle and update behavior tied to `lambda:UpdateFunctionCode`, Refer to link:lambda-upgrades.html[Lambda link upgrades and lifecycle^].
-
-// 10-JUNE-2026 migrate onboarding guide

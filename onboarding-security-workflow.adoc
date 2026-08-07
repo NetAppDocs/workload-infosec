@@ -1,0 +1,69 @@
+= Onboarding security workflow for NetApp Workload Factory
+:toc: macro
+:toclevels: 2
+
+toc::[]
+
+== Overview
+
+Onboarding to Workload Factory typically combines:
+
+* AWS trust onboarding (assume-role integration)
+* Permission scoping (least privilege)
+* Connectivity setup (AWS APIs and, when required, ONTAP-native execution in your VPC)
+* Observability verification (metrics/telemetry/operational records)
+* Optional AI diagnostics enablement (disabled by default)
+
+This page presents a recommended onboarding sequence aligned to security review expectations.
+
+== Step 1: Decide your onboarding posture
+
+* Identify AWS accounts and environment boundaries (for example, prod vs non-prod separation).
+* Identify required workflows (read-only discovery vs provisioning vs ONTAP-native operations).
+* Decide whether you will deploy VPC execution components (for example, Lambda link) based on workflow needs.
+* Decide whether AI diagnostics will be enabled (disabled by default).
+
+== Step 2: Establish AWS trust and access
+
+. Deploy an IAM role in your AWS account.
+. Gate role assumption using an external ID in the trust policy.
+. Register the role ARN and external ID in Workload Factory.
+
+See xref:aws-account-integration.adoc[AWS account integration for NetApp Workload Factory].
+
+== Step 3: Apply least-privilege permissions
+
+. Select the minimum permission tier that supports your intended workflows.
+. Validate that per-request session policies restrict actions to the operation being performed.
+
+See xref:least-privilege-permission-tiers.adoc[Least privilege permission tiers for NetApp Workload Factory].
+
+== Step 4: Configure connectivity and VPC boundaries (as needed)
+
+. Validate required network paths to AWS endpoints.
+. If you require ONTAP-native operations, deploy and validate the appropriate execution option in your VPC.
+
+See:
+
+* xref:connectivity-and-trust-paths.adoc[Connectivity and trust paths for NetApp Workload Factory]
+* xref:ontap-execution-options.adoc[ONTAP execution options for NetApp Workload Factory]
+
+== Step 5: Verify observability
+
+. Confirm metrics and telemetry are collected and retained as expected.
+. Confirm you can access required operational records for troubleshooting and investigations.
+
+See:
+
+* xref:observability-overview.adoc[Observability overview for NetApp Workload Factory]
+* xref:metrics-and-telemetry-reference.adoc[Metrics and telemetry reference for NetApp Workload Factory]
+
+== Step 6: Enable AI diagnostics (optional)
+
+AI diagnostics are disabled by default.
+If you enable them, ensure prerequisites are met and permissions are scoped to the minimum required.
+
+See:
+
+* xref:bedrock-opt-in.adoc[Bedrock opt-in for NetApp Workload Factory AI diagnostics]
+* xref:ai-tool-boundaries.adoc[AI tool boundaries for NetApp Workload Factory]
