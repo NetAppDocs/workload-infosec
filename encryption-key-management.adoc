@@ -9,7 +9,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 [.lead]
 This guidance outlines encryption-at-rest scope and key-management responsibilities across Workload Factory and AWS services.

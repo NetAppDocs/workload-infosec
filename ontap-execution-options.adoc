@@ -10,12 +10,11 @@ summary: "NetApp Workload Factory takes information security and data protection
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 [.lead]
 
-Some workflows require ONTAP-native operations that are not exposed through AWS APIs.
-NetApp Workload Factory supports execution options that keep these operations inside your AWS account boundary.
+Some workflows require ONTAP-native operations that are not exposed through AWS APIs. NetApp Workload Factory supports execution options that keep these operations inside your AWS account boundary.
 
 == Execution options
 
@@ -32,8 +31,8 @@ Executes proxied ONTAP operations where the agent initiates outbound connections
 * Auditability: confirm operational records for component activity and failures.
 * Lifecycle management: confirm how updates and removal occur.
 
-== Related pages
+== Related information
 
-* xref:lambda-link-overview.adoc[Lambda link overview for NetApp Workload Factory]
-* xref:connectivity-and-trust-paths.adoc[Connectivity and trust paths for NetApp Workload Factory]
-* xref:encryption-and-key-management.adoc[Encryption and key management for NetApp Workload Factory]
+* link:lambda-link-overview.html[Lambda link overview for NetApp Workload Factory]
+* link:connectivity-trust-paths.html[Connectivity and trust paths for NetApp Workload Factory]
+* link:encryption-and-key-management.html[Encryption and key management for NetApp Workload Factory]

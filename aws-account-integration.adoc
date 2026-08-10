@@ -9,25 +9,25 @@ summary: "NetApp Workload Factory takes information security and data protection
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 [.lead]
 
 Workload Factory uses AWS `sts:AssumeRole` to obtain temporary credentials for your AWS account, so long-term AWS access keys are not stored by the service.
 
-== Configuration
+== AWS account configuration
 
 To enable Workload Factory access to your AWS account:
 
 . Deploy an IAM role in your AWS account (using CloudFormation or manually).
-. Ensure the role trust policy allows Workload Factory’s service principal to assume it, gated by an external ID.
+. Ensure the role trust policy allows the service principal for Workload Factory to assume it, gated by an external ID.
 . Use an external ID as a unique secret identifier (UUID v4) shared exclusively between the customer and Workload Factory.
++
 Embed it as a condition in your IAM role trust policy (`sts:ExternalId`).
-
-The external ID prevents confused deputy attacks.
-In a cross-account access model, an attacker who discovers a customer’s role ARN cannot assume that role without also possessing the corresponding external ID.
-
-The external ID is generated once during credential onboarding and stored encrypted alongside the role ARN in Workload Factory’s database.
++
+The external ID prevents confused deputy attacks. In a cross-account access model, an attacker who discovers a customer's role ARN cannot assume that role without also possessing the corresponding external ID.
++
+The external ID is generated once during credential onboarding and stored encrypted alongside the role ARN in a Workload Factory database.
 
 . Register the role ARN and external ID in Workload Factory.
 

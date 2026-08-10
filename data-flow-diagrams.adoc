@@ -9,7 +9,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 [.lead]
 Use the workflow diagrams referenced in this section to understand how data moves across trust boundaries for discovery, automation, AI analysis, credential handling, encryption, deployment, and offboarding.

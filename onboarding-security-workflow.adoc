@@ -10,7 +10,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 [.lead]
 This page presents a recommended onboarding sequence aligned to security review expectations.

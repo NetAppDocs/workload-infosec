@@ -9,7 +9,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 [.lead]
 Ask Me privacy controls limit data exposure, keep session processing isolated, and maintain privacy boundaries for user interactions.
