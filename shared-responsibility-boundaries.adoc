@@ -61,7 +61,6 @@ Workload Factory is a SaaS control plane that helps manage and optimize workload
 * Offboarding checklist: link:account-deletion-checklist-netapp-workload-factory.adoc[Account deletion checklist for NetApp Workload Factory]
 
 Option 2: 
-= Shared responsibility boundaries for NetApp Workload Factory
 
 == Why this matters
 
