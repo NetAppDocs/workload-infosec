@@ -19,7 +19,7 @@ For the full cross-system connectivity map, refer to xref:connectivity-and-trust
 
 == Link security architecture
 
-== Workflow 2 diagram: ONTAP operations using Lambda link
+The following diagram shows ONTAP operations using a Lambda link.
 
 image::workflow-2.png[Workflow 2: ONTAP operations (using Lambda link)]
 

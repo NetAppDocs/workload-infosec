@@ -26,5 +26,5 @@ Workload Factory uses the following telemetry and operational record types:
 
 == Related information
 
-* link:metrics-and-telemetry-reference.adoc[Metrics and telemetry reference for NetApp Workload Factory]
-* link:audit-logging.adoc[Audit logging for NetApp Workload Factory (to be completed)]
+* link:metrics-telemetry.html[Metrics and telemetry reference for NetApp Workload Factory]
+//* link:audit-logging.html[Audit logging for NetApp Workload Factory (to be completed)]

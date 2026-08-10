@@ -31,6 +31,6 @@ Workload Factory uses Amazon Bedrock for AI inference, with execution in your AW
 
 Primary reference pages:
 
-* link:bedrock-opt-in.adoc[Bedrock opt-in for NetApp Workload Factory AI diagnostics]
-* link:ai-tool-boundaries.adoc[AI tool boundaries for NetApp Workload Factory]
-* link:ai-model-parameters-and-billing.adoc[AI model parameters and billing for NetApp Workload Factory]
+* link:amazon-bedrock-opt-in.html[Amazon Bedrock opt-in for NetApp Workload Factory AI diagnostics]
+* link:ai-tool-boundaries.html[AI tool boundaries for NetApp Workload Factory]
+* link:ai-model-parameters-billing.html[AI model parameters and billing for NetApp Workload Factory]

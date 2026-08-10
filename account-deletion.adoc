@@ -16,7 +16,9 @@ summary: "NetApp Workload Factory takes information security and data protection
 
 When you delete a Workload Factory account, make sure you safely remove any data currently associated with your account.
 
-== Workflow 7 diagram: Customer offboarding and data removal
+== Customer offboarding and data removal
+
+The following diagram shows the data removal flow for a customer offboarding and data removal from Workload Factory.
 
 image::workflow-7.png[Workflow 7: Customer offboarding and data removal]
 

@@ -47,7 +47,7 @@ sidebar:
         - title: Data handling and residency
           url: /data-handling-residency.html
         - title: Encryption and key management
-          url: /encryption-and-key-management.html
+          url: /encryption-key-management.html
         - title: Account deletion checklist
           url: /account-deletion.html
     - title: Observability (logs, metrics, telemetry)
@@ -66,8 +66,8 @@ sidebar:
           url: /ask-me-access-control.html
         - title: Ask Me privacy and availability
           url: /ask-me-privacy-availability.html
-        - title: Bedrock opt-in for AI diagnostics
-          url: /bedrock-opt-in.html
+        - title: Amazon Bedrock opt-in for AI diagnostics
+          url: /amazon-bedrock-opt-in.html
         - title: AI tool boundaries
           url: /ai-tool-boundaries.html
         - title: AI model parameters and billing

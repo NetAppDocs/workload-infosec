@@ -20,7 +20,7 @@ Link permissions are optional, though they are required for ONTAP-native operati
 When configured with Secrets Manager support, the link retrieves ONTAP credentials directly from your AWS Secrets Manager at runtime.
 This means the actual password transits only within your VPC, from Secrets Manager to the Lambda to the ONTAP endpoint.
 
-For request-path and port requirements, refer to xref:lambda-link-ports-and-calls.adoc[Lambda link ports and calls for NetApp Workload Factory].
+For request-path and port requirements, refer to link:lambda-link-ports-and-calls.html[Lambda link ports and calls for NetApp Workload Factory].
 
 == Lambda execution role permissions
 

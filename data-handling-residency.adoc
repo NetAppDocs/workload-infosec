@@ -62,10 +62,10 @@ Workload Factory keeps the following data:
 This section summarizes retention categories. Refer to the linked pages for detailed values and policy behavior.
 
 * Credential and temporary AWS STS credential retention:
-xref:credential-retention.adoc[Credential retention for NetApp Workload Factory]
+link:credential-retention.html[Credential retention for NetApp Workload Factory]
 
 * Operational metric and telemetry retention:
-xref:metrics-and-telemetry-reference.adoc[Metrics and telemetry reference for NetApp Workload Factory]
+link:metrics-telemetry.html[Metrics and telemetry reference for NetApp Workload Factory]
 
 * Audit record retention:
 governed by the NetApp Console retention policy (not controlled by Workload Factory)
@@ -103,11 +103,11 @@ Refer to:
 
 === AWS service API traffic
 
-Refer to xref:connectivity-and-trust-paths.adoc[Connectivity and trust paths for NetApp Workload Factory].
+Refer to link:connectivity-trust-paths.html[connectivity and trust paths for NetApp Workload Factory].
 
 === Telemetry and metrics collection
 
-Refer to xref:metrics-and-telemetry-reference.adoc[Metrics and telemetry reference for NetApp Workload Factory].
+Refer to link:metrics-telemetry.html[metrics and telemetry reference for NetApp Workload Factory].
 
 == Configuration and metadata collection scope
 
@@ -237,4 +237,4 @@ Workload Factory collects both configuration status and event details:
 
 * Collection cadence: every 12 hours for capacity/throughput; every 20 minutes for latency
 * Granularity: normalized to approximately 60 datapoints per time range
-* Retention and storage details: xref:metrics-and-telemetry-reference.adoc[Metrics and telemetry reference for NetApp Workload Factory]
+* Retention and storage details: link:metrics-telemetry.html[Metrics and telemetry reference for NetApp Workload Factory]

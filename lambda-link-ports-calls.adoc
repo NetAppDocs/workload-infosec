@@ -15,7 +15,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 
 Lambda link request and port boundaries define required outbound connectivity and IAM-authorized invocation.
 
-For the full cross-system connectivity map, refer to xref:connectivity-and-trust-paths.adoc[Connectivity and trust paths for NetApp Workload Factory].
+For the full cross-system connectivity map, refer to link:connectivity-and-trust-paths.html[connectivity and trust paths for NetApp Workload Factory].
 
 == Request types
 
