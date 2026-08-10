@@ -12,6 +12,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 :linkattrs:
 :imagesdir: ../media/
 
+[.lead]
 Option 1: 
 This page clarifies responsibilities across NetApp (Workload Factory), AWS, and the customer.
 

@@ -12,6 +12,9 @@ summary: "NetApp Workload Factory takes information security and data protection
 :linkattrs:
 :imagesdir: ../media/
 
+[.lead]
+This page presents a recommended onboarding sequence aligned to security review expectations.
+
 == Overview
 
 Onboarding to Workload Factory typically combines:
@@ -21,8 +24,6 @@ Onboarding to Workload Factory typically combines:
 * Connectivity setup (AWS APIs and, when required, ONTAP-native execution in your VPC)
 * Observability verification (metrics/telemetry/operational records)
 * Optional AI diagnostics enablement (disabled by default)
-
-This page presents a recommended onboarding sequence aligned to security review expectations.
 
 == Step 1: Decide your onboarding posture
 
