@@ -36,24 +36,24 @@ What can be monitored (audit records, metrics, telemetry), how long it is retain
 
 == How to use this guide (recommended reading path)
 . Start with the security model:
-* link:security-model-at-a-glance-netapp-workload-factory.adoc[Security model at a glance for NetApp Workload Factory]
-* link:shared-responsibility-boundaries-netapp-workload-factory.adoc[Shared responsibility boundaries for NetApp Workload Factory]
+* link:security-model.adoc[Security model at a glance for NetApp Workload Factory]
+* link:shared-responsibility-boundaries.adoc[Shared responsibility boundaries for NetApp Workload Factory]
 
 . Review trust paths and connectivity:
-* link:connectivity-trust-paths-netapp-workload-factory.adoc[Connectivity and trust paths for NetApp Workload Factory]
-* link:data-flow-diagrams-netapp-workload-factory.adoc[Data flow diagrams for NetApp Workload Factory]
+* link:connectivity-trust-paths.adoc[Connectivity and trust paths for NetApp Workload Factory]
+* link:data-flow-diagrams.adoc[Data flow diagrams for NetApp Workload Factory]
 
 . Review identity and least privilege:
-* link:aws-account-integration-netapp-workload-factory.adoc[AWS account integration for NetApp Workload Factory]
-* link:least-privilege-tiers-netapp-workload-factory.adoc[Least privilege permission tiers for NetApp Workload Factory]
+* link:aws-account-integration.adoc[AWS account integration for NetApp Workload Factory]
+* link:least-privilege-permissions.adoc[Least privilege permission tiers for NetApp Workload Factory]
 
 . Review data handling and deletion:
-* link:data-handling-residency-netapp-workload-factory.adoc[Data handling and residency for NetApp Workload Factory]
-* link:account-deletion-checklist-netapp-workload-factory.adoc[Account deletion checklist for NetApp Workload Factory]
+* link:data-handling-residency.adoc[Data handling and residency for NetApp Workload Factory]
+* link:account-deletion.adoc[Account deletion checklist for NetApp Workload Factory]
 
 . Optional: review AI and VPC components if your intended workflows require them:
-* link:ai-controls-overview-netapp-workload-factory.adoc[AI controls overview for NetApp Workload Factory]
-* link:lambda-link-overview-netapp-workload-factory.adoc[Lambda link overview for NetApp Workload Factory]
+* link:ai-controls-overview.adoc[AI controls overview for NetApp Workload Factory]
+* link:lambda-link-overview.adoc[Lambda link overview for NetApp Workload Factory]
 
 == What you can do during onboarding to speed approval
 * Start with Tier 1 (read-only) permissions and expand only as required.
@@ -76,8 +76,7 @@ Amazon FSx for NetApp ONTAP for NetApp Workload Factory is an link:https://aws.a
 
 Option 2: 
 
-= Information security is a core part of NetApp Workload Factory design and operation.
-This guide helps Information Security, Cloud Platform, and Storage teams evaluate and onboard Workload Factory in a way that supports enterprise security requirements.
+Information security is a core part of NetApp Workload Factory design and operation. This guide helps Information Security, Cloud Platform, and Storage teams evaluate and onboard Workload Factory in a way that supports enterprise security requirements.
 
 == What Workload Factory does (security context)
 
@@ -112,18 +111,18 @@ What signals are available to support detection, troubleshooting, and investigat
 == Recommended reading order
 
 * Security review:
-** xref:security-model-at-a-glance.adoc[Security model at a glance for NetApp Workload Factory]
-** xref:shared-responsibility-boundaries.adoc[Shared responsibility boundaries for NetApp Workload Factory]
-** xref:data-handling-and-residency.adoc[Data handling and residency for NetApp Workload Factory]
-** xref:connectivity-and-trust-paths.adoc[Connectivity and trust paths for NetApp Workload Factory]
-** xref:compliance-and-security-posture.adoc[Compliance and security posture for NetApp Workload Factory]
+** link:security-model.adoc[Security model at a glance for NetApp Workload Factory]
+** link:shared-responsibility-boundaries.adoc[Shared responsibility boundaries for NetApp Workload Factory]
+** link:data-handling-residency.adoc[Data handling and residency for NetApp Workload Factory]
+** link:connectivity-trust-paths.adoc[Connectivity and trust paths for NetApp Workload Factory]
+//** link:compliance-and-security-posture.adoc[Compliance and security posture for NetApp Workload Factory]
 
 * Onboarding:
-** xref:onboarding-security-workflow.adoc[Onboarding security workflow for NetApp Workload Factory]
-** xref:aws-account-integration.adoc[AWS account integration for NetApp Workload Factory]
-** xref:least-privilege-permission-tiers.adoc[Least privilege permission tiers for NetApp Workload Factory]
-** xref:lambda-link-overview.adoc[Lambda link overview for NetApp Workload Factory] (if required)
+** link:onboarding-security-workflow.adoc[Onboarding security workflow for NetApp Workload Factory]
+** link:aws-account-integration.adoc[AWS account integration for NetApp Workload Factory]
+** link:least-privilege-permissions.adoc[Least privilege permission tiers for NetApp Workload Factory]
+** link:lambda-link-overview.adoc[Lambda link overview for NetApp Workload Factory] (if required)
 
 * AI diagnostics (optional, disabled by default):
-** xref:bedrock-opt-in.adoc[Bedrock opt-in for NetApp Workload Factory AI diagnostics]
-** xref:ai-tool-boundaries.adoc[AI tool boundaries for NetApp Workload Factory]
+** link:bedrock-opt-in.adoc[Bedrock opt-in for NetApp Workload Factory AI diagnostics]
+** link:ai-tool-boundaries.adoc[AI tool boundaries for NetApp Workload Factory]

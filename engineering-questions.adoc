@@ -1,0 +1,42 @@
+= Engineering questions for NetApp Workload Factory security
+:toc: macro
+:toclevels: 2
+
+toc::[]
+
+Use these questions to close common gaps during security review and onboarding.
+
+== Identity and access
+
+* Can we enforce SSO and MFA for user access to NetApp Workload Factory?
+* What RBAC roles exist and how do we map them to internal job functions?
+* How do we revoke access and perform periodic access reviews?
+
+== AWS integration
+
+* What is the exact IAM trust principal for assume-role?
+* Can we require external ID, session tags, or source identity?
+* Which permission tier is required for our intended workflows?
+
+== Network boundaries
+
+* Which connectivity paths apply (AWS API-only vs ONTAP-native operations)?
+* Are customer-VPC execution components outbound-only?
+* Can we route AWS API calls through VPC endpoints?
+
+== Data handling
+
+* What data categories are stored and where (metadata, logs, telemetry)?
+* What are retention defaults and can customers configure them?
+* What data leaves the VPC and for what purpose?
+
+== Observability
+
+* What events are logged and can they be exported to a SIEM?
+* What metrics and telemetry are collected and how long are they retained?
+
+== AI diagnostics
+
+* Are AI diagnostics disabled by default and explicitly enabled?
+* Are prompts/outputs retained, and are they used for model training?
+* Are tool calls read-only and bounded?

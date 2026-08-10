@@ -4,36 +4,58 @@ indexpage:
   summary: "Workload Factory includes security and data protection guidance, including how data is collected, stored, retained, and accessed. Use this reference to understand the architecture, permissions, and compliance posture, and to support a faster, consistent security review and onboarding process."
   keywords: information security, data protection, NetApp, Workload Factory
   tiles: 
-    - title: Data handling
+    - title: Get started
       links: 
-        - title: Data handling and storage in Workload Factory
-          url: /data-handling.html
-        - title: Operational logs and events in Workload Factory
-          url: /operational-logs-and-events.html
-    - title: Networking and connectivity
+        - title: Learn about information security for NetApp Workload Factory
+          url: /learn-about-workload-factory-infosec.html
+        - title: Onboarding security workflow
+          url: /onboarding-security-workflow.html
+    - title: Architecture and connectivity
       links:
-        - title: Networking in Workload Factory
-          url: /networking.html
-        - title: Connections in Workload Factory
-          url: /connections.html
-        - title: Lambda links in Workload Factory
-          url: /lambda-link.html    
-    - title: Credentials and permissions
+        - title: Connectivity and trust paths
+          url: /connectivity-trust-paths.html
+        - title: Data flow diagrams reference
+          url: /data-flow-diagrams.html  
+    - title: Identity, credentials, and least privilege
       links: 
-        - title: Learn about credential types
+        - title: AWS credential flow
+          url: /aws-credential-flow.html
+        - title: Credential types
           url: /credential-types.html
-        - title: Credential considerations
-          url: /credential-considerations.html
+        - title: Credential storage options 
+          url: /credential-storage-options.html
         - title: Least privilege requirements
           url: /least-privilege-requirements.html  
-    - title: AI features
+    - title: Data protection, privacy, and lifecycle
       links: 
-        - title: Learn about AI features in Workload Factory
-          url: /learn-ai-features.html
-        - title: Ask Me
-          url: /ask-me-assistant.html
-        - title: AWS Bedrock
-          url: /bedrock-capabilities.html  
+        - title: Data handling and residency
+          url: /data-handling-residency.html
+        - title: Encryption and key management
+          url: /encryption-and-key-management.html
+    - title: Observability (logs, metrics, telemetry)   
+      links: 
+        - title: Observability overview
+          url: /observability-overview.html
+        - title: Metrics and telemetry reference    
+          url: /metrics-telemetry.html      
+    - title: Generative AI security
+      links:
+        - title: AI controls overview
+          url: /ai-controls-overview.html
+        - title: Ask Me security architecture
+          url: /ask-me-security-architecture.html
+        - title: Bedrock opt-in for AI diagnostics
+          url: /bedrock-opt-in.html
+        - title: AI tool boundaries
+          url: /ai-tool-boundaries.html
+        - title: AI model parameters and billing
+          url: /ai-model-parameters-billing.html  
+    - title: Lambda link
+      links:
+        - title: Lambda link overview
+          url: /lambda-link-overview.html  
+        - title: Lambda link IAM permissions
+          url: /lambda-link-iam-permissions.html 
     - title: Knowledge and support
       links:
         - title: Register for support

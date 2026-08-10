@@ -1,0 +1,12 @@
+== Compliance and security posture for NetApp Workload Factory
+
+Compliance and security for NetApp Workload Factory are a top priority for NetApp.
+
+Workload Factory has SOC2 Type 1, SOC2 Type 2, and HIPAA compliance.
+
+All workloads in Workload Factory run on Amazon FSx for NetApp ONTAP.
+
+NOTE: Your overall compliance posture depends on your AWS configuration, IAM controls, network boundaries, logging/monitoring, and operational processes.
+Compliance and security for NetApp Workload Factory are a top priority for NetApp. All workloads in Workload Factory run on Amazon FSx for NetApp ONTAP. In addition to link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/security.html[AWS security features^], NetApp Workload Factory has link:https://trust.netapp.com/[SOC2 Type 1, SOC2 Type 2, and HIPAA compliance^]. 
+
+Amazon FSx for NetApp ONTAP for NetApp Workload Factory is an link:https://aws.amazon.com/solutions/guidance/deploying-enterprise-apps-with-netapp-bluexp-workload-factory-for-aws-and-amazon-fsx-for-netapp-ontap/[AWS solution for deploying enterprise apps^] created with Well-Architected best practices in mind. 

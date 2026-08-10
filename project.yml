@@ -10,64 +10,82 @@ sidebar:
   entries:
     - title: Learn about information security for Workload Factory
       url: /learn-about-workload-factory-infosec.html
-    - title: Data handling
+    - title: Security model and responsibilities
       entries:
-        - title: Learn about data handling in Workload Factory
-          url: /data-handling.html
-        - title: Operational logs and events
-          url: /operational-logs-and-events.html
-        - title: Account deletion considerations
-          url: /account-deletion-considerations.html
-    - title: Data transfer and connectivity
+        - title: Security model at a glance
+          url: /security-model.html
+        - title: Shared responsibility boundaries
+          url: /shared-responsibility-boundaries.html
+        - title: Onboarding security worklflow
+          url: /onboarding-security-workflow.html
+    - title: Architecture and connectivity
       entries:
-        - title: Workload Factory data flow diagrams
+        - title: Connectivity and trust paths
+          url: /connectivity-trust-paths.html
+        - title: Data flow diagrams  
           url: /data-flow-diagrams.html
-        - title: Workload Factory connections
-          url: /connections.html
-        - title: Use KMS in Workload Factory workflows
-          url: /kms-workflows.html
-    - title: AWS credentials
+        - title: ONTAP execution options 
+          url: /ontap-execution-options.html
+    - title: Identity, credentials, and least privilege
       entries:
-        - title: Access Workload Factory AWS account
-          url: /aws-account-access.html
-        - title: Workload Factory AWS credential flow
+        - title: AWS account integration  
+          url: /aws-account-integration.html
+        - title: AWS credential flow
           url: /aws-credential-flow.html
-        - title: Workload Factory AWS credential retention
-          url: /aws-credential-retention.html
-        - title: Learn about Workload Factory credential types
+        - title: Credential retention
+          url: /credential-retention.html
+        - title: Credential types
           url: /credential-types.html
-        - title: Considerations for Workload Factory credentials
-          url: /credential-considerations.html          
-    - title: Least privilege requirements
-      entries:
-        - title: Learn about least privilege requirements for Workload Factory
-          url: /least-privilege-requirements.html
+        - title: Credential storage options
+          url: /credential-storage-options.html
+        - title: Least privilege requirements
+          url: /least-privilege-permissions.html
         - title: CloudWatch monitoring permissions
           url: /cloudwatch-monitoring-permissions.html
-    - title: AI usage and features
+    - title: Data protection, privacy, and lifecycle
       entries:
-        - title: Learn about AI features
-          url: /learn-ai-features.html
-        - title: AWS Bedrock opt-in requirements
+        - title: Data handling and residency
+          url: /data-handling-residency.html
+        - title: Encryption and key management
+          url: /encryption-and-key-management.html
+        - title: Account deletion checklist
+          url: /account-deletion.html
+    - title: Observability (logs, metrics, telemetry)
+      entries:
+        - title: Observability overview
+          url: /observability-overview.html
+        - title: Metrics and telemetry reference    
+          url: /metrics-telemetry.html
+    - title: Generative AI security controls
+      entries:
+        - title: AI controls overview
+          url: /ai-controls-overview.html
+        - title: Ask Me security architecture
+          url: /ask-me-security-architecture.html
+        - title: Ask Me access control
+          url: /ask-me-access-control.html
+        - title: Ask Me privacy and availability
+          url: /ask-me-privacy-availability.html
+        - title: Bedrock opt-in for AI diagnostics
           url: /bedrock-opt-in.html
-        - title: AWS Bedrock AI agent capabilities
-          url: /bedrock-capabilities.html
-        - title: Ask Me assistant
-          url: /ask-me-assistant.html
-        - title: Ask Me authentication and access control
-          url: /ask-me-access.html
-        - title: Ask Me data handling and privacy
-          url: /ask-me-privacy.html
-    - title: AWS Lambda link
+        - title: AI tool boundaries
+          url: /ai-tool-boundaries.html
+        - title: AI model parameters and billing
+          url: /ai-model-parameters-billing.html
+    - title: Lambda link (customer VPC component)
       entries:
-        - title: Learn about using Lambda link with Workload Factory
-          url: /lambda-link.html
-        - title: Lambda link requests, ports, and calls
-          url: /lambda-requests.html
-        - title: Lambda link permissions
-          url: /lambda-permissions.html
-        - title: Lambda link upgrades and lifecycle
-          url: /lambda-upgrades.html 
+        - title: Lambda link overview
+          url: /lambda-link-overview.html
+        - title: Lambda link ports and calls
+          url: /lambda-link-ports-calls.html
+        - title: Lambda link IAM permissions
+          url: /lambda-link-iam-permissions.html
+        - title: Lambda link lifecycle
+          url: /lambda-link-lifecycle.html
+    - title: Compliance and security posture
+      url: /compliance-security-posture.html   
+    - title: Engineering questions
+      url: /engineering-questions.html     
     - title: Legal notices
       url: /legal-notices.html
  
