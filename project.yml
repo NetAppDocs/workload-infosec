@@ -16,7 +16,7 @@ sidebar:
           url: /security-model.html
         - title: Shared responsibility boundaries
           url: /shared-responsibility-boundaries.html
-        - title: Onboarding security worklflow
+        - title: Onboarding security workflow
           url: /onboarding-security-workflow.html
     - title: Architecture and connectivity
       entries:

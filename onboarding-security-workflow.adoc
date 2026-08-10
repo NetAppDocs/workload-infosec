@@ -1,8 +1,16 @@
-= Onboarding security workflow for NetApp Workload Factory
-:toc: macro
-:toclevels: 2
+---
+sidebar: sidebar
+permalink: onboarding-security-workflow.html
+keywords: infosec, security, data handling, data retention, data collection, permissions, credentials, iam, assume role, least privilege, compliance, soc 2, govcloud, amazon bedrock, lambda, link, fsx for ontap, logging, audit, access control, onboarding, hardening
+summary: "NetApp Workload Factory takes information security and data protection practices seriously, focusing on data-handling practices and access requirements with guidance for least-privilege configurations and potential hardening."
+---
 
-toc::[]
+= Onboarding security workflow for NetApp Workload Factory
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
 
 == Overview
 
@@ -29,14 +37,14 @@ This page presents a recommended onboarding sequence aligned to security review 
 . Gate role assumption using an external ID in the trust policy.
 . Register the role ARN and external ID in Workload Factory.
 
-See xref:aws-account-integration.adoc[AWS account integration for NetApp Workload Factory].
+Refer to link:aws-account-integration.adoc[AWS account integration for NetApp Workload Factory].
 
 == Step 3: Apply least-privilege permissions
 
 . Select the minimum permission tier that supports your intended workflows.
 . Validate that per-request session policies restrict actions to the operation being performed.
 
-See xref:least-privilege-permission-tiers.adoc[Least privilege permission tiers for NetApp Workload Factory].
+Refer to link:least-privilege-permissions.adoc[Least privilege permission tiers for NetApp Workload Factory].
 
 == Step 4: Configure connectivity and VPC boundaries (as needed)
 
@@ -45,8 +53,8 @@ See xref:least-privilege-permission-tiers.adoc[Least privilege permission tiers 
 
 See:
 
-* xref:connectivity-and-trust-paths.adoc[Connectivity and trust paths for NetApp Workload Factory]
-* xref:ontap-execution-options.adoc[ONTAP execution options for NetApp Workload Factory]
+* link:connectivity-trust-paths.adoc[Connectivity and trust paths for NetApp Workload Factory]
+* link:ontap-execution-options.adoc[ONTAP execution options for NetApp Workload Factory]
 
 == Step 5: Verify observability
 
@@ -55,8 +63,8 @@ See:
 
 See:
 
-* xref:observability-overview.adoc[Observability overview for NetApp Workload Factory]
-* xref:metrics-and-telemetry-reference.adoc[Metrics and telemetry reference for NetApp Workload Factory]
+* link:observability-overview.adoc[Observability overview for NetApp Workload Factory]
+* link:metrics-telemetry.adoc[Metrics and telemetry reference for NetApp Workload Factory]
 
 == Step 6: Enable AI diagnostics (optional)
 
@@ -65,5 +73,5 @@ If you enable them, ensure prerequisites are met and permissions are scoped to t
 
 See:
 
-* xref:bedrock-opt-in.adoc[Bedrock opt-in for NetApp Workload Factory AI diagnostics]
-* xref:ai-tool-boundaries.adoc[AI tool boundaries for NetApp Workload Factory]
+* link:bedrock-opt-in.adoc[Bedrock opt-in for NetApp Workload Factory AI diagnostics]
+* link:ai-tool-boundaries.adoc[AI tool boundaries for NetApp Workload Factory]
