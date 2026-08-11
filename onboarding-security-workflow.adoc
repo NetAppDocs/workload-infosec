@@ -64,8 +64,8 @@ See:
 
 See:
 
-* link:observability-overview.adoc[Observability overview for NetApp Workload Factory]
-* link:metrics-telemetry.adoc[Metrics and telemetry reference for NetApp Workload Factory]
+* link:observability-overview.html[Observability overview for NetApp Workload Factory]
+* link:metrics-telemetry.html[Metrics and telemetry reference for NetApp Workload Factory]
 
 == Step 6: Enable AI diagnostics (optional)
 
@@ -74,5 +74,5 @@ If you enable them, ensure prerequisites are met and permissions are scoped to t
 
 See:
 
-* link:bedrock-opt-in.adoc[Bedrock opt-in for NetApp Workload Factory AI diagnostics]
-* link:ai-tool-boundaries.adoc[AI tool boundaries for NetApp Workload Factory]
+* link:amazon-bedrock-opt-in.html[Bedrock opt-in for NetApp Workload Factory AI diagnostics]
+* link:ai-tool-boundaries.html[AI tool boundaries for NetApp Workload Factory]

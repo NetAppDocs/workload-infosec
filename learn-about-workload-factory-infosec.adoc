@@ -111,18 +111,18 @@ What signals are available to support detection, troubleshooting, and investigat
 == Recommended reading order
 
 * Security review:
-** link:security-model.adoc[Security model at a glance for NetApp Workload Factory]
-** link:shared-responsibility-boundaries.adoc[Shared responsibility boundaries for NetApp Workload Factory]
-** link:data-handling-residency.adoc[Data handling and residency for NetApp Workload Factory]
-** link:connectivity-trust-paths.adoc[Connectivity and trust paths for NetApp Workload Factory]
-//** link:compliance-and-security-posture.adoc[Compliance and security posture for NetApp Workload Factory]
+** link:security-model.html[Security model at a glance for NetApp Workload Factory]
+** link:shared-responsibility-boundaries.html[Shared responsibility boundaries for NetApp Workload Factory]
+** link:data-handling-residency.html[Data handling and residency for NetApp Workload Factory]
+** link:connectivity-trust-paths.html[Connectivity and trust paths for NetApp Workload Factory]
+** link:compliance-and-security-posture.html[Compliance and security posture for NetApp Workload Factory]
 
 * Onboarding:
-** link:onboarding-security-workflow.adoc[Onboarding security workflow for NetApp Workload Factory]
-** link:aws-account-integration.adoc[AWS account integration for NetApp Workload Factory]
-** link:least-privilege-permissions.adoc[Least privilege permission tiers for NetApp Workload Factory]
-** link:lambda-link-overview.adoc[Lambda link overview for NetApp Workload Factory] (if required)
+** link:onboarding-security-workflow.html[Onboarding security workflow for NetApp Workload Factory]
+** link:aws-account-integration.html[AWS account integration for NetApp Workload Factory]
+** link:least-privilege-permissions.html[Least privilege permission tiers for NetApp Workload Factory]
+** link:lambda-link-overview.html[Lambda link overview for NetApp Workload Factory] (if required)
 
 * AI diagnostics (optional, disabled by default):
-** link:bedrock-opt-in.adoc[Bedrock opt-in for NetApp Workload Factory AI diagnostics]
-** link:ai-tool-boundaries.adoc[AI tool boundaries for NetApp Workload Factory]
+** link:amazon-bedrock-opt-in.html[Bedrock opt-in for NetApp Workload Factory AI diagnostics]
+** link:ai-tool-boundaries.html[AI tool boundaries for NetApp Workload Factory]

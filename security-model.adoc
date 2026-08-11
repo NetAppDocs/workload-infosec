@@ -26,27 +26,27 @@ This page summarizes the Workload Factory security model and points to deeper re
 
 === Shared responsibility boundaries
 See:
-* link:shared-responsibility-boundaries-netapp-workload-factory.adoc[Shared responsibility boundaries for NetApp Workload Factory]
-* link:connectivity-trust-paths-netapp-workload-factory.adoc[Connectivity and trust paths for NetApp Workload Factory]
+* link:shared-responsibility-boundaries.html[Shared responsibility boundaries for NetApp Workload Factory]
+* link:connectivity-trust-paths.html[Connectivity and trust paths for NetApp Workload Factory]
 
 === Authentication and authorization controls
 See:
-* link:aws-account-integration-netapp-workload-factory.adoc[AWS account integration for NetApp Workload Factory]
-* link:aws-credential-flow-netapp-workload-factory.adoc[AWS credential flow for NetApp Workload Factory]
-* link:credential-retention-netapp-workload-factory.adoc[Credential retention for NetApp Workload Factory]
-* link:least-privilege-tiers-netapp-workload-factory.adoc[Least privilege permission tiers for NetApp Workload Factory]
+* link:aws-account-integration.html[AWS account integration for NetApp Workload Factory]
+* link:aws-credential-flow.html[AWS credential flow for NetApp Workload Factory]
+* link:credential-retention.html[Credential retention for NetApp Workload Factory]
+* link:least-privilege-permission.html[Least privilege permission tiers for NetApp Workload Factory]
 
 === Data handling, residency, and privacy
 See:
-* link:data-handling-residency-netapp-workload-factory.adoc[Data handling and residency for NetApp Workload Factory]
-* link:encryption-key-management-netapp-workload-factory.adoc[Encryption and key management for NetApp Workload Factory]
-* link:account-deletion-checklist-netapp-workload-factory.adoc[Account deletion checklist for NetApp Workload Factory]
+* link:data-handling-residency.html[Data handling and residency for NetApp Workload Factory]
+* link:encryption-key-management.html[Encryption and key management for NetApp Workload Factory]
+* link:account-deletion.html[Account deletion checklist for NetApp Workload Factory]
 
 === Auditability and monitoring
 See:
-* link:observability-overview-netapp-workload-factory.adoc[Observability overview for NetApp Workload Factory]
-* link:metrics-telemetry-reference-netapp-workload-factory.adoc[Metrics and telemetry reference for NetApp Workload Factory]
-* link:audit-logging-netapp-workload-factory-tbd.adoc[Audit logging for NetApp Workload Factory (to be completed)]
+* link:observability-overview.html[Observability overview for NetApp Workload Factory]
+* link:metrics-telemetry.html[Metrics and telemetry reference for NetApp Workload Factory]
+//* link:audit-logging-netapp-workload-factory-tbd.adoc[Audit logging for NetApp Workload Factory (to be completed)]
 
 Option 2: 
 
@@ -68,8 +68,8 @@ Security outcomes depend on shared responsibilities across NetApp, AWS, and your
 * What data categories are handled (configuration/metadata, operational logs/events, telemetry) and where are they stored?
 * What monitoring signals exist and what are their retention characteristics?
 
-== Where to go next
+== What's next
 
-* xref:shared-responsibility-boundaries.adoc[Shared responsibility boundaries for NetApp Workload Factory]
-* xref:connectivity-and-trust-paths.adoc[Connectivity and trust paths for NetApp Workload Factory]
-* xref:least-privilege-permission-tiers.adoc[Least privilege permission tiers for NetApp Workload Factory]
+* link:shared-responsibility-boundaries.html[Shared responsibility boundaries for NetApp Workload Factory]
+* link:connectivity-trust-paths.html[Connectivity and trust paths for NetApp Workload Factory]
+* link:least-privilege-permission.html[Least privilege permission tiers for NetApp Workload Factory]

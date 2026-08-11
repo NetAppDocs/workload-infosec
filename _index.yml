@@ -25,13 +25,13 @@ indexpage:
         - title: Credential storage options 
           url: /credential-storage-options.html
         - title: Least privilege requirements
-          url: /least-privilege-requirements.html  
+          url: /least-privilege-permissions.html  
     - title: Data protection, privacy, and lifecycle
       links: 
         - title: Data handling and residency
           url: /data-handling-residency.html
         - title: Encryption and key management
-          url: /encryption-and-key-management.html
+          url: /encryption-key-management.html
     - title: Observability (logs, metrics, telemetry)   
       links: 
         - title: Observability overview
@@ -45,7 +45,7 @@ indexpage:
         - title: Ask Me security architecture
           url: /ask-me-security-architecture.html
         - title: Bedrock opt-in for AI diagnostics
-          url: /bedrock-opt-in.html
+          url: /amazon-bedrock-opt-in.html
         - title: AI tool boundaries
           url: /ai-tool-boundaries.html
         - title: AI model parameters and billing

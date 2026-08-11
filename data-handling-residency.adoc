@@ -97,9 +97,9 @@ Every tracked operation sends the following information:
 
 Refer to:
 
-* xref:ai-controls-overview.adoc[AI controls overview for NetApp Workload Factory]
-* xref:bedrock-opt-in.adoc[Bedrock opt-in for NetApp Workload Factory AI diagnostics]
-* xref:ai-tool-boundaries.adoc[AI tool boundaries for NetApp Workload Factory]
+* link:ai-controls-overview.html[AI controls overview for NetApp Workload Factory]
+* link:amazon-bedrock-opt-in.html[Bedrock opt-in for NetApp Workload Factory AI diagnostics]
+* link:ai-tool-boundaries.html[AI tool boundaries for NetApp Workload Factory]
 
 === AWS service API traffic
 

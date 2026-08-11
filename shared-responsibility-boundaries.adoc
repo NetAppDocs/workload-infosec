@@ -56,10 +56,10 @@ Workload Factory is a SaaS control plane that helps manage and optimize workload
 |===
 
 == Where to find details
-* Trust paths and ports: link:connectivity-trust-paths-netapp-workload-factory.adoc[Connectivity and trust paths for NetApp Workload Factory]
-* Credential retention: link:credential-retention-netapp-workload-factory.adoc[Credential retention for NetApp Workload Factory]
-* Data egress and residency: link:data-handling-residency-netapp-workload-factory.adoc[Data handling and residency for NetApp Workload Factory]
-* Offboarding checklist: link:account-deletion-checklist-netapp-workload-factory.adoc[Account deletion checklist for NetApp Workload Factory]
+* Trust paths and ports: link:connectivity-trust-paths.html[Connectivity and trust paths for NetApp Workload Factory]
+* Credential retention: link:credential-retention.html[Credential retention for NetApp Workload Factory]
+* Data egress and residency: link:data-handling-residency.html[Data handling and residency for NetApp Workload Factory]
+* Offboarding checklist: link:account-deletion.html[Account deletion checklist for NetApp Workload Factory]
 
 Option 2: 
 
