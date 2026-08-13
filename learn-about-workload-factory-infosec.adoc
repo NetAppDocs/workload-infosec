@@ -17,8 +17,7 @@ Information security is a core part of NetApp Workload Factory design and operat
 
 == What Workload Factory does
 
-Workload Factory is a SaaS life-cycle management platform designed to help you optimize and manage workloads (for example, storage, VMware migrations, EDA projects, and database environments) using Amazon FSx for NetApp ONTAP.
-Your workloads run in AWS, and Workload Factory interacts with AWS and (when required) ONTAP management endpoints through well-defined credential and connectivity paths.
+Workload Factory is a SaaS life-cycle management platform designed to help you optimize and manage workloads (for example, storage, VMware migrations, EDA projects, and database environments) using Amazon FSx for NetApp ONTAP Your workloads run in AWS, and Workload Factory interacts with AWS and (when required) ONTAP management endpoints through well-defined credential and connectivity paths.
 
 == Core security principles used in this guide
 
