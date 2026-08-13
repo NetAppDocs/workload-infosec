@@ -13,11 +13,11 @@ summary: "NetApp Workload Factory takes information security and data protection
 
 [.lead]
 
-This page is the primary reference for cross-system connectivity paths and trust boundaries for NetApp Workload Factory network and IAM integration.
+Learn about cross-system connectivity paths and trust boundaries for NetApp Workload Factory network and IAM integration.
 
-== Connectivity paths (overview)
+== Connectivity paths
 
-=== Workload Factory to AWS APIs (discovery and management)
+=== Workload Factory to AWS APIs
 
 Used for `DescribeFileSystems`, `DescribeVolumes`, `CreateVolume`, `UpdateVolume`, `DeleteVolume`,
 `CreateFileSystem`, `CreateBackup`, `DescribeBackups`, and EC2/VPC APIs for subnet and security group discovery.
@@ -26,11 +26,12 @@ Used for `DescribeFileSystems`, `DescribeVolumes`, `CreateVolume`, `UpdateVolume
 * CRUD operations run on demand.
 * All calls use STS-assumed temporary credentials with an external ID.
 
-== Workflow 1 diagram: Discovering and monitoring
+The following diagram shows how Workload Factory discovers and monitors using read-only AWS API calls. 
 
 image::workflow-1.png[Workflow 1: Discovering and monitoring (Read-only AWS API calls)]
 
 === Workload Factory to customer AWS account resources (orchestration and automation)
+
 
 Includes:
 
@@ -40,9 +41,9 @@ Includes:
 * S3 presigned URL generation for CloudFormation templates
 * `lambda:InvokeFunction` to trigger the Link Lambda
 
-=== Lambda link to ONTAP management endpoint (ONTAP-native operations)
+=== Lambda link to ONTAP management endpoint
 
-Specific operations can include:
+Specific ONTAP-native operations can include:
 
 * EMS event retrieval
 * QoS and latency statistics
@@ -96,7 +97,7 @@ The path is active only when an inference profile is configured per organization
 |KMS Encrypt/Decrypt |HTTPS |443 |WF → AWS KMS endpoint |STS temporary credentials |Volume encryption key operations
 |===
 
-All AWS API calls use the customer’s regional endpoint and can be routed through VPC endpoints if configured.
+All AWS API calls use the customer's regional endpoint and can be routed through VPC endpoints if configured.
 
 === Group B — ONTAP data plane
 

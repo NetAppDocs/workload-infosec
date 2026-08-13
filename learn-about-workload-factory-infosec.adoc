@@ -32,40 +32,39 @@ Availability::
 Ensure authorized users can access the service and workloads through resilient AWS designs and operational monitoring.
 
 == What you can do during onboarding to speed approval
-* Start with Tier 1 (read-only) permissions and expand only as required.
+* Start with _view, planning, and analysis_ (read-only) permissions and expand only as required.
 * Use AWS CloudTrail to validate `sts:AssumeRole` activity for the integration role.
 * Decide upfront whether you need ONTAP-native operations (which may require deploying Lambda link or NetApp Console agent).
 * Decide upfront whether generative AI is permitted and whether residency constraints require single-region inference profiles.
 
+== Types of information covered in this guide
+The following sections provide information to help you evaluate and onboard Workload Factory in a way that supports enterprise security requirements.
 
-== Information covered in this guide
+. Security model and responsibilities
+* link:security-model.html[Security model at a glance]
+* link:shared-responsibility-boundaries.html[Shared responsibility boundaries]
 
-* Security review:
-** link:security-model.html[Security model at a glance for NetApp Workload Factory]
-** link:shared-responsibility-boundaries.html[Shared responsibility boundaries for NetApp Workload Factory]
-** link:data-handling-residency.html[Data handling and residency for NetApp Workload Factory]
-** link:connectivity-trust-paths.html[Connectivity and trust paths for NetApp Workload Factory]
-** link:compliance-and-security-posture.html[Compliance and security posture for NetApp Workload Factory]
+. Architecture and connectivity
+* link:connectivity-trust-paths.html[Connectivity and trust paths]
+* link:ontap-execution-options.html[ONTAP execution options]
 
-* Onboarding:
-** link:onboarding-security-workflow.html[Onboarding security workflow for NetApp Workload Factory]
-** link:aws-account-integration.html[AWS account integration for NetApp Workload Factory]
-** link:least-privilege-permissions.html[Least privilege permission tiers for NetApp Workload Factory]
-** link:lambda-link-overview.html[Lambda link overview for NetApp Workload Factory] (if required)
+. Identity, credentials, and least privilege
+* link:aws-account-integration.html[AWS account integration]
+* link:least-privilege-permissions.html[Least privilege permission tiers]
 
-* AI diagnostics (optional, disabled by default):
-** link:amazon-bedrock-opt-in.html[Bedrock opt-in for NetApp Workload Factory AI diagnostics]
-** link:ai-tool-boundaries.html[AI tool boundaries for NetApp Workload Factory]
+. Data governance, privacy, and lifecycle
+* link:data-handling-residency.html[Data handling and residency]
+* link:account-deletion.html[Account deletion checklist]
+
+. Observability and monitoring
+* link:metrics-telemetry.html[Metrics and telemetry]
+
+. AI controls and VPC components 
+* link:ai-controls-overview.html[AI controls overview]
+* link:lambda-link-overview.html[Lambda link overview]
 
 == Compliance and security posture for NetApp Workload Factory
 
-Compliance and security for NetApp Workload Factory are a top priority for NetApp.
-
-Workload Factory has SOC2 Type 1, SOC2 Type 2, and HIPAA compliance.
-
-All workloads in Workload Factory run on Amazon FSx for NetApp ONTAP.
-
-NOTE: Your overall compliance posture depends on your AWS configuration, IAM controls, network boundaries, logging/monitoring, and operational processes.
 Compliance and security for NetApp Workload Factory are a top priority for NetApp. All workloads in Workload Factory run on Amazon FSx for NetApp ONTAP. In addition to link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/security.html[AWS security features^], NetApp Workload Factory has link:https://trust.netapp.com/[SOC2 Type 1, SOC2 Type 2, and HIPAA compliance^]. 
 
 Amazon FSx for NetApp ONTAP for NetApp Workload Factory is an link:https://aws.amazon.com/solutions/guidance/deploying-enterprise-apps-with-netapp-bluexp-workload-factory-for-aws-and-amazon-fsx-for-netapp-ontap/[AWS solution for deploying enterprise apps^] created with Well-Architected best practices in mind. 

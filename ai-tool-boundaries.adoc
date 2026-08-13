@@ -12,8 +12,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ./media/
 
 [.lead]
-AWS Bedrock uses the AWS CLI and ONTAP CLI diagnostic tools in a read-only manner.
-Data is only used transiently for diagnostic purposes and is not retained by NetApp Workload Factory or AWS.
+AWS Bedrock uses the AWS CLI and ONTAP CLI diagnostic tools in a read-only manner. Data is only used transiently for diagnostic purposes and is not retained by NetApp Workload Factory or AWS.
 
 == Tool safety controls
 

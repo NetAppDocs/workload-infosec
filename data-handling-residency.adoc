@@ -237,4 +237,4 @@ Workload Factory collects both configuration status and event details:
 
 * Collection cadence: every 12 hours for capacity/throughput; every 20 minutes for latency
 * Granularity: normalized to approximately 60 datapoints per time range
-* Retention and storage details: link:metrics-telemetry.html[Metrics and telemetry reference for NetApp Workload Factory]
+* Retention and storage details: link:metrics-telemetry.html[Metrics and telemetry reference]

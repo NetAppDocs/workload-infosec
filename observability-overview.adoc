@@ -16,7 +16,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 
 Observability signals help support operational monitoring, troubleshooting, and investigations. In NetApp Workload Factory, observability includes metrics, telemetry, and operational records.
 
-== Telemetry and operational records (high level)
+== Telemetry and operational records
 
 Workload Factory uses the following telemetry and operational record types:
 
@@ -24,7 +24,13 @@ Workload Factory uses the following telemetry and operational record types:
 * AI usage metering (token counts, model costs) stored in AWS Timestream
 * NetApp Console audit records (action name, status, request/response metadata, timestamps)
 
+== Audit logging in Workload Factory
+Workload Factory provides Tracker, a monitoring feature, so you can monitor which operations are being performed when. With Tracker, you can track the progress and status of FSx for ONTAP, credentials, and link operations, review details for operation tasks and subtasks, and diagnose any issues or failures. 
+
+Several actions are available in Tracker. You can filter jobs by time frame (last 24 hours, 7 days, 14 days, or 30 days), workload, status, and user; find jobs using the search function; and download the jobs table as a CSV file. 
+
+* link:https://docs.netapp.com/us-en/workload-fsx-ontap/monitor-operations.html[Monitor operations using Tracker in Workload Factory^]
+
 == Related information
 
 * link:metrics-telemetry.html[Metrics and telemetry reference for NetApp Workload Factory]
-//* link:audit-logging.html[Audit logging for NetApp Workload Factory (to be completed)]

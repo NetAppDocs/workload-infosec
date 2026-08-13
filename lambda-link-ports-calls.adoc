@@ -33,13 +33,12 @@ For the full cross-system connectivity map, refer to link:connectivity-trust-pat
 |Outbound |443 |AWS Secrets Manager endpoint (optional) |Credential retrieval when using Secrets Manager
 |===
 
-No inbound connectivity is required.
-Link does not expose any endpoints.
-Workload Factory invokes it using the AWS `lambda:InvokeFunction` API.
+No inbound connectivity is required. The link does not expose any endpoints. Workload Factory invokes it using the AWS `lambda:InvokeFunction` API.
 
 == Workload Factory calls Lambda link
 
-Workload Factory calls the Lambda via the AWS Lambda API (`lambda:InvokeFunction`) using IAM-based authorization.
+Workload Factory calls the Lambda link via the AWS Lambda API (`lambda:InvokeFunction`) using IAM-based authorization.
+
 The invocation payload contains:
 
 * target ONTAP management endpoint (IP/hostname)

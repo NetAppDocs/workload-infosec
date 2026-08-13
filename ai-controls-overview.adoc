@@ -29,7 +29,7 @@ Workload Factory currently applies generative AI to the following features:
 
 Workload Factory uses Amazon Bedrock for AI inference, with execution in your AWS account and under your configured credentials and inference profile.
 
-Primary reference pages:
+== Related information
 
 * link:amazon-bedrock-opt-in.html[Amazon Bedrock opt-in for NetApp Workload Factory AI diagnostics]
 * link:ai-tool-boundaries.html[AI tool boundaries for NetApp Workload Factory]

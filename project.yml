@@ -22,8 +22,6 @@ sidebar:
       entries:
         - title: Connectivity and trust paths
           url: /connectivity-trust-paths.html
-        - title: Data flow diagrams  
-          url: /data-flow-diagrams.html
         - title: ONTAP execution options 
           url: /ontap-execution-options.html
     - title: Identity, credentials, and least privilege
@@ -42,7 +40,7 @@ sidebar:
           url: /least-privilege-permissions.html
         - title: CloudWatch monitoring permissions
           url: /cloudwatch-monitoring-permissions.html
-    - title: Data protection, privacy, and lifecycle
+    - title: Data governance, privacy, and lifecycle
       entries:
         - title: Data handling and residency
           url: /data-handling-residency.html
@@ -60,18 +58,22 @@ sidebar:
       entries:
         - title: AI controls overview
           url: /ai-controls-overview.html
-        - title: Ask Me security architecture
-          url: /ask-me-security-architecture.html
-        - title: Ask Me access control
-          url: /ask-me-access-control.html
-        - title: Ask Me privacy and availability
-          url: /ask-me-privacy-availability.html
         - title: Amazon Bedrock opt-in for AI diagnostics
           url: /amazon-bedrock-opt-in.html
         - title: AI tool boundaries
           url: /ai-tool-boundaries.html
         - title: AI model parameters and billing
           url: /ai-model-parameters-billing.html
+        - title: Ask Me AI assistant
+          entries:
+            - title: AI security architecture
+              url: /ask-me-security-architecture.html
+            - title: Ask Me access control
+              url: /ask-me-access-control.html           
+            - title: Ask me execution modes
+              url: /ask-me-execution-modes.html
+            - title: Ask Me privacy and availability
+              url: /ask-me-privacy-availability.html
     - title: Lambda link (customer VPC component)
       entries:
         - title: Lambda link overview
@@ -81,11 +83,13 @@ sidebar:
         - title: Lambda link IAM permissions
           url: /lambda-link-iam-permissions.html
         - title: Lambda link lifecycle
-          url: /lambda-link-lifecycle.html
-    - title: Compliance and security posture
-      url: /compliance-security-posture.html   
+          url: /lambda-link-lifecycle.html 
     - title: Engineering questions
-      url: /engineering-questions.html     
+      url: /engineering-questions.html  
+    - title: Appendix
+      entries:
+        - title: Data flow diagrams  
+          url: /data-flow-diagrams.html   
     - title: Legal notices
       url: /legal-notices.html
  

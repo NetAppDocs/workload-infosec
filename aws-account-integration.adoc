@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: aws-account-integration.html
 keywords: infosec, security, data handling, data retention, data collection, permissions, credentials, iam, assume role, least privilege, compliance, soc 2, govcloud, amazon bedrock, lambda, link, fsx for ontap, logging, audit, access control, onboarding, hardening
-summary: "NetApp Workload Factory takes information security and data protection practices seriously, focusing on data-handling practices and access requirements with guidance for least-privilege configurations and potential hardening."
+summary: "Workload Factory uses AWS `sts:AssumeRole` to obtain temporary credentials for your AWS account, so long-term AWS access keys are not stored by the service."
 ---
 
 = AWS account integration for NetApp Workload Factory
@@ -17,7 +17,7 @@ Workload Factory uses AWS `sts:AssumeRole` to obtain temporary credentials for y
 
 == AWS account configuration
 
-To enable Workload Factory access to your AWS account:
+To let Workload Factory access to your AWS account:
 
 . Deploy an IAM role in your AWS account (using CloudFormation or manually).
 . Ensure the role trust policy allows the service principal for Workload Factory to assume it, gated by an external ID.
