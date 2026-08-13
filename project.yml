@@ -84,8 +84,6 @@ sidebar:
           url: /lambda-link-iam-permissions.html
         - title: Lambda link lifecycle
           url: /lambda-link-lifecycle.html 
-    - title: Engineering questions
-      url: /engineering-questions.html  
     - title: Appendix
       entries:
         - title: Data flow diagrams  
