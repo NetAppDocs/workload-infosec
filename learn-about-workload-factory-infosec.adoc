@@ -13,74 +13,11 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ./media/
 
 [.lead]
-Option 1: 
-
-Information security is a core part of NetApp Workload Factory design and operation. This documentation set is designed to help security and cloud platform teams review Workload Factory and complete onboarding with a clear, auditable sequence.
-
-Workload Factory is a SaaS lifecycle management platform designed to help users optimize workloads (such as storage operations, VMware-related workflows, EDA projects, and database environments) using Amazon FSx for NetApp ONTAP.
-
-== What security teams typically need to approve
-Security review and onboarding usually focuses on four questions:
-
-. *Shared responsibility boundaries*
-Where NetApp responsibility ends and where customer configuration begins.
-
-. *Authentication and authorization controls*
-How Workload Factory accesses customer AWS accounts, how permissions are scoped, and how least privilege is enforced.
-
-. *Data handling, residency, and privacy*
-What operational data classes exist, where they are stored, how long they are retained, and what information may leave the customer environment.
-
-. *Auditability and monitoring*
-What can be monitored (audit records, metrics, telemetry), how long it is retained, and what evidence can be collected during onboarding.
-
-== How to use this guide (recommended reading path)
-. Start with the security model:
-* link:security-model.adoc[Security model at a glance for NetApp Workload Factory]
-* link:shared-responsibility-boundaries.adoc[Shared responsibility boundaries for NetApp Workload Factory]
-
-. Review trust paths and connectivity:
-* link:connectivity-trust-paths.adoc[Connectivity and trust paths for NetApp Workload Factory]
-* link:data-flow-diagrams.adoc[Data flow diagrams for NetApp Workload Factory]
-
-. Review identity and least privilege:
-* link:aws-account-integration.adoc[AWS account integration for NetApp Workload Factory]
-* link:least-privilege-permissions.adoc[Least privilege permission tiers for NetApp Workload Factory]
-
-. Review data handling and deletion:
-* link:data-handling-residency.adoc[Data handling and residency for NetApp Workload Factory]
-* link:account-deletion.adoc[Account deletion checklist for NetApp Workload Factory]
-
-. Optional: review AI and VPC components if your intended workflows require them:
-* link:ai-controls-overview.adoc[AI controls overview for NetApp Workload Factory]
-* link:lambda-link-overview.adoc[Lambda link overview for NetApp Workload Factory]
-
-== What you can do during onboarding to speed approval
-* Start with Tier 1 (read-only) permissions and expand only as required.
-* Use AWS CloudTrail to validate sts:AssumeRole activity for the integration role.
-* Decide upfront whether you need ONTAP-native operations (which may require deploying Lambda link or NetApp Console agent).
-* Decide upfront whether generative AI is permitted and whether residency constraints require single-region inference profiles.
-
-== Compliance and security posture for NetApp Workload Factory
-
-Compliance and security for NetApp Workload Factory are a top priority for NetApp.
-
-Workload Factory has SOC2 Type 1, SOC2 Type 2, and HIPAA compliance.
-
-All workloads in Workload Factory run on Amazon FSx for NetApp ONTAP.
-
-NOTE: Your overall compliance posture depends on your AWS configuration, IAM controls, network boundaries, logging/monitoring, and operational processes.
-Compliance and security for NetApp Workload Factory are a top priority for NetApp. All workloads in Workload Factory run on Amazon FSx for NetApp ONTAP. In addition to link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/security.html[AWS security features^], NetApp Workload Factory has link:https://trust.netapp.com/[SOC2 Type 1, SOC2 Type 2, and HIPAA compliance^]. 
-
-Amazon FSx for NetApp ONTAP for NetApp Workload Factory is an link:https://aws.amazon.com/solutions/guidance/deploying-enterprise-apps-with-netapp-bluexp-workload-factory-for-aws-and-amazon-fsx-for-netapp-ontap/[AWS solution for deploying enterprise apps^] created with Well-Architected best practices in mind. 
-
-Option 2: 
-
 Information security is a core part of NetApp Workload Factory design and operation. This guide helps Information Security, Cloud Platform, and Storage teams evaluate and onboard Workload Factory in a way that supports enterprise security requirements.
 
-== What Workload Factory does (security context)
+== What Workload Factory does
 
-NetApp Workload Factory is a SaaS life-cycle management platform designed to help you optimize and manage workloads (for example, storage, VMware migrations, EDA projects, and database environments) using Amazon FSx for NetApp ONTAP.
+Workload Factory is a SaaS life-cycle management platform designed to help you optimize and manage workloads (for example, storage, VMware migrations, EDA projects, and database environments) using Amazon FSx for NetApp ONTAP.
 Your workloads run in AWS, and Workload Factory interacts with AWS and (when required) ONTAP management endpoints through well-defined credential and connectivity paths.
 
 == Core security principles used in this guide
@@ -94,21 +31,14 @@ Protect systems and configurations from unauthorized or unintended change using 
 Availability::
 Ensure authorized users can access the service and workloads through resilient AWS designs and operational monitoring.
 
-== What security teams typically need to understand
+== What you can do during onboarding to speed approval
+* Start with Tier 1 (read-only) permissions and expand only as required.
+* Use AWS CloudTrail to validate `sts:AssumeRole` activity for the integration role.
+* Decide upfront whether you need ONTAP-native operations (which may require deploying Lambda link or NetApp Console agent).
+* Decide upfront whether generative AI is permitted and whether residency constraints require single-region inference profiles.
 
-Shared responsibility boundaries::
-Where NetApp and AWS responsibilities end and where customer configuration begins.
 
-Authentication and authorization controls::
-How Workload Factory authenticates into your AWS account and how you scope permissions.
-
-Data handling and privacy::
-What data categories exist (metadata, logs, telemetry), where they are stored, how long they are retained, and what may leave the VPC.
-
-Auditability and monitoring::
-What signals are available to support detection, troubleshooting, and investigations.
-
-== Recommended reading order
+== Information covered in this guide
 
 * Security review:
 ** link:security-model.html[Security model at a glance for NetApp Workload Factory]
@@ -126,3 +56,16 @@ What signals are available to support detection, troubleshooting, and investigat
 * AI diagnostics (optional, disabled by default):
 ** link:amazon-bedrock-opt-in.html[Bedrock opt-in for NetApp Workload Factory AI diagnostics]
 ** link:ai-tool-boundaries.html[AI tool boundaries for NetApp Workload Factory]
+
+== Compliance and security posture for NetApp Workload Factory
+
+Compliance and security for NetApp Workload Factory are a top priority for NetApp.
+
+Workload Factory has SOC2 Type 1, SOC2 Type 2, and HIPAA compliance.
+
+All workloads in Workload Factory run on Amazon FSx for NetApp ONTAP.
+
+NOTE: Your overall compliance posture depends on your AWS configuration, IAM controls, network boundaries, logging/monitoring, and operational processes.
+Compliance and security for NetApp Workload Factory are a top priority for NetApp. All workloads in Workload Factory run on Amazon FSx for NetApp ONTAP. In addition to link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/security.html[AWS security features^], NetApp Workload Factory has link:https://trust.netapp.com/[SOC2 Type 1, SOC2 Type 2, and HIPAA compliance^]. 
+
+Amazon FSx for NetApp ONTAP for NetApp Workload Factory is an link:https://aws.amazon.com/solutions/guidance/deploying-enterprise-apps-with-netapp-bluexp-workload-factory-for-aws-and-amazon-fsx-for-netapp-ontap/[AWS solution for deploying enterprise apps^] created with Well-Architected best practices in mind. 
