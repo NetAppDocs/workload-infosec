@@ -30,7 +30,7 @@ Protect systems and configurations from unauthorized or unintended change using 
 Availability::
 Ensure authorized users can access the service and workloads through resilient AWS designs and operational monitoring.
 
-== What you can do during onboarding to speed approval
+== Get started quickly
 * Start with _view, planning, and analysis_ (read-only) permissions and expand only as required.
 * Use AWS CloudTrail to validate `sts:AssumeRole` activity for the integration role.
 * Decide upfront whether you need ONTAP-native operations (which may require deploying Lambda link or NetApp Console agent).
