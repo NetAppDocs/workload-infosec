@@ -43,9 +43,7 @@ Tiers are cumulative: enabling a higher tier automatically enables all lower tie
 * Secret ARN scoping (Secrets Manager access restricted to `FSxSecret*`)
 * Runtime permission validation (missing action/resource reported for targeted remediation)
 
-== Impacts of removing permissions
+== Permissions documentation
+The primary reference for Workload Factory permissions is the link:https://docs.netapp.com/us-en/workload-setup-admin/permissions-reference.html[permissions reference^] in Workload Factory setup and administration documentation. You can find information about the impacts of removing permissions from the Storage IAM policies in this reference. 
 
-For security reasons, you might want to remove some permissions from the Storage IAM policies. Refer to the link:https://docs.netapp.com/us-en/workload-setup-admin/permissions-reference.html[permissions reference^] in Workload Factory setup and administration documentation. 
-
-.Related information
 
