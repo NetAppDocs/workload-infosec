@@ -96,7 +96,7 @@ Routing strategy (priority order) for the proxy-forwarder:
 
 . Explicit `x-link-id` header: look up Lambda ARN from the database
 . Target ID (FSx file system ID): find the associated link
-. Agent/Connector ID: route through the message broker to the Connector
+. Console agent ID: route through the message broker to the Console agent
 
 === Group C — AWS Lambda link (deployed in your VPC)
 
@@ -107,26 +107,26 @@ Routing strategy (priority order) for the proxy-forwarder:
 |Lambda → ONTAP |HTTPS + SSH |443, 22 |Lambda (customer VPC) → ONTAP management LIF |Basic auth / password |Private subnet access to ONTAP without public exposure
 |===
 
-=== Group D — Connector/NetApp Console Agent (EC2 in your VPC, outbound-only)
+=== Group D — NetApp Console Agent (EC2 in your VPC, outbound-only)
 
 [cols="2,1,1,2,2,3",options="header"]
 |===
 |Connection |Protocol |Port |Direction |Auth |Justification
-|Agent polling |HTTPS |443 |Connector (customer VPC) → WF message broker |Bearer token (occm-access scope) |Long-poll for pending ONTAP commands (7-second timeout; reconnects)
-|Agent response |HTTPS |443 |Connector (customer VPC) → WF message broker |Bearer token |Return ONTAP command results (optionally zlib-compressed)
-|Connector → ONTAP |HTTPS + SSH |443, 22 |Connector (customer VPC) → ONTAP management LIF |Basic auth / password |Execute proxied ONTAP operations
+|Agent polling |HTTPS |443 |Console agent (customer VPC) → WF message broker |Bearer token (occm-access scope) |Long-poll for pending ONTAP commands (7-second timeout; reconnects)
+|Agent response |HTTPS |443 |Console agent (customer VPC) → WF message broker |Bearer token |Return ONTAP command results (optionally zlib-compressed)
+|Console agent → ONTAP |HTTPS + SSH |443, 22 |Console agent (customer VPC) → ONTAP management LIF |Basic auth / password |Execute proxied ONTAP operations
 |===
 
-Key design: Workload Factory never initiates inbound connections to the Connector.
-Work is queued in Redis streams; the Connector polls `GET /messagebroker/v1/requests` and responds with `POST /messagebroker/v1/responses`.
+Key design: Workload Factory never initiates inbound connections to the Console agent.
+Work is queued in Redis streams; the Console agent polls `GET /messagebroker/v1/requests` and responds with `POST /messagebroker/v1/responses`.
 
 === Group E — CloudFormation custom resource callbacks
 
 [cols="2,1,1,2,2,3",options="header"]
 |===
 |Connection |Protocol |Port |Direction |Auth |Justification
-|CFN → WF Lambda |HTTPS |443 |CloudFormation (customer) → WF Lambda (NetApp) |JWT token + reference token |Report IAM role creation status and pass back role ARN
-|ONTAP CFN Resource Provider → Link |HTTPS |443 |CFN resource Lambda (customer) → Link Lambda (customer) |IAM |Create/update/delete ONTAP resources during stack operations
+|CloudFormation → WF Lambda |HTTPS |443 |CloudFormation (customer) → WF Lambda (NetApp) |JWT token + reference token |Report IAM role creation status and pass back role ARN
+|ONTAP CloudFormation Resource Provider → Link |HTTPS |443 |CloudFormation resource Lambda (customer) → Link Lambda (customer) |IAM |Create/update/delete ONTAP resources during stack operations
 |===
 
 == Summary: network requirements for your VPC
@@ -134,11 +134,11 @@ Work is queued in Redis streams; the Connector polls `GET /messagebroker/v1/requ
 [cols="2,1,3",options="header"]
 |===
 |Component |Inbound |Outbound
-|FSx for ONTAP |Port 443 and 22 from Link Lambda or Connector security group |N/A
+|FSx for ONTAP |Port 443 and 22 from Link Lambda or Console agent security group |N/A
 |Link Lambda |None |Port 443 (ONTAP, AWS APIs) and port 22 (ONTAP SSH)
-|Connector EC2 |None |Port 443 (WF endpoints, ONTAP, AWS APIs) and port 22 (ONTAP SSH)
+|Console agent EC2 |None |Port 443 (WF endpoints, ONTAP, AWS APIs) and port 22 (ONTAP SSH)
 |VPC endpoints (optional) |N/A |STS, FSx, S3, Secrets Manager, Lambda, CloudFormation
 |===
 
 No inbound internet access is required for any component in the customer VPC.
-All connections are either outbound-initiated (Connector polling) or invoked through AWS service APIs (Lambda Invoke).
+All connections are either outbound-initiated (Console agent polling) or invoked through AWS service APIs (Lambda Invoke).

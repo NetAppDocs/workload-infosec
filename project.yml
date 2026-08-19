@@ -18,6 +18,8 @@ sidebar:
           url: /shared-responsibility-boundaries.html
         - title: Onboarding security workflow
           url: /onboarding-security-workflow.html
+        - title: Compliance and security posture
+          url: /compliance-security-posture.html  
     - title: Architecture and connectivity
       entries:
         - title: Connectivity and trust paths

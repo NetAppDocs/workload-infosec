@@ -14,44 +14,6 @@ summary: "NetApp Workload Factory takes information security and data protection
 
 [.lead]
 
-Option 1: 
-This page summarizes the Workload Factory security model and points to deeper references for reviewers.
-
-== Core security principles (CIA)
-* *Confidentiality:* protect operational data, secrets, and access paths.
-* *Integrity:* ensure authorized changes are controlled and auditable.
-* *Availability:* ensure reliable access for authorized users and resilient operations.
-
-== The four onboarding questions
-
-=== Shared responsibility boundaries
-See:
-* link:shared-responsibility-boundaries.html[Shared responsibility boundaries for NetApp Workload Factory]
-* link:connectivity-trust-paths.html[Connectivity and trust paths for NetApp Workload Factory]
-
-=== Authentication and authorization controls
-See:
-* link:aws-account-integration.html[AWS account integration for NetApp Workload Factory]
-* link:aws-credential-flow.html[AWS credential flow for NetApp Workload Factory]
-* link:credential-retention.html[Credential retention for NetApp Workload Factory]
-* link:least-privilege-permission.html[Least privilege permission tiers for NetApp Workload Factory]
-
-=== Data handling, residency, and privacy
-See:
-* link:data-handling-residency.html[Data handling and residency for NetApp Workload Factory]
-* link:encryption-key-management.html[Encryption and key management for NetApp Workload Factory]
-* link:account-deletion.html[Account deletion checklist for NetApp Workload Factory]
-
-=== Auditability and monitoring
-See:
-* link:observability-overview.html[Observability overview for NetApp Workload Factory]
-* link:metrics-telemetry.html[Metrics and telemetry reference for NetApp Workload Factory]
-//* link:audit-logging-netapp-workload-factory-tbd.adoc[Audit logging for NetApp Workload Factory (to be completed)]
-
-Option 2: 
-
-== Overview
-
 NetApp Workload Factory is a SaaS control plane that helps you manage and optimize workloads that run on Amazon FSx for NetApp ONTAP in your AWS environment.
 Security outcomes depend on shared responsibilities across NetApp, AWS, and your organization.
 
@@ -72,4 +34,4 @@ Security outcomes depend on shared responsibilities across NetApp, AWS, and your
 
 * link:shared-responsibility-boundaries.html[Shared responsibility boundaries for NetApp Workload Factory]
 * link:connectivity-trust-paths.html[Connectivity and trust paths for NetApp Workload Factory]
-* link:least-privilege-permission.html[Least privilege permission tiers for NetApp Workload Factory]
+* link:least-privilege-permissions.html[Least privilege permission tiers for NetApp Workload Factory]
