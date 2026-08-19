@@ -31,37 +31,19 @@ The following diagram shows how Workload Factory discovers and monitors using re
 image::workflow-1.png[Workflow 1: Discovering and monitoring (Read-only AWS API calls)]
 
 === Workload Factory to customer AWS account resources (orchestration and automation)
+Workload Factory interacts with AWS to communicate and create resources. Orchestration and automation occurs in several ways.
 
-
-Includes:
-
-* CloudFormation stack deployment for IAM role provisioning and FSx creation
-* STS `AssumeRole` for cross-account access
-* CloudWatch alarm creation for Lambda monitoring
-* S3 presigned URL generation for CloudFormation templates
-* `lambda:InvokeFunction` to trigger the Link Lambda
+* AWS CloudFormation templates: To create resources like roles and file systems, we leverage the AWS CloudFormation templates. For example, in the user interface, when creating a file system, we can call CloudFormation directly and you are redirected to your AWS account. 
+* AWS API calls: For sending API commands for any FSx for ONTAP-related activities, we use AWS API calls (STS `AssumeRole`). 
+* AWS Lambda: For deploying a link that is used to communicate with ONTAP, we use CloudFormation to deploy an AWS Lambda function.
 
 === Lambda link to ONTAP management endpoint
+Lambda link runs inside the customer VPC for private subnet access without exposing ONTAP publicly.
 
-Specific ONTAP-native operations can include:
-
-* EMS event retrieval
-* QoS and latency statistics
-* Volume efficiency settings
-* Aggregate capacity checks
-* SVM management
-* igroup/LUN operations
-* anti-ransomware status checks
-* SnapMirror configuration
-* NFS client information
-* cluster version queries
-
-Protocols:
+Workload Factory uses the following protocols:
 
 * HTTPS/443 (REST)
 * SSH/22 (CLI)
-
-Lambda link runs inside the customer VPC for private subnet access without exposing ONTAP publicly.
 
 === Lambda link to AWS Secrets Manager (ONTAP credential retrieval)
 

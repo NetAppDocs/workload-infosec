@@ -13,60 +13,8 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ./media/
 
 [.lead]
-Option 1: 
-This page clarifies responsibilities across NetApp (Workload Factory), AWS, and the customer.
 
-== Responsibility summary
-Workload Factory is a SaaS control plane that helps manage and optimize workloads using Amazon FSx for NetApp ONTAP. Workloads run in AWS; customers control their AWS accounts, networking, keys, and data access policies.
-
-== Shared responsibility matrix (high level)
-
-|===
-|Control area |NetApp Workload Factory |AWS |Customer
-
-|SaaS platform security
-|Operate and secure the Workload Factory SaaS platform
-|N/A
-|Review vendor documentation and evidence package
-
-|Identity to customer AWS account
-|AssumeRole using ExternalId; scope requests using session policies
-|Provide STS service
-|Create IAM role, trust policy, and permissions; conduct access reviews
-
-|Customer network security
-|No inbound internet access required for customer VPC components (design intent)
-|Provide networking primitives and endpoints
-|Design VPC/subnets/SG/NACL; optionally use VPC endpoints; control egress
-
-|Encryption and key management
-|Protect service-stored secrets (where applicable) and follow least privilege
-|Provide FSx encryption at rest and KMS services
-|Choose KMS key strategy and manage key policies
-
-|Observability and auditability
-|Generate telemetry/metrics and audit records (feature-dependent)
-|Provide CloudTrail/CloudWatch services
-|Monitor integration role activity in CloudTrail; define SIEM requirements
-
-|Offboarding and deletion
-|Clean up service-side operational state per retention policy behavior
-|Delete AWS resources when requested
-|Delete AWS resources and stacks; remove IAM trust
-|===
-
-== Where to find details
-* Trust paths and ports: link:connectivity-trust-paths.html[Connectivity and trust paths for NetApp Workload Factory]
-* Credential retention: link:credential-retention.html[Credential retention for NetApp Workload Factory]
-* Data egress and residency: link:data-handling-residency.html[Data handling and residency for NetApp Workload Factory]
-* Offboarding checklist: link:account-deletion.html[Account deletion checklist for NetApp Workload Factory]
-
-Option 2: 
-
-== Why this matters
-
-Security responsibility is shared across NetApp (SaaS operation), AWS (cloud infrastructure and managed services), and you (customer configuration).
-Clear boundaries help teams approve onboarding faster and attach the correct evidence in internal review tickets.
+Security responsibility is shared across NetApp (SaaS operation), AWS (cloud infrastructure and managed services), and you (customer configuration). 
 
 == NetApp responsibilities (service side)
 
