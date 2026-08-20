@@ -20,14 +20,14 @@ Onboarding to Workload Factory typically combines:
 * Permission scoping (least privilege)
 * Connectivity setup (AWS APIs and, when required, ONTAP-native execution in your VPC)
 * Observability verification (metrics/telemetry/operational records)
-* Optional AI diagnostics enablement (disabled by default)
+* Optional AI diagnostics enablement (enabled by default)
 
 == Step 1: Decide your onboarding posture
 
 * Identify AWS accounts and environment boundaries (for example, prod vs non-prod separation).
 * Identify required workflows (read-only discovery vs provisioning vs ONTAP-native operations).
 * Decide whether you will deploy VPC execution components (for example, Lambda link) based on workflow needs.
-* Decide whether AI diagnostics will be enabled (disabled by default).
+* Decide whether AI diagnostics will be enabled (enabled by default).
 
 .Related information
 
@@ -76,7 +76,7 @@ link:least-privilege-permissions.html[Least privilege permission tiers for NetAp
 
 == Step 6: Enable AI diagnostics (optional)
 
-AI diagnostics are disabled by default.
+AI diagnostics are enabled by default.
 If you enable them, ensure prerequisites are met and permissions are scoped to the minimum required.
 
 .Related information

@@ -12,7 +12,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ./media/
 
 [.lead]
-This guidance outlines encryption-at-rest scope and key-management responsibilities across Workload Factory and AWS services.
+NetApp Workload Factory uses encryption at rest and defined key-management responsibilities across Workload Factory and AWS services. When you create an Amazon FSx for NetApp ONTAP file system, you can choose an AWS KMS key in your account or use the AWS-managed default FSx key. FSx for ONTAP performs the cryptographic operations for file system data, while Workload Factory passes the selected key ID to the FSx for ONTAP API. Workload Factory also uses envelope encryption to protect ONTAP credentials before storing them.
 
 == KMS encryption-at-rest scope for FSx
 
@@ -34,7 +34,7 @@ Workload Factory requires:
 * `kms:CreateGrant` (to allow the FSx for ONTAP service to use the key)
 
 Key access pattern::
-Workload Factory never directly encrypts or decrypts data with your KMS key. It passes the key ID to the AWS FSx API during file system creation; AWS FSx performs cryptographic operations.
+Workload Factory never directly encrypts or decrypts data with your KMS key. It passes the key ID to the Amazon FSx for NetApp ONTAP API during file system creation; Amazon FSx for NetApp ONTAP performs the cryptographic operations.
 
 == Credential protection (service-side envelope encryption)
 

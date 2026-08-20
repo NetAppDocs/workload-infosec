@@ -13,9 +13,7 @@ summary: "Workload Factory provides multiple execution modes for Ask Me, each wi
 
 [.lead]
 
-Workload Factory provides multiple execution modes for Ask Me, each with different security and privacy characteristics.
-
-When Ask Me uses tool integrations, for example, querying the customer's own Workload Factory resources, tool execution is controlled through layered safeguards.
+NetApp Workload Factory provides multiple execution modes for Ask Me, each with different security and privacy characteristics. When Ask Me uses tool integrations, for example, querying the customer's own Workload Factory resources, tool execution is controlled through layered safeguards. Tool-enabled execution operates within the authenticated user's permissions and applies limits to the duration and scope of each operation. Retrieved data remains in an ephemeral session sandbox that blocks external access and is destroyed when the session ends. Independent prompt and code controls enforce read-only queries, while audit records capture tool activity with sensitive values scrubbed.
 
 == Tool execution safeguards
 

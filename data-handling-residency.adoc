@@ -13,7 +13,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 
 [.lead]
 
-Workload Factory data handling is organized into categories that describe the operational data processed by the service, how each data class fits within the security model, where data is stored, how long it is retained, and whether it leaves the customer environment.
+NetApp Workload Factory data handling is organized into categories that describe the operational data processed by the service, how each data class fits within the security model, where data is stored, how long it is retained, and whether it leaves the customer environment. The primary data classes include configuration and metadata, operational logs and events, and telemetry. Retained data can include FSx for ONTAP configuration snapshots, credential references, AI usage and cost data, audit records, and short-lived response caches. The storage and processing locations vary by data type, with some information kept in the customer AWS account and other operational data stored in the NetApp account.
 
 == Data classes handled by Workload Factory
 

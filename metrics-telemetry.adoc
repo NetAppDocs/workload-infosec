@@ -13,7 +13,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ./media/
 
 [.lead]
-Volume-level and file system-level metrics are used for operational logs and events, collected and stored in AWS CloudWatch. This is a reference for the metrics collected, including definitions, collection cadence, and retention details.
+NetApp Workload Factory collects and stores volume-level and file system-level metrics in AWS CloudWatch for operational logs and events. The metrics provide operational visibility at the volume and file system levels. The reference also includes computed metrics, like throughput, that are derived from collected CloudWatch values. The following sections describe the metric definitions, collection cadence, refresh behavior, and retention details.
 
 == Metrics included
 

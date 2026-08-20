@@ -13,9 +13,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 
 [.lead]
 
-Link is an AWS Lambda function deployed in your VPC that keeps ONTAP-native operations inside your AWS account boundary when those operations are not exposed by the AWS FSx API.
-
-For the full cross-system connectivity map, refer to link:connectivity-trust-paths.html[Connectivity and trust paths for NetApp Workload Factory].
+NetApp Workload Factory uses a _link_, an AWS Lambda function deployed in your VPC, to keep ONTAP-native operations inside your AWS account boundary when those operations are not exposed by the Amazon FSx for NetApp ONTAP API. The link runs in your subnets and security groups, so the execution component remains within your AWS environment. Workload Factory invokes the link only for operations that require direct ONTAP access rather than an available AWS service API. The following sections describe the link architecture and compare its security and operational characteristics with the NetApp Console agent.
 
 == Link security architecture
 
@@ -47,3 +45,7 @@ The Lambda link and the NetApp Console agent serve different purposes and have d
 |Data services support |Does not host data services |Can host data services (runs NetApp console service pods)
 |Operational overhead |No always-on VM |VM lifecycle management and upgrades
 |===
+
+== Related information
+
+For the full cross-system connectivity map, refer to link:connectivity-trust-paths.html[Connectivity and trust paths for NetApp Workload Factory].

@@ -40,4 +40,4 @@ You are responsible for:
 * IAM permission tier selection and policy artifacts
 * Network boundary decision (AWS API-only vs VPC execution component such as Lambda link)
 * Observability decisions and retention expectations
-* AI enablement decision (AI diagnostics are disabled by default unless explicitly enabled)
+* AI enablement decision (AI diagnostics are enabled by default unless explicitly disabled)

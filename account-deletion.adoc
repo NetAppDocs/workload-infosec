@@ -14,7 +14,7 @@ summary: "When you delete a Workload Factory account, make sure you safely remov
 
 [.lead]
 
-When you delete a Workload Factory account, make sure you safely remove any data currently associated with your account.
+When you delete a Workload Factory account, make sure you safely remove any data currently associated with your account. Account deletion is an offboarding workflow that can involve both the Workload Factory service and resources in your AWS account. The cleanup includes file systems, credentials, links, notification channels, and related IAM, Lambda, and CloudWatch resources. Follow the checklist to remove these resources and associated data in the documented sequence.
 
 .About this task 
 

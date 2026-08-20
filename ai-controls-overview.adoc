@@ -14,7 +14,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 [.lead]
 Workload Factory includes generative AI features that accelerate diagnosis while enforcing security controls for model access, data scope, and runtime behavior.
 
-AI diagnostics are disabled by default.
+AI diagnostics are enabled by default.
 
 == Security-scoped AI feature overview
 

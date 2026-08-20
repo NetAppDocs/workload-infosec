@@ -13,9 +13,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 
 [.lead]
 
-Lambda link request and port boundaries define required outbound connectivity and IAM-authorized invocation.
-
-For the full cross-system connectivity map, refer to link:connectivity-trust-paths.html[connectivity and trust paths for NetApp Workload Factory].
+NetApp Workload Factory uses Lambda link request and port boundaries to define required outbound connectivity and IAM-authorized invocation. The link supports HTTPS requests to the ONTAP management endpoint, read-only SSH commands for diagnostics, and health checks. All connectivity is outbound from the link within your VPC, so no inbound connectivity or exposed endpoints are required. Workload Factory invokes the link through the AWS Lambda API using IAM-based authorization.
 
 == Request types
 
@@ -44,3 +42,7 @@ The invocation payload contains:
 * target ONTAP management endpoint (IP/hostname)
 * operation to perform (REST API path or SSH command)
 * authentication information (inline credentials or a Secrets Manager ARN reference)
+
+== Related information
+
+For the full cross-system connectivity map, refer to link:connectivity-trust-paths.html[connectivity and trust paths for NetApp Workload Factory].

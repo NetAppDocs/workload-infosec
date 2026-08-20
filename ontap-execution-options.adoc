@@ -14,14 +14,14 @@ summary: "NetApp Workload Factory takes information security and data protection
 
 [.lead]
 
-Some workflows require ONTAP-native operations that are not exposed through AWS APIs. NetApp Workload Factory supports execution options that keep these operations inside your AWS account boundary.
+Some workflows require ONTAP-native operations that are not exposed through AWS APIs. NetApp Workload Factory supports execution options that keep these operations inside your AWS account boundary. You can choose between a Lambda link that runs ONTAP operations from within your VPC and a NetApp Console Agent that uses outbound-only connectivity from an EC2 instance. Both options provide a way to perform the required ONTAP operations while keeping network, credential, and lifecycle decisions within your security model. The following sections describe how each option works and the security considerations to review.
 
 == Execution options
 
 Lambda link (AWS Lambda in your VPC)::
 Executes ONTAP REST and read-only ONTAP CLI diagnostics from within your VPC, without exposing ONTAP publicly.
 
-Connector/NetApp Console Agent (EC2 in your VPC, outbound-only)::
+NetApp Console Agent (EC2 in your VPC, outbound-only)::
 Executes proxied ONTAP operations where the agent initiates outbound connections and Workload Factory never initiates inbound connections to the agent.
 
 == Security considerations

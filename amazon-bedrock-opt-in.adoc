@@ -12,9 +12,9 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ./media/
 
 [.lead]
-AI diagnostics require IAM permissions, an inference profile, and connectivity controls before they can be enabled.
+AI diagnostics require IAM permissions, an inference profile, and connectivity controls before they can be enabled. The features are enabled by default and become available only after the required AWS permissions and Workload Factory settings are configured. These prerequisites allow Workload Factory to invoke the selected Bedrock model and collect diagnostic data through a connected Lambda link with SSH capability. If a required component is missing or the Bedrock configuration is removed, AI diagnostics remain unavailable.
 
-AI diagnostics are disabled by default.
+AI diagnostics are enabled by default.
 
 == Before you begin
 

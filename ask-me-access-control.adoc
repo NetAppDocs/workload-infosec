@@ -13,7 +13,7 @@ summary: "Ask Me access security centers on authenticated sessions, user-level a
 
 [.lead]
 
-Ask Me access security centers on authenticated sessions, user-level accountability, and protected secret handling during runtime operations.
+In NetApp Workload Factory, Ask Me access security centers on authenticated sessions, user-level accountability, and protected secret handling during runtime operations. Authentication controls validate each session and associate interactions with a specific user. Sensitive credentials are retrieved from a managed secrets vault at runtime and redacted from logs. The service also applies infrastructure controls, including non-root container execution and a restricted CORS allowlist.
 
 == Authentication
 

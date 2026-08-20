@@ -13,11 +13,11 @@ summary: "Workload Factory uses AWS `sts:AssumeRole` to obtain temporary credent
 
 [.lead]
 
-Workload Factory uses AWS `sts:AssumeRole` to obtain temporary credentials for your AWS account, so long-term AWS access keys are not stored by the service.
+Workload Factory uses the AWS `sts:AssumeRole` to obtain temporary credentials for your AWS account, so long-term AWS access keys are not stored by the service. During onboarding, you configure an IAM role in your AWS account that Workload Factory can assume for approved AWS API operations. The role trust policy uses an external ID to help prevent unauthorized use of the role in a cross-account access scenario. Workload Factory uses the resulting short-lived credentials at runtime, and AWS automatically expires them after their session duration.
 
 == AWS account configuration
 
-To let Workload Factory access to your AWS account:
+To let Workload Factory access your AWS account:
 
 . Deploy an IAM role in your AWS account (using CloudFormation or manually).
 . Ensure the role trust policy allows the service principal for Workload Factory to assume it, gated by an external ID.
@@ -25,7 +25,7 @@ To let Workload Factory access to your AWS account:
 +
 Embed it as a condition in your IAM role trust policy (`sts:ExternalId`).
 +
-The external ID prevents confused deputy attacks. In a cross-account access model, an attacker who discovers a customer's role ARN cannot assume that role without also possessing the corresponding external ID.
+The external ID prevents confused deputy attacks. In a cross-account access model, an attacker who discovers a customer's role ARN cannot assume that role without also possessing the corresponding external ID. This is the AWS-recommended pattern for third-party cross-account access. For more information, refer to the AWS IAM documentation page link:https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html["Access to AWS accounts owned by third parties"^].
 +
 The external ID is generated once during credential onboarding and stored encrypted alongside the role ARN in a Workload Factory database.
 

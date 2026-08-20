@@ -5,7 +5,7 @@ keywords: infosec, security, data handling, data retention, data collection, per
 summary: "CloudWatch monitoring permissions are optional and apply only when you deploy the separate monitoring stack."
 ---
 
-= CloudWatch monitoring permissions for NetApp Workload Factory
+= Amazon CloudWatch monitoring permissions for NetApp Workload Factory
 :nofooter:
 :icons: font
 :linkattrs:
@@ -13,7 +13,7 @@ summary: "CloudWatch monitoring permissions are optional and apply only when you
 
 [.lead]
 
-CloudWatch monitoring permissions are optional and apply only when you deploy the separate monitoring stack.
+In NetApp Workload Factory, Amazon CloudWatch monitoring permissions are optional and apply only when you deploy the separate monitoring stack. The monitoring stack provides operational visibility by collecting file system metrics and publishing event logs. It can also manage CloudWatch dashboards and alarms and send alert notifications through Amazon SNS. The stack requires access to retrieve ONTAP credentials when those credentials are needed for monitoring.
 
 == Required CloudWatch monitoring permissions 
 The following permissions are required for the optional monitoring stack:
