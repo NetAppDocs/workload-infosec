@@ -13,19 +13,15 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ./media/
 
 [.lead]
-
-You can restrict Workload Factory IAM permissions at any time to align with least-privilege requirements, including:
-
-* Limiting access to specific resources (ARNs)
-* Applying IAM conditions (for example, tags and CIDR ranges)
+You can restrict Workload Factory IAM permissions at any time to align with least-privilege requirements, such as limiting access to specific resources (ARNs) and applying IAM conditions, for example, tags and CIDR ranges.
 
 == Tiered permission model
 
 Workload Factory uses a tiered permission model aligned with least privilege. You choose which capability tiers to enable when adding AWS credentials. You can start with read-only discovery and expand as needed.
 
-All permissions are granted through an IAM role in your AWS account that Workload Factory assumes via STS with an external ID.
+Workload Factory grants all permissions through an IAM role in your AWS account, which it assumes via STS with an external ID.
 
-Each API call is further scoped with an inline session policy.
+Workload Factory further scopes each API call with an inline session policy.
 
 In the Workload Factory console, the AI chat feature Ask Me helps you safely refine permissions by suggesting restriction options and generating an updated policy to apply in AWS.
 

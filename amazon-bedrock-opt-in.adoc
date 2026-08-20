@@ -12,7 +12,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ./media/
 
 [.lead]
-AI diagnostics require IAM permissions, an inference profile, and connectivity controls before they can be enabled. The features are enabled by default and become available only after the required AWS permissions and Workload Factory settings are configured. These prerequisites allow Workload Factory to invoke the selected Bedrock model and collect diagnostic data through a connected Lambda link with SSH capability. If a required component is missing or the Bedrock configuration is removed, AI diagnostics remain unavailable.
+NetApp Workload Factory AI diagnostics use Amazon Bedrock to analyze events, and the feature is enabled by default. Before Workload Factory can invoke the selected Bedrock model and collect diagnostic data, you must configure IAM permissions, an inference profile, and a connected Lambda link with SSH capability. If any of these components is missing or the Bedrock configuration is removed, AI diagnostics become unavailable.
 
 AI diagnostics are enabled by default.
 
@@ -41,13 +41,11 @@ To disable AI diagnostics:
 * Remove the Bedrock permissions from your IAM role, or
 * Delete the Bedrock configuration in Workload Factory settings.
 
-AI diagnostics become unavailable immediately with no residual data processing.
+AI diagnostics become unavailable immediately, and no residual data processing occurs.
 
 == Region and cross-region inference profiles
 
-Bedrock inference executes in the AWS region specified by your inference profile.
-If you use a cross-region inference profile, AWS might route the request to any region in the profile’s configuration per standard AWS Bedrock behavior.
-Data does not leave AWS infrastructure.
+Bedrock inference executes in the AWS region specified by your inference profile. If you use a cross-region inference profile, AWS might route the request to any region in the profile's configuration per standard AWS Bedrock behavior. Data does not leave AWS infrastructure.
 
 == AI-powered event analysis using Amazon Bedrock
 

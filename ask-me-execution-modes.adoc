@@ -12,15 +12,13 @@ summary: "Workload Factory provides multiple execution modes for Ask Me, each wi
 :imagesdir: ./media/
 
 [.lead]
-
 NetApp Workload Factory provides multiple execution modes for Ask Me, each with different security and privacy characteristics. When Ask Me uses tool integrations, for example, querying the customer's own Workload Factory resources, tool execution is controlled through layered safeguards. Tool-enabled execution operates within the authenticated user's permissions and applies limits to the duration and scope of each operation. Retrieved data remains in an ephemeral session sandbox that blocks external access and is destroyed when the session ends. Independent prompt and code controls enforce read-only queries, while audit records capture tool activity with sensitive values scrubbed.
 
 == Tool execution safeguards
 
 * Authorization-scoped tools operate within the authenticated user's permissions.
 * Tool execution timeout limits long-running operations.
-* Ephemeral data sandbox stores tool-retrieved data in session scope and is destroyed when the session ends.
-The sandbox disables external access, file I/O, network calls, and extension loading at the engine level.
+* Ephemeral data sandbox stores tool-retrieved data in session scope, blocks external access, file I/O, network calls, and extension loading at the engine level, and is destroyed when the session ends.
 * Read-only query enforcement validates generated queries through a strict allowlist.
 * Prompt-enforced and code-enforced security are applied independently.
 * Tool call auditability logs tool name, parameters, timestamps, and result status with sensitive value scrubbing.

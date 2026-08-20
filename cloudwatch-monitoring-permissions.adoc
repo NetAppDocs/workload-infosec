@@ -12,8 +12,7 @@ summary: "CloudWatch monitoring permissions are optional and apply only when you
 :imagesdir: ./media/
 
 [.lead]
-
-In NetApp Workload Factory, Amazon CloudWatch monitoring permissions are optional and apply only when you deploy the separate monitoring stack. The monitoring stack provides operational visibility by collecting file system metrics and publishing event logs. It can also manage CloudWatch dashboards and alarms and send alert notifications through Amazon SNS. The stack requires access to retrieve ONTAP credentials when those credentials are needed for monitoring.
+Amazon CloudWatch monitoring permissions are optional in NetApp Workload Factory and apply only when you deploy the separate monitoring stack. The monitoring stack provides operational visibility by collecting file system metrics, publishing event logs, managing CloudWatch dashboards and alarms, and sending alert notifications through Amazon SNS. The stack also requires access to retrieve ONTAP credentials when needed for monitoring.
 
 == Required CloudWatch monitoring permissions 
 The following permissions are required for the optional monitoring stack:

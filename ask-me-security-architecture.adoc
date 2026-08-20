@@ -26,7 +26,8 @@ Ask Me uses retrieval-augmented generation (RAG).
 == Multi-layer prompt security
 
 * Layer 1: Security classifier (LLM-as-a-judge) blocks malicious queries (prompt injection, privilege escalation, data exfiltration, social engineering, policy violations).
-Blocked queries are logged; the generative model never sees blocked queries.
++
+The system logs blocked queries, and the generative model never sees them.
 * Layer 2: System prompt hardening prevents user input from overriding system instructions.
 * Layer 3: Domain scoping limits responses to FSx ONTAP and Workload Factory topics.
 * Layer 4: Tool-use governance validates parameters and runs queries in a hardened sandbox; the model cannot execute arbitrary operations.

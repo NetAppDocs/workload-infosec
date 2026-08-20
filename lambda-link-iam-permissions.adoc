@@ -12,7 +12,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ./media/
 
 [.lead]
-NetApp Workload Factory uses Lambda link permission boundaries to define the IAM access required for Lambda execution and Workload Factory invocation. Link permissions are optional, though they are required for ONTAP-native operations. When configured with Secrets Manager support, the link retrieves ONTAP credentials directly from your AWS Secrets Manager at runtime. The actual password transits only within your VPC, from Secrets Manager to the Lambda function and then to the ONTAP endpoint.
+NetApp Workload Factory uses Lambda link permission boundaries to define the IAM access required for Lambda execution and Workload Factory invocation. These permissions are optional, but they are required for ONTAP-native operations. When you configure Secrets Manager support, the link retrieves ONTAP credentials directly from your AWS Secrets Manager at runtime, and the password transits only within your VPC, from Secrets Manager to the Lambda function and then to the ONTAP endpoint.
 
 For request-path and port requirements, refer to link:lambda-link-ports-calls.html[Lambda link ports and calls].
 

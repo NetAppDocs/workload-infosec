@@ -68,11 +68,11 @@ sidebar:
           url: /ai-model-parameters-billing.html
         - title: Ask Me AI assistant
           entries:
-            - title: AI security architecture
+            - title: Ask Me security architecture
               url: /ask-me-security-architecture.html
             - title: Ask Me access control
               url: /ask-me-access-control.html           
-            - title: Ask me execution modes
+            - title: Ask Me execution modes
               url: /ask-me-execution-modes.html
             - title: Ask Me privacy and availability
               url: /ask-me-privacy-availability.html

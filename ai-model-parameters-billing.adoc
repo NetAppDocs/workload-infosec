@@ -12,7 +12,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ./media/
 
 [.lead]
-NetApp Workload Factory defines the model configuration and usage and billing boundaries relevant to AI governance. The configured model uses deterministic parameters and returns structured JSON to support consistent analysis results. Amazon Bedrock inference is billed to your AWS account, while Workload Factory tracks AI usage and provides per-account monthly cost visibility. The following sections describe the model parameters and the limits that apply to AI consumption.
+NetApp Workload Factory defines the model configuration and usage and billing boundaries relevant to AI governance. The configured model uses deterministic parameters and returns structured JSON to support consistent analysis results. AWS bills Amazon Bedrock inference to your account, while Workload Factory tracks AI usage and provides per-account monthly cost visibility. These sections describe the model parameters and the limits that apply to AI consumption.
 
 == Model and parameters
 
@@ -28,6 +28,8 @@ NetApp Workload Factory defines the model configuration and usage and billing bo
 
 == Billing and usage limits
 
-* Bedrock inference is billed to your AWS account (your inference profile, your credentials).
-* Workload Factory tracks usage internally to provide visibility into AI consumption.
-* Per-account monthly cost tracking is available.
+* AWS bills Bedrock inference to your account (your inference profile, your credentials).
+* Workload Factory tracks AI usage internally.
+* Workload Factory provides per-account monthly cost visibility.
++
+link:https://docs.netapp.com/us-en/workload-fsx-ontap/track-costs.html[Track storage costs in NetApp Workload Factory^]

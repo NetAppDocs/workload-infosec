@@ -12,17 +12,16 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ./media/
 
 [.lead]
-
 Learn about cross-system connectivity paths and trust boundaries for NetApp Workload Factory network and IAM integration.
 
 == Connectivity paths
 
 === Workload Factory to AWS APIs
 
-Used for `DescribeFileSystems`, `DescribeVolumes`, `CreateVolume`, `UpdateVolume`, `DeleteVolume`,
+Workload Factory uses `DescribeFileSystems`, `DescribeVolumes`, `CreateVolume`, `UpdateVolume`, `DeleteVolume`,
 `CreateFileSystem`, `CreateBackup`, `DescribeBackups`, and EC2/VPC APIs for subnet and security group discovery.
 
-* Collector service scans about every 5 hours.
+* Collector service scans about every five hours.
 * CRUD operations run on demand.
 * All calls use STS-assumed temporary credentials with an external ID.
 
@@ -33,9 +32,9 @@ image::workflow-1.png[Workflow 1: Discovering and monitoring (Read-only AWS API 
 === Workload Factory to customer AWS account resources (orchestration and automation)
 Workload Factory interacts with AWS to communicate and create resources. Orchestration and automation occurs in several ways.
 
-* AWS CloudFormation templates: To create resources like roles and file systems, we leverage the AWS CloudFormation templates. For example, in the user interface, when creating a file system, we can call CloudFormation directly and you are redirected to your AWS account. 
-* AWS API calls: For sending API commands for any FSx for ONTAP-related activities, we use AWS API calls (STS `AssumeRole`). 
-* AWS Lambda: For deploying a link that is used to communicate with ONTAP, we use CloudFormation to deploy an AWS Lambda function.
+* AWS CloudFormation templates: Workload Factory uses AWS CloudFormation templates to create resources like roles and file systems. For example, when you create a file system in the user interface, Workload Factory calls CloudFormation directly and redirects you to your AWS account.
+* AWS API calls: Workload Factory uses AWS API calls (STS `AssumeRole`) to send API commands for FSx for ONTAP-related activities.
+* AWS Lambda: Workload Factory uses CloudFormation to deploy an AWS Lambda function for the link that communicates with ONTAP.
 
 === Lambda link to ONTAP management endpoint
 Lambda link runs inside the customer VPC for private subnet access without exposing ONTAP publicly.
@@ -56,7 +55,7 @@ This keeps the password within your account boundary and prevents transmission f
 
 === Workload Factory and customer components to Amazon Bedrock (AI diagnostics)
 
-Used only when AI diagnostics are enabled.
+This path is used only when AI diagnostics are enabled.
 
 * Event Analyzer uses this path for EMS analysis and latency diagnostics.
 * Bedrock runs with your assumed credentials and inference profile ARN, so data does not flow to NetApp’s account.

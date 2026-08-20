@@ -12,8 +12,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ./media/
 
 [.lead]
-
-NetApp Workload Factory data handling is organized into categories that describe the operational data processed by the service, how each data class fits within the security model, where data is stored, how long it is retained, and whether it leaves the customer environment. The primary data classes include configuration and metadata, operational logs and events, and telemetry. Retained data can include FSx for ONTAP configuration snapshots, credential references, AI usage and cost data, audit records, and short-lived response caches. The storage and processing locations vary by data type, with some information kept in the customer AWS account and other operational data stored in the NetApp account.
+NetApp Workload Factory organizes data handling into categories that describe the operational data the service processes, how each data class fits within the security model, where data is stored, how long it's retained, and whether it leaves the customer environment. The primary data classes include configuration and metadata, operational logs and events, and telemetry. Retained data can include FSx for ONTAP configuration snapshots, credential references, AI usage and cost data, audit records, and short-lived response caches. Storage and processing locations vary by data type: some information stays in the customer AWS account, while other operational data is stored in the NetApp account.
 
 == Data classes handled by Workload Factory
 
@@ -40,7 +39,7 @@ Workload Factory keeps the following data:
 === AWS account
 
 * ONTAP admin passwords are stored in your AWS Secrets Manager.
-* AI inference (EMS analysis) uses your inference profile ARN through an STS-assumed role and is processed by Amazon Bedrock within your AWS account.
+* Amazon Bedrock processes AI inference (EMS analysis) using your inference profile ARN through an STS-assumed role within your AWS account.
 
 === NetApp account
 
@@ -154,7 +153,7 @@ Refer to link:metrics-telemetry.html[metrics and telemetry reference for NetApp 
 === Export policies
 
 * Policy name, ID, associated SVM
-* Rules: protocol list (NFS/CIFS/FlexCache), client match patterns, read-only rules, read-write rules, superuser rules, rule index/priority
+* Rules: protocol list (NFS/CIFS/FlexCache), client match patterns, read-only rules, read/write rules, superuser rules, rule index/priority
 * SUID, device creation, chown mode, anonymous user mapping, NTFS UNIX security settings
 
 === S3 access points

@@ -13,12 +13,11 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ./media/
 
 [.lead]
-
-Security responsibility is shared across NetApp (SaaS operation), AWS (cloud infrastructure and managed services), and you (customer configuration). 
+Security responsibility is shared across NetApp (SaaS operation), AWS (cloud infrastructure and managed services), and you (customer configuration).
 
 == NetApp responsibilities (service side)
 
-NetApp is responsible for operating and securing the Workload Factory SaaS platform, including service-side handling of stored configuration references and operational data as documented in this guide.
+NetApp is responsible for operating and securing the Workload Factory SaaS platform. This includes service-side handling of stored configuration references and operational data.
 
 == AWS responsibilities (cloud platform)
 

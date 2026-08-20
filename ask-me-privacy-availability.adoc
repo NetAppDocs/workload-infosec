@@ -18,10 +18,9 @@ In NetApp Workload Factory, Ask Me privacy controls limit data exposure, keep se
 
 * User data in prompts: processed by a managed AI service that does not use customer inputs to train or improve foundation models.
 * Knowledge base content: curated, published NetApp documentation only; no customer data is included.
-* Operational data: when a user queries their own resources, retrieved data is held only in ephemeral, in-memory storage for the duration of the session.
-It is not persisted or shared.
-* Audit logging: query metadata (anonymized user ID, timestamps, durations) is logged; sensitive fields are scrubbed.
-* Feedback data: stored separately and linked to a query ID (not to direct personally identifying data beyond anonymized user ID).
+* Operational data: retrieved only when a user queries their own resources; held in ephemeral, in-memory storage for the duration of the session and not persisted or shared.
+* Audit logging: query metadata (anonymized user ID, timestamps, durations) logged, with sensitive fields scrubbed.
+* Feedback data: stored separately and linked to a query ID, not to personally identifiable information beyond the anonymized user ID.
 
 == Availability and isolation controls
 

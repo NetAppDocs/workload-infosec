@@ -12,7 +12,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ./media/
 
 [.lead]
-AWS Bedrock uses the AWS CLI and ONTAP CLI diagnostic tools in a read-only manner. These tools allow the AI features to inspect supported AWS and ONTAP environments to help diagnose issues without changing the resources they examine. Mutating commands are blocked, and command output is subject to size and execution limits. Data is only used transiently for diagnostic purposes and is not retained by NetApp Workload Factory or AWS.
+Amazon Bedrock uses the AWS CLI and ONTAP CLI diagnostic tools in a read-only manner. These tools allow the AI features to inspect supported AWS and ONTAP environments to help diagnose issues without changing the resources they examine. The tools block mutating commands and limit output by size and execution. Data is only used transiently for diagnostic purposes and is not retained by NetApp Workload Factory or AWS.
 
 == Tool safety controls
 
@@ -28,4 +28,4 @@ The agent cannot modify, create, or delete resources. It can only observe and di
 == Data retention and model training boundaries
 
 Per AWS policy, Amazon Bedrock does not store or use your inputs and outputs to train or improve foundation models.
-For on-demand inference (used by Workload Factory), your data is processed transiently and not retained by AWS after the response is returned.
+For on-demand inference (used by Workload Factory), AWS processes your data transiently and does not retain it after returning the response.

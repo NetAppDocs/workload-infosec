@@ -13,7 +13,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ./media/
 
 [.lead]
-Information security is a core part of NetApp Workload Factory design and operation. This guide helps Information Security, Cloud Platform, and Storage teams evaluate and onboard Workload Factory in a way that supports enterprise security requirements.
+Information security is a core part of NetApp Workload Factory design and operation. Information Security, Cloud Platform, and Storage teams can use these details to evaluate and onboard Workload Factory in a way that supports enterprise security requirements.
 
 == What Workload Factory is
 
@@ -35,7 +35,7 @@ Ensure authorized users can access the service and workloads through resilient A
 == Get started quickly
 * Start with _view, planning, and analysis_ (read-only) permissions and expand only as required.
 * Use AWS CloudTrail to validate `sts:AssumeRole` activity for the integration role.
-* Decide upfront whether you need ONTAP-native operations (which may require deploying Lambda link or NetApp Console agent).
+* Decide upfront whether you need ONTAP-native operations that require deploying Lambda link or NetApp Console agent.
 * Decide upfront whether generative AI is permitted and whether residency constraints require single-region inference profiles.
 
 == Types of information covered in this guide

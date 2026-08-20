@@ -12,10 +12,10 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ./media/
 
 [.lead]
-NetApp Workload Factory uses Lambda link lifecycle controls to manage deployment, health monitoring, and controlled image updates with minimal operational exposure. The Lambda link container image can be updated to deploy improvements or security patches without requiring you to redeploy the CloudFormation stack. This update process uses the `lambda:UpdateFunctionCode` permission. The lifecycle controls also define how you monitor link health and remove the Lambda link and its associated resources when they are no longer needed.
+NetApp Workload Factory uses Lambda link lifecycle controls to manage deployment, health monitoring, and controlled image updates with minimal operational exposure. You can update the Lambda link container image to deploy improvements or security patches without redeploying the Amazon CloudFormation stack, using the `lambda:UpdateFunctionCode` permission. The lifecycle controls also define how you monitor link health and remove the Lambda link and its associated resources when they are no longer needed.
 
 == Lifecycle control points
 
 * Deployment: automated via Amazon CloudFormation or Terraform stack deployment
 * Monitoring: health checks detect connectivity issues; failure counters track reliability
-* Removal: delete the CloudFormation stack from your AWS account to remove the Lambda and associated resources
+* Removal: deleting the CloudFormation stack removes the Lambda and associated resources from your AWS account
