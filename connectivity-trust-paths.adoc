@@ -12,9 +12,12 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ./media/
 
 [.lead]
-Learn about cross-system connectivity paths and trust boundaries for NetApp Workload Factory network and IAM integration.
+NetApp Workload Factory communicates with AWS APIs, customer AWS account resources, AWS Lambda link, and Amazon Bedrock, each with its own protocols, ports, and authentication methods. These connections are organized into groups that separate the AWS management plane, the ONTAP data plane, and Lambda link traffic so you can evaluate trust boundaries independently.
 
 == Connectivity paths
+Workload Factory establishes several distinct connectivity paths, each serving a specific purpose in discovering, provisioning, and managing your AWS and ONTAP resources. Some paths originate from Workload Factory itself using assumed AWS credentials, while others run through Lambda link, which operates inside your VPC to reach ONTAP management endpoints without exposing them publicly. An optional path to Amazon Bedrock supports AI-assisted diagnostics and is active only when your organization enables that feature.
+
+The following sections describe each path, including the AWS or ONTAP APIs involved, the credentials or authentication used, and any conditions that determine whether the path is active. Understanding these paths helps you evaluate what network access and permissions Workload Factory requires, and where data crosses account or VPC boundaries.
 
 === Workload Factory to AWS APIs
 
@@ -37,9 +40,9 @@ Workload Factory interacts with AWS to communicate and create resources. Orchest
 * AWS Lambda: Workload Factory uses CloudFormation to deploy an AWS Lambda function for the link that communicates with ONTAP.
 
 === Lambda link to ONTAP management endpoint
-Lambda link runs inside the customer VPC for private subnet access without exposing ONTAP publicly.
+Lambda links run inside the customer VPC for private subnet access without exposing ONTAP publicly. All connectivity from the link to the ONTAP management endpoint is outbound only, so no inbound connectivity or exposed endpoints are required. The link is used only for ONTAP-native operations that the Amazon FSx for NetApp ONTAP API doesn't expose.
 
-Workload Factory uses the following protocols:
+Workload Factory uses the following protocols for volume, storage VM, and cluster operations, and for read-only diagnostics and performance data:
 
 * HTTPS/443 (REST)
 * SSH/22 (CLI)
@@ -87,7 +90,7 @@ The ONTAP data plane is always proxied through Lambda link; Workload Factory ser
 [cols="2,1,1,2,2,3",options="header"]
 |===
 |Connection |Protocol |Port |Direction |Auth |Justification
-|ONTAP REST API |HTTPS |443 |Link (customer VPC) → ONTAP management LIF |Basic auth (username/password) or Secrets Manager ARN |Cluster, volume, and SVM configuration; QoS; EMS events; ARP status
+|ONTAP REST API |HTTPS |443 |Link (customer VPC) → ONTAP management LIF |Basic auth (username/password) or Secrets Manager ARN |Cluster, volume, and storage VM configuration; QoS; EMS events; ARP status
 |ONTAP SSH CLI |SSH |22 |Link (customer VPC) → ONTAP management LIF |Password auth |Diagnostic commands (QoS stats, df, event logs, efficiency)
 |===
 

@@ -16,7 +16,7 @@ NetApp Workload Factory uses Lambda link request and port boundaries to define r
 
 == Request types
 
-* HTTPS (ONTAP REST API): proxies HTTPS calls to the ONTAP management endpoint (port 443) for volume, SVM, and cluster operations.
+* HTTPS (ONTAP REST API): proxies HTTPS calls to the ONTAP management endpoint (port 443) for volume, storage VM, and cluster operations.
 * SSH (ONTAP CLI): executes read-only ONTAP CLI commands on port 22 for diagnostics and performance data.
 * Health check: returns status and supported features.
 

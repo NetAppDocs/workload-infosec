@@ -94,7 +94,9 @@ Every tracked operation sends the following information:
 
 === AI analysis traffic
 
-Refer to:
+FSx for ONTAP Emergency Management System (EMS) events, latency data, and error logs submitted for AI diagnostics travel to Amazon Bedrock through your AWS account using your configured inference profile, so this traffic stays within your environment rather than reaching NetApp systems.
+
+For more information about AI analysis traffic, refer to:
 
 * link:ai-controls-overview.html[AI controls overview for NetApp Workload Factory]
 * link:amazon-bedrock-opt-in.html[Bedrock opt-in for NetApp Workload Factory AI diagnostics]
@@ -106,7 +108,7 @@ Refer to link:connectivity-trust-paths.html[connectivity and trust paths for Net
 
 === Telemetry and metrics collection
 
-Refer to link:metrics-telemetry.html[metrics and telemetry reference for NetApp Workload Factory].
+Refer to the link:metrics-telemetry.html[metrics and telemetry reference].
 
 == Configuration and metadata collection scope
 
@@ -130,7 +132,7 @@ Refer to link:metrics-telemetry.html[metrics and telemetry reference for NetApp 
 * Data efficiency: compression type/state, deduplication, compaction, space savings
 * Autosize: mode (grow/grow_shrink/off), min/max size, grow/shrink thresholds
 * SnapLock: type (compliance/enterprise/non_snaplock), retention periods (min/max/default), autocommit period
-* Clone: parent volume/snapshot/SVM, is FlexClone, split status
+* Clone: parent volume/snapshot/storage VM, is FlexClone, split status
 * Inodes/files: maximum possible, maximum configured, used count
 * Encryption: enabled/disabled status
 * Access time: atime update enabled/disabled and update period
@@ -152,7 +154,7 @@ Refer to link:metrics-telemetry.html[metrics and telemetry reference for NetApp 
 
 === Export policies
 
-* Policy name, ID, associated SVM
+* Policy name, ID, associated storage VM
 * Rules: protocol list (NFS/CIFS/FlexCache), client match patterns, read-only rules, read/write rules, superuser rules, rule index/priority
 * SUID, device creation, chown mode, anonymous user mapping, NTFS UNIX security settings
 
@@ -178,7 +180,7 @@ Workload Factory collects both configuration status and event details:
 === Replication / SnapMirror
 
 * Relationship UUID, state, healthy status
-* Source and destination (SVM, path, cluster)
+* Source and destination (storage VM, path, cluster)
 * Transfer statistics (bytes transferred, duration, end time, state)
 * Policy (name, type: async/sync/continuous)
 * Throttle setting
@@ -205,13 +207,13 @@ Workload Factory collects both configuration status and event details:
 
 === FlexCache
 
-* Origin volume/SVM/cluster, cache size, path
+* Origin volume/storage VM/cluster, cache size, path
 * Writeback enabled, DR cache status
 * Relative sizing configuration
 * Prepopulate directory paths
 * Connection status between cache and origin
 
-=== SVM level
+=== Storage VM level
 
 * Name, UUID, state (running/stopped), subtype
 * Protocols enabled/allowed (NFS, CIFS, iSCSI, FCP, NVMe, S3)
@@ -221,7 +223,7 @@ Workload Factory collects both configuration status and event details:
 * Assigned aggregates
 * Anti-ransomware default volume state
 * Space enforcement settings
-* Peer relationships (applications, state, remote cluster/SVM)
+* Peer relationships (applications, state, remote cluster/storage VM)
 
 === Aggregate / storage level
 
