@@ -18,7 +18,7 @@ NetApp Workload Factory uses a _link_, an AWS Lambda function deployed in your V
 
 The following diagram shows ONTAP operations using a Lambda link.
 
-image::workflow-2.png[Workflow 2: ONTAP operations (using Lambda link)]
+image::workflow-2-ontap-operations.png[Workflow 2: ONTAP operations (using Lambda link)]
 
 [cols="2,3",options="header"]
 |===

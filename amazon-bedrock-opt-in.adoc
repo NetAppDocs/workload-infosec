@@ -51,4 +51,4 @@ Bedrock inference executes in the AWS region specified by your inference profile
 
 The following diagram shows the data flow for AI-powered event analysis using Amazon Bedrock.
 
-image::workflow-3.png[Workflow 3: AI-powered event analysis (Amazon Bedrock)]
+image::workflow-3-ai-analysis.png[Workflow 3: AI-powered event analysis (Amazon Bedrock)]

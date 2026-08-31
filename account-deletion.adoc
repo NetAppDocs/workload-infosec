@@ -21,7 +21,7 @@ Deleting a Workload Factory account includes deleting all file systems, credenti
 
 This diagram shows the data removal flow for customer offboarding from Workload Factory.
 
-image:workflow-7.png[Workflow 7: Customer offboarding and data removal]
+image:workflow-7-offboarding.png[Workflow 7: Customer offboarding and data removal]
 
 .Steps 
 

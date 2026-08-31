@@ -42,7 +42,7 @@ When you store ONTAP credentials (admin passwords) through Workload Factory, it 
 
 The following diagram shows KMS envelope encryption for ONTAP password storage.
 
-image::workflow-5.png[Workflow 5: KMS envelope encryption (ONTAP password storage)]
+image::workflow-5-kms-encryption.png[Workflow 5: KMS envelope encryption (ONTAP password storage)]
 
 Encryption method::
 AES-256-CBC with a unique data encryption key (DEK) per credential record.
