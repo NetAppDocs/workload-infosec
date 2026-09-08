@@ -17,9 +17,7 @@ NetApp Workload Factory uses a _link_, an AWS Lambda function deployed in your V
 == Link security architecture
 A Workload Factory link creates a trust relationship and indirect connectivity between a Workload Factory account and one or more FSx for ONTAP file systems.
 
-The following diagram shows ONTAP operations using a Lambda link.
-
-image:workflow-2-ontap-operations.png[Diagram showing how ONTAP operations use a Lambda link.]
+The following diagram shows the security architecture of the Lambda link.
 
 image:infosec-link-diagram.png[Diagram showing the security architecture of the Lambda link.]
 
