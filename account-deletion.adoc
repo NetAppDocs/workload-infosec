@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: account-deletion.html
 keywords: account deletion, data removal, offboarding, file system deletion, credential deletion, link deletion, notification channel deletion, IAM role deletion, Lambda link deletion, CloudWatch monitoring stack deletion
-summary: "When you delete a Workload Factory account, make sure you safely remove any data currently associated with your account."
+summary: "Account deletion is not a self-service operation; it is an offboarding workflow that involves both the Workload Factory service and resources in your AWS account."
 ---
 
-= Delete a NetApp Workload Factory account
+= NetApp Workload Factory account deletion
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,50 +13,11 @@ summary: "When you delete a Workload Factory account, make sure you safely remov
 :imagesdir: ./media/
 
 [.lead]
-When you delete a Workload Factory account, make sure you safely remove any data currently associated with your account. Account deletion is an offboarding workflow that can involve both the Workload Factory service and resources in your AWS account. The cleanup includes file systems, credentials, links, notification channels, and related IAM, Lambda, and CloudWatch resources. Follow the checklist to remove these resources and associated data in the documented sequence.
+Account deletion is not a self-service operation; it is an offboarding workflow that involves both the Workload Factory service and resources in your AWS account. The operation is irreversible. The cleanup includes file systems, credentials, links, notification channels, and related IAM, Lambda, and CloudWatch resources. 
 
 .About this task 
 
-Deleting a Workload Factory account includes deleting all file systems, credentials, links, and notification channels, as well as IAM roles, Lambda links, and CloudWatch monitoring stacks.
+Account deletion involves safely removing any data currently associated with the NetApp Workload Factory account. When you need to remove your Workload Factory account, you must contact NetApp Support.  
 
-This diagram shows the data removal flow for customer offboarding from Workload Factory.
+link:get-help.adoc[Contact NetApp Support for account deletion]
 
-image:workflow-7-offboarding.png[Workflow 7: Customer offboarding and data removal]
-
-.Steps 
-
-*Question*: Where do these steps occur? In the Workload Factory SaaS service, in your AWS account, or both?
-
-. Delete all file systems using the FSx service DELETE route:
-+
-a. Triggers the AWS `DeleteFileSystemCommand`.
-+
-b. Cascades: deletes ONTAP credentials (passwords), dissociates all links from that file system, and asynchronously deletes the `bluexp_file_system` row after AWS confirms deletion.
-+
-c. Auto-capacity and ARP configurations self-heal: background jobs detect the file system no longer exists and delete the configurations automatically.
-
-. Delete all credentials using the Credentials service DELETE route:
-+
-a. Transactional: deletes the credentials row and all `resource_association` rows.
-+
-b. Does not cascade to file systems, volumes, links, or other configurations.
-
-. Delete all links using the Link service DELETE route:
-+
-a. Deletes `link`, `link_association`, and `deployment` rows from MySQL.
-+
-NOTE: The Lambda function is NOT deleted from your AWS account—only the logical database record is removed.
-
-. Delete notification channels using the Notification service DELETE route:
-+
-a. Removes `notification_channel` rows per account and channel type.
-
-. Manual actions not automated by Workload Factory:
-+
-a. Delete the IAM role CloudFormation stack from your AWS account.
-+
-b. Delete the Link Lambda CloudFormation stack from your AWS account.
-+
-c. (Optional) Delete the CloudWatch monitoring stack if deployed.
-
-. The NetApp account automatically cleans up all remaining file system and volume details.
