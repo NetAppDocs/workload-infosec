@@ -46,9 +46,3 @@ AI diagnostics become unavailable immediately, and no residual data processing o
 == Region and cross-region inference profiles
 
 Bedrock inference executes in the AWS region specified by your inference profile. If you use a cross-region inference profile, AWS might route the request to any region in the profile's configuration per standard AWS Bedrock behavior. Data does not leave AWS infrastructure.
-
-== AI-powered event analysis using Amazon Bedrock
-
-The following diagram shows the data flow for AI-powered event analysis using Amazon Bedrock.
-
-image::workflow-3-ai-analysis.png[Workflow 3: AI-powered event analysis (Amazon Bedrock)]

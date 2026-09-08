@@ -40,10 +40,6 @@ Workload Factory never directly encrypts or decrypts data with your KMS key. It 
 
 When you store ONTAP credentials (admin passwords) through Workload Factory, it protects them using envelope encryption before persisting them.
 
-The following diagram shows KMS envelope encryption for ONTAP password storage.
-
-image::workflow-5-kms-encryption.png[Workflow 5: KMS envelope encryption (ONTAP password storage)]
-
 Encryption method::
 AES-256-CBC with a unique data encryption key (DEK) per credential record.
 

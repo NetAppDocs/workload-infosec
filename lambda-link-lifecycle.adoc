@@ -19,7 +19,3 @@ NetApp Workload Factory uses Lambda link lifecycle controls to manage deployment
 * Deployment: automated via Amazon CloudFormation or Terraform stack deployment
 * Monitoring: health checks detect connectivity issues; failure counters track reliability
 * Removal: deleting the CloudFormation stack removes the Lambda and associated resources from your AWS account
-
-The following diagram illustrates the Lambda link lifecycle for NetApp Workload Factory.
-
-image:workflow-6-link-deployment.png[Workflow 6: Lambda link lifecycle]

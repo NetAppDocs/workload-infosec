@@ -30,7 +30,7 @@ Workload Factory uses `DescribeFileSystems`, `DescribeVolumes`, `CreateVolume`, 
 
 The following diagram shows how Workload Factory discovers and monitors using read-only AWS API calls. 
 
-image::workflow-1-discovery.png[Workflow 1: Discovering and monitoring (Read-only AWS API calls)]
+image:workflow-1-discovery.png[Diagram showing how Workload Factory discovers and monitors using read-only AWS API calls.]
 
 === Workload Factory to customer AWS account resources (orchestration and automation)
 Workload Factory interacts with AWS to communicate and create resources. Orchestration and automation occurs in several ways.
@@ -38,6 +38,10 @@ Workload Factory interacts with AWS to communicate and create resources. Orchest
 * AWS CloudFormation templates: Workload Factory uses AWS CloudFormation templates to create resources like roles and file systems. For example, when you create a file system in the user interface, Workload Factory calls CloudFormation directly and redirects you to your AWS account.
 * AWS API calls: Workload Factory uses AWS API calls (STS `AssumeRole`) to send API commands for FSx for ONTAP-related activities.
 * AWS Lambda: Workload Factory uses CloudFormation to deploy an AWS Lambda function for the link that communicates with ONTAP.
+
+The following diagram shows how Workload Factory uses a trust relationship between a NetApp AWS account and customer AWS accounts with FSx for ONTAP file systems. 
+
+image:infosec-trust.png[Diagram showing how Workload Factory uses a trust relationship between a NetApp AWS account and customer AWS accounts with FSx for ONTAP file systems. (AssumeRole)]
 
 === Lambda link to ONTAP management endpoint
 Lambda links run inside the customer VPC for private subnet access without exposing ONTAP publicly. All connectivity from the link to the ONTAP management endpoint is outbound only, so no inbound connectivity or exposed endpoints are required. The link is used only for ONTAP-native operations that the Amazon FSx for NetApp ONTAP API doesn't expose.
