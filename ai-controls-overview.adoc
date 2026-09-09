@@ -1,10 +1,9 @@
 ---
 sidebar: sidebar
 permalink: ai-controls-overview.html
-keywords: infosec, security, data handling, data retention, data collection, permissions, credentials, iam, assume role, least privilege, compliance, soc 2, govcloud, amazon bedrock, lambda, link, fsx for ontap, logging, audit, access control, onboarding, hardening
-summary: "NetApp Workload Factory takes information security and data protection practices seriously, focusing on data-handling practices and access requirements with guidance for least-privilege configurations and potential hardening."
+keywords: AI controls, generative AI, AI security, Ask Me assistant, latency analysis, EMS event analysis, error log analysis, Amazon Bedrock, AI diagnostics
+summary: "NetApp Workload Factory includes generative AI features that accelerate diagnosis while enforcing security controls for model access, data scope, and runtime behavior."
 ---
-
 = Learn about AI controls in NetApp Workload Factory
 :nofooter:
 :icons: font
@@ -12,7 +11,7 @@ summary: "NetApp Workload Factory takes information security and data protection
 :imagesdir: ./media/
 
 [.lead]
-Workload Factory includes generative AI features that accelerate diagnosis while enforcing security controls for model access, data scope, and runtime behavior.
+NetApp Workload Factory includes generative AI features that accelerate diagnosis while enforcing security controls for model access, data scope, and runtime behavior.
 
 Workload Factory enables AI diagnostics by default.
 

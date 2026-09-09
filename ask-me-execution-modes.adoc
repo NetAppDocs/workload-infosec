@@ -1,10 +1,9 @@
 ---
 sidebar: sidebar
 permalink: ask-me-execution-modes.html
-keywords: infosec, security, data handling, data retention, data collection, permissions, credentials, iam, assume role, least privilege, compliance, soc 2, govcloud, amazon bedrock, lambda, link, fsx for ontap, logging, audit, access control, onboarding, hardening
+keywords: Ask Me execution modes, tool execution safeguards, ephemeral data sandbox, read-only query enforcement, tool call auditability, output controls, token limit, session scope
 summary: "Workload Factory provides multiple execution modes for Ask Me, each with different security and privacy characteristics."
 ---
-
 = Ask Me execution modes for NetApp Workload Factory
 :nofooter:
 :icons: font

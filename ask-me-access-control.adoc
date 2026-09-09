@@ -1,10 +1,9 @@
 ---
 sidebar: sidebar
 permalink: ask-me-access-control.html
-keywords: infosec, security, data handling, data retention, data collection, permissions, credentials, iam, assume role, least privilege, compliance, soc 2, govcloud, amazon bedrock, lambda, link, fsx for ontap, logging, audit, access control, onboarding, hardening
-summary: "Ask Me access security centers on authenticated sessions, user-level accountability, and protected secret handling during runtime operations."
+keywords: Ask Me access control, authentication, JWT, secrets vault, credential protection, log scrubbing, CORS, non-root container, user identity scoping
+summary: "In NetApp Workload Factory, Ask Me access security centers on authenticated sessions, user-level accountability, and protected secret handling during runtime operations."
 ---
-
 = Ask Me access control for NetApp Workload Factory
 :nofooter:
 :icons: font

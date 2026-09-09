@@ -1,10 +1,9 @@
 ---
 sidebar: sidebar
 permalink: cloudwatch-monitoring-permissions.html
-keywords: infosec, security, data handling, data retention, data collection, permissions, credentials, iam, assume role, least privilege, compliance, soc 2, govcloud, amazon bedrock, lambda, link, fsx for ontap, logging, audit, access control, onboarding, hardening
-summary: "CloudWatch monitoring permissions are optional and apply only when you deploy the separate monitoring stack."
+keywords: CloudWatch monitoring permissions, monitoring stack, file system metrics, CloudWatch alarms, CloudWatch dashboards, Amazon SNS, event logs, ONTAP credentials, secretsmanager
+summary: "CloudWatch monitoring permissions are optional in NetApp Workload Factory and apply only when you deploy the separate monitoring stack."
 ---
-
 = Amazon CloudWatch monitoring permissions for NetApp Workload Factory
 :nofooter:
 :icons: font

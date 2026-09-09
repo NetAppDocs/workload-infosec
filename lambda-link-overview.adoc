@@ -1,10 +1,9 @@
 ---
 sidebar: sidebar
 permalink: lambda-link-overview.html
-keywords: infosec, security, data handling, data retention, data collection, permissions, credentials, iam, assume role, least privilege, compliance, soc 2, govcloud, amazon bedrock, lambda, link, fsx for ontap, logging, audit, access control, onboarding, hardening
-summary: "NetApp Workload Factory takes information security and data protection practices seriously, focusing on data-handling practices and access requirements with guidance for least-privilege configurations and potential hardening."
+keywords: Lambda link overview, ONTAP-native operations, VPC deployment, security architecture, NetApp Console agent, CloudFormation, container image
+summary: "NetApp Workload Factory uses a _link_, an AWS Lambda function deployed in your VPC, to keep ONTAP-native operations inside your AWS account boundary when the Amazon FSx for NetApp ONTAP API doesn't expose those operations."
 ---
-
 = Learn about the Lambda link for NetApp Workload Factory
 :nofooter:
 :icons: font

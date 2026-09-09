@@ -23,7 +23,7 @@ Workload Factory grants all permissions through an IAM role in your AWS account,
 
 Workload Factory further scopes each API call with an inline session policy.
 
-In the Workload Factory console, the AI chat feature Ask Me helps you safely refine permissions by suggesting restriction options and generating an updated policy to apply in AWS.
+In the Workload Factory console, the AI chat feature _Ask Me_ helps you safely refine permissions by suggesting restriction options and generating an updated policy to apply in AWS.
 
 == Granting permissions
 
