@@ -13,11 +13,7 @@ summary: "Account deletion is not a self-service operation; it is an offboarding
 :imagesdir: ./media/
 
 [.lead]
-Account deletion is not a self-service operation; it is an offboarding workflow that involves both the Workload Factory service and resources in your AWS account. The operation is irreversible. The cleanup includes file systems, credentials, links, notification channels, and related IAM, Lambda, and CloudWatch resources. 
+Account deletion is not a self-service operation; it is an offboarding workflow that involves both the Workload Factory service and resources in your AWS account. The cleanup includes safely removing any data associated with the Workload Factory account, FSx for ONTAP file systems, credentials, links, notification channels, and related IAM, AWS Lambda, and Amazon CloudWatch resources. The operation is irreversible.
 
-.About this task 
-
-Account deletion involves safely removing any data currently associated with the NetApp Workload Factory account. When you need to remove your Workload Factory account, you must contact NetApp Support.  
-
-link:get-help.adoc[Contact NetApp Support for account deletion]
+When you need to remove your Workload Factory account, you must link:get-help.adoc[contact NetApp Support.]
 
