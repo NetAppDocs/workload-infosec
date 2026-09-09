@@ -45,8 +45,8 @@ image:infosec-trust-2.png[Diagram showing how Workload Factory uses a trust rela
 
 . Workload Factory requests AWS STS `AssumeRole`, using customer-specific external ID from the AWS IAM service.
 . AWS IAM service retrieves a role and creates a session.
-. Workload Factory issues AWS API request with session permissions.
-. Workload Factory receives AWS API response from FSx for ONTAP control plane.
+. Workload Factory issues an AWS API request with session permissions.
+. Workload Factory receives an AWS API response from the FSx for ONTAP control plane.
 
 === Lambda link to ONTAP management endpoint
 Lambda links run inside the customer VPC for private subnet access without exposing ONTAP publicly. All connectivity from the link to the ONTAP management endpoint is outbound only, so no inbound connectivity or exposed endpoints are required. The link is used only for ONTAP-native operations that the Amazon FSx for NetApp ONTAP API doesn't expose.
