@@ -76,7 +76,7 @@ sidebar:
               url: /ask-me-execution-modes.html
             - title: Ask Me privacy and availability
               url: /ask-me-privacy-availability.html
-    - title: Lambda link (customer VPC component)
+    - title: ONTAP operations and Lambda link (customer VPC component)
       entries:
         - title: Lambda link overview
           url: /lambda-link-overview.html
