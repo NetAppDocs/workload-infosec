@@ -32,12 +32,6 @@ Protect systems and configurations from unauthorized or unintended change using 
 Availability::
 Ensure authorized users can access the service and workloads through resilient AWS designs and operational monitoring.
 
-== Get started quickly
-* Start with _view, planning, and analysis_ (read-only) permissions and expand only as required.
-* Use AWS CloudTrail to validate `sts:AssumeRole` activity for the integration role.
-* Decide upfront whether you need ONTAP-native operations that require deploying Lambda link or NetApp Console agent.
-* Decide upfront whether generative AI is permitted and whether residency constraints require single-region inference profiles.
-
 == Types of information covered in this guide
 The following sections provide information to help you evaluate and onboard Workload Factory in a way that supports enterprise security requirements.
 
@@ -64,8 +58,8 @@ The following sections provide information to help you evaluate and onboard Work
 * link:ai-controls-overview.html[AI controls overview]
 * link:lambda-link-overview.html[Lambda link overview]
 
-== Compliance and security posture for NetApp Workload Factory
-
-Compliance and security for NetApp Workload Factory are a top priority for NetApp. All workloads in Workload Factory run on Amazon FSx for NetApp ONTAP. In addition to link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/security.html[AWS security features^], NetApp Workload Factory has link:https://trust.netapp.com/[SOC2 Type 1, SOC2 Type 2, and HIPAA compliance^]. 
-
-Amazon FSx for NetApp ONTAP for NetApp Workload Factory is an link:https://aws.amazon.com/solutions/guidance/deploying-enterprise-apps-with-netapp-bluexp-workload-factory-for-aws-and-amazon-fsx-for-netapp-ontap/[AWS solution for deploying enterprise apps^] created with Well-Architected best practices in mind. 
+== Get started quickly
+* Start with _view, planning, and analysis_ (read-only) permissions and expand only as required.
+* Use AWS CloudTrail to validate `sts:AssumeRole` activity for the integration role.
+* Decide upfront whether you need ONTAP-native operations that require deploying a Lambda link or NetApp Console agent.
+* Decide upfront whether generative AI is permitted and whether residency constraints require single-region inference profiles.
