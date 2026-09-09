@@ -30,7 +30,7 @@ Workload Factory uses `DescribeFileSystems`, `DescribeVolumes`, `CreateVolume`, 
 
 The following diagram shows how Workload Factory discovers and monitors using read-only AWS API calls. 
 
-image:workflow-1-discovery.png[Diagram showing how Workload Factory discovers and monitors using read-only AWS API calls.]
+image:workflow-1-discovery-v2.png[Diagram showing how Workload Factory discovers and monitors using read-only AWS API calls.]
 
 === Workload Factory to customer AWS account resources (orchestration and automation)
 Workload Factory interacts with AWS to communicate and create resources. Orchestration and automation occurs in several ways.
