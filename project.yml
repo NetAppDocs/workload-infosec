@@ -48,7 +48,7 @@ sidebar:
           url: /data-handling-residency.html
         - title: Encryption and key management
           url: /encryption-key-management.html
-        - title: Account deletion checklist
+        - title: Account deletion
           url: /account-deletion.html
     - title: Observability (logs, metrics, telemetry)
       entries:
