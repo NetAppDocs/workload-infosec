@@ -24,5 +24,7 @@ In NetApp Workload Factory, Ask Me privacy controls limit data exposure, keep se
 == Availability and isolation controls
 
 Ask Me employs a multi-model fallback chain across multiple cloud regions.
+
 If the primary model is throttled or unavailable, the system can fail over to alternative models.
+
 All models are subject to the same security controls, system prompt hardening, and isolation guarantees.

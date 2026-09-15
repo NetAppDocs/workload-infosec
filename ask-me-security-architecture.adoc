@@ -13,6 +13,8 @@ summary: "Ask Me is a generative AI-powered assistant embedded within NetApp Wor
 [.lead]
 Ask Me is a generative AI-powered assistant embedded within NetApp Workload Factory. It provides real-time, conversational support for Amazon FSx for NetApp ONTAP and Workload Factory topics. Responses are grounded in verified NetApp documentation, and Ask Me cannot access the public internet or use customer data to train the model. Multiple security layers help block malicious queries, limit responses to supported domains, and prevent user input from overriding system instructions. When Ask Me uses tools, authorization boundaries, read-only query enforcement, an ephemeral sandbox, and audit logging help constrain and monitor execution.
 
+You can opt out of Ask Me at any time through the Workload Factory *Administration* settings, which disables the assistant for your user account. link:https://docs.netapp.com/us-en/workload-setup-admin/manage-genai-features.html[Learn more about managing GenAI features.^]
+
 == RAG architecture in Ask Me
 
 Ask Me uses retrieval-augmented generation (RAG).
