@@ -10,12 +10,14 @@ indexpage:
           url: /learn-about-workload-factory-infosec.html
         - title: Onboarding security workflow
           url: /onboarding-security-workflow.html
-    - title: Architecture and connectivity
+    - title: Security and connectivity
       links:
+        - title: Security model at a glance
+          url: /security-model.html
+        - title: Compliance and security posture
+          url: /compliance-security-posture.html            
         - title: Connectivity and trust paths
           url: /connectivity-trust-paths.html
-        - title: Data flow diagrams reference
-          url: /data-flow-diagrams.html  
     - title: Identity, credentials, and least privilege
       links: 
         - title: AWS credential flow
@@ -26,7 +28,7 @@ indexpage:
           url: /credential-storage-options.html
         - title: Least privilege requirements
           url: /least-privilege-permissions.html  
-    - title: Data protection, privacy, and lifecycle
+    - title: Data governance, privacy, and lifecycle
       links: 
         - title: Data handling and residency
           url: /data-handling-residency.html
@@ -38,19 +40,17 @@ indexpage:
           url: /observability-overview.html
         - title: Metrics and telemetry reference    
           url: /metrics-telemetry.html      
-    - title: Generative AI security
+    - title: Generative AI security controls
       links:
         - title: AI controls overview
           url: /ai-controls-overview.html
-        - title: Ask Me security architecture
-          url: /ask-me-security-architecture.html
         - title: Bedrock opt-in for AI diagnostics
           url: /amazon-bedrock-opt-in.html
         - title: AI tool boundaries
           url: /ai-tool-boundaries.html
         - title: AI model parameters and billing
           url: /ai-model-parameters-billing.html  
-    - title: Lambda link
+    - title: ONTAP operations and Lambda link
       links:
         - title: Lambda link overview
           url: /lambda-link-overview.html  
@@ -59,7 +59,7 @@ indexpage:
     - title: Knowledge and support
       links:
         - title: Register for support
-          url: /support-registration.html
+          url: /register-support.html
         - title: Get help
           url: /get-help.html
     - title: Blogs & community
