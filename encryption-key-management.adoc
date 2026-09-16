@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: encryption-key-management.html
-keywords: encryption, key management, AWS KMS, encryption at rest, envelope encryption, FSx for ONTAP, credential protection, kms:CreateGrant
+keywords: encryption, key management, AWS KMS, encryption at rest, envelope encryption, FSx for ONTAP, credential protection, kms CreateGrant
 summary: "NetApp Workload Factory uses encryption at rest and defines clear key-management responsibilities across Workload Factory and AWS services."
 ---
 = Encryption and key management for NetApp Workload Factory

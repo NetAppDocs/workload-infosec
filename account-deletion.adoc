@@ -2,9 +2,8 @@
 sidebar: sidebar
 permalink: account-deletion.html
 keywords: account deletion, data removal, offboarding, file system deletion, credential deletion, link deletion, notification channel deletion, IAM role deletion, Lambda link deletion, CloudWatch monitoring stack deletion
-summary: "Account deletion is not a self-service operation; it is an offboarding workflow that involves both the Workload Factory service and resources in your AWS account."
+summary: "Account deletion is not a self-service operation. It is an offboarding workflow that involves both the Workload Factory service and resources in your AWS account."
 ---
-
 = NetApp Workload Factory account deletion
 :hardbreaks:
 :nofooter:

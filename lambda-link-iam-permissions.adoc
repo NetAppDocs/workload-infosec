@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: lambda-link-iam-permissions.html
-keywords: Lambda link, IAM permissions, execution role, Secrets Manager, ONTAP credentials, VPC networking, lambda:InvokeFunction, resource-based policy
+keywords: Lambda link, IAM permissions, execution role, Secrets Manager, ONTAP credentials, VPC networking, lambda InvokeFunction, resource-based policy
 summary: "NetApp Workload Factory uses Lambda link permission boundaries to define the IAM access required for Lambda execution and Workload Factory invocation. These permissions are optional but required for ONTAP-native operations."
 ---
 

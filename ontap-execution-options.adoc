@@ -33,4 +33,4 @@ Executes proxied ONTAP operations where the agent initiates outbound connections
 
 * link:lambda-link-overview.html[Lambda link overview for NetApp Workload Factory]
 * link:connectivity-trust-paths.html[Connectivity and trust paths for NetApp Workload Factory]
-* link:encryption-and-key-management.html[Encryption and key management for NetApp Workload Factory]
+* link:encryption-key-management.html[Encryption and key management for NetApp Workload Factory]

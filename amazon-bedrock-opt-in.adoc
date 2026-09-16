@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: amazon-bedrock-opt-in.html
-keywords: Amazon Bedrock, AI diagnostics, opt-in, inference profile, IAM permissions, Lambda link, SSH, bedrock:InvokeModel, disable AI diagnostics
+keywords: Amazon Bedrock, AI diagnostics, opt-in, inference profile, IAM permissions, Lambda link, SSH
 summary: "NetApp Workload Factory AI diagnostics use Amazon Bedrock to analyze events, and the feature is enabled by default."
 ---
 = Amazon Bedrock opt-in for NetApp Workload Factory AI diagnostics

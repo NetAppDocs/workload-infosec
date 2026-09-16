@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: lambda-link-ports-calls.html
-keywords: Lambda link ports, outbound connectivity, HTTPS, SSH, ONTAP REST API, port 443, port 22, lambda:InvokeFunction, health check
+keywords: Lambda link ports, outbound connectivity, HTTPS, SSH, ONTAP REST API, port 443, port 22, lambda InvokeFunction, health check
 summary: "NetApp Workload Factory uses Lambda link request and port boundaries to define required outbound connectivity and IAM-authorized invocation."
 ---
 = Lambda link ports and calls for NetApp Workload Factory

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: lambda-link-lifecycle.html
-keywords: Lambda link lifecycle, deployment, health monitoring, image updates, lambda:UpdateFunctionCode, CloudFormation, Terraform, removal
+keywords: Lambda link lifecycle, deployment, health monitoring, image updates, lambda UpdateFunctionCode, CloudFormation, Terraform, removal
 summary: "NetApp Workload Factory uses Lambda link lifecycle controls to manage deployment, health monitoring, and controlled image updates with minimal operational exposure."
 ---
 = Lambda link lifecycle for NetApp Workload Factory
