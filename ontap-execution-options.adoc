@@ -1,0 +1,36 @@
+---
+sidebar: sidebar
+permalink: ontap-execution-options.html
+keywords: ONTAP execution options, Lambda link, NetApp Console Agent, VPC, outbound-only connectivity, network boundaries, credential boundaries, auditability, lifecycle management
+summary: "Some NetApp Workload Factory workflows require ONTAP-native operations that aren't exposed through AWS APIs. Workload Factory offers two execution options that keep these operations inside your AWS account boundary."
+---
+= ONTAP execution options for NetApp Workload Factory
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+Some NetApp Workload Factory workflows require ONTAP-native operations that aren't exposed through AWS APIs. Workload Factory offers two execution options that keep these operations inside your AWS account boundary: a Lambda link that runs ONTAP operations from within your VPC, and a NetApp Console Agent that uses outbound-only connectivity from an EC2 instance. Both options let you perform required ONTAP operations while keeping network, credential, and lifecycle decisions within your security model.
+
+== Execution options
+
+Lambda link (AWS Lambda in your VPC)::
+Executes ONTAP REST and read-only ONTAP CLI diagnostics from within your VPC, without exposing ONTAP publicly.
+
+NetApp Console Agent (EC2 in your VPC, outbound-only)::
+Executes proxied ONTAP operations where the agent initiates outbound connections and Workload Factory never initiates inbound connections to the agent.
+
+== Security considerations
+
+* Network boundaries: confirm required outbound ports (443/22) and destinations.
+* Credential boundaries: decide whether ONTAP credentials are stored in Workload Factory (envelope encrypted) or referenced from AWS Secrets Manager.
+* Auditability: confirm operational records for component activity and failures.
+* Lifecycle management: confirm how updates and removal occur.
+
+== Related information
+
+* link:lambda-link-overview.html[Lambda link overview for NetApp Workload Factory]
+* link:connectivity-trust-paths.html[Connectivity and trust paths for NetApp Workload Factory]
+* link:encryption-key-management.html[Encryption and key management for NetApp Workload Factory]

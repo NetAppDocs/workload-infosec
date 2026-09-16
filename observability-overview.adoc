@@ -1,0 +1,34 @@
+---
+sidebar: sidebar
+permalink: observability-overview.html
+keywords: observability, telemetry, Tracker, audit logging, OpenTelemetry, AI usage metering, AWS Timestream, operational records, monitoring
+summary: "Observability signals help support operational monitoring, troubleshooting, and investigations. In NetApp Workload Factory, observability includes metrics, telemetry, and operational records that provide visibility into service behavior, AI usage, and actions performed through Workload Factory."
+---
+= Learn about observability in NetApp Workload Factory
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+Observability signals help support operational monitoring, troubleshooting, and investigations. In NetApp Workload Factory, observability includes metrics, telemetry, and operational records that provide visibility into service behavior, AI usage, and actions performed through Workload Factory. Telemetry and operational records support internal monitoring and customer-facing audit visibility, and Tracker helps you review the progress, status, and details of supported operations.
+
+== Telemetry and operational records
+
+Workload Factory uses the following telemetry and operational record types:
+
+* OpenTelemetry traces exported via OTLP HTTP to SigNoz (internal observability)
+* AI usage metering (token counts, model costs) stored in AWS Timestream
+* NetApp Console audit records (action name, status, request/response metadata, timestamps)
+
+== Audit logging in Workload Factory
+Workload Factory provides Tracker, a monitoring feature, so you can monitor which operations are running and when. With Tracker, you can track the progress and status of FSx for ONTAP, credentials, and link operations, review details for operation tasks and subtasks, and diagnose any issues or failures. 
+
+Several actions are available in Tracker. You can filter jobs by time frame (last 24 hours, 7 days, 14 days, or 30 days), workload, status, and user; find jobs using the search function; and download the jobs table as a CSV file. 
+
+* link:https://docs.netapp.com/us-en/workload-fsx-ontap/monitor-operations.html[Monitor operations using Tracker in Workload Factory^]
+
+== Related information
+
+* link:metrics-telemetry.html[Metrics and telemetry for NetApp Workload Factory]

@@ -1,14 +1,72 @@
 indexpage:
-  title: # Unquoted string 
-  lead: # Quoted string
-  summary: # Quoted string 
-  keywords: # Unquoted comma-delimited list of keywords 
+  title: Information security for NetApp Workload Factory 
+  lead: Workload Factory includes security and data protection guidance, including how data is collected, stored, retained, and accessed. Use this reference to understand the architecture, permissions, and compliance posture, and to support a faster, consistent security review and onboarding process.
+  summary: "Workload Factory includes security and data protection guidance, including how data is collected, stored, retained, and accessed. Use this reference to understand the architecture, permissions, and compliance posture, and to support a faster, consistent security review and onboarding process."
+  keywords: information security, data protection, NetApp, Workload Factory
   tiles: 
-    # Tile definition 
-    - title: # Quoted or unquoted string
+    - title: Get started
       links: 
-        # Link definition
-        - title: # Quoted or unquoted string
-          url: # Path to target
-        # Next link on this tile (title/url pair)
-    # Next tile on this page (title/links)
+        - title: Learn about information security for NetApp Workload Factory
+          url: /learn-about-workload-factory-infosec.html
+        - title: Onboarding security workflow
+          url: /onboarding-security-workflow.html
+    - title: Security and connectivity
+      links:
+        - title: Security model at a glance
+          url: /security-model.html
+        - title: Compliance and security posture
+          url: /compliance-security-posture.html            
+        - title: Connectivity and trust paths
+          url: /connectivity-trust-paths.html
+    - title: Identity, credentials, and least privilege
+      links: 
+        - title: AWS credential flow
+          url: /aws-credential-flow.html
+        - title: Credential types
+          url: /credential-types.html
+        - title: Credential storage options 
+          url: /credential-storage-options.html
+        - title: Least privilege requirements
+          url: /least-privilege-permissions.html  
+    - title: Data governance, privacy, and lifecycle
+      links: 
+        - title: Data handling and residency
+          url: /data-handling-residency.html
+        - title: Encryption and key management
+          url: /encryption-key-management.html
+    - title: Observability (logs, metrics, telemetry)   
+      links: 
+        - title: Observability overview
+          url: /observability-overview.html
+        - title: Metrics and telemetry reference    
+          url: /metrics-telemetry.html      
+    - title: Generative AI security controls
+      links:
+        - title: AI controls overview
+          url: /ai-controls-overview.html
+        - title: Bedrock opt-in for AI diagnostics
+          url: /amazon-bedrock-opt-in.html
+        - title: AI tool boundaries
+          url: /ai-tool-boundaries.html
+        - title: AI model parameters and billing
+          url: /ai-model-parameters-billing.html  
+    - title: ONTAP operations and Lambda link
+      links:
+        - title: Lambda link overview
+          url: /lambda-link-overview.html  
+        - title: Lambda link IAM permissions
+          url: /lambda-link-iam-permissions.html 
+    - title: Knowledge and support
+      links:
+        - title: Register for support
+          url: /register-support.html
+        - title: Get help
+          url: /get-help.html
+    - title: Blogs & community
+      links:
+        - title: NetApp Console
+          url: https://www.netapp.com/console
+        - title: NetApp Data Services
+          url: https://www.netapp.com/data-services/
+        - title: NetApp Community
+          url: https://community.netapp.com/                

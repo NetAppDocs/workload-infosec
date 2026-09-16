@@ -1,0 +1,52 @@
+---
+sidebar: sidebar
+permalink: lambda-link-overview.html
+keywords: Lambda link overview, ONTAP-native operations, VPC deployment, security architecture, NetApp Console agent, CloudFormation, container image
+summary: "NetApp Workload Factory uses a _link_, an AWS Lambda function deployed in your VPC, to keep ONTAP-native operations inside your AWS account boundary when the Amazon FSx for NetApp ONTAP API doesn't expose those operations."
+---
+= Learn about the Lambda link for NetApp Workload Factory
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+NetApp Workload Factory uses a _link_, an AWS Lambda function deployed in your VPC, to keep ONTAP-native operations inside your AWS account boundary when the Amazon FSx for NetApp ONTAP API doesn't expose those operations. The link runs in your subnets and security groups, so the execution component remains within your AWS environment. Workload Factory invokes the link only for operations that require direct ONTAP access rather than an available AWS service API. It compares the link's architecture with the security and operational profile of the NetApp Console agent.
+
+== Link security architecture
+A Workload Factory link creates a trust relationship and indirect connectivity between a Workload Factory account and one or more FSx for ONTAP file systems.
+
+The following table provides an overview of the Lambda link security architecture. Use this information to understand how the Lambda function is deployed and executed in your AWS account, including its networking configuration, runtime environment, and operational limits.
+
+[cols="2,3",options="header"]
+|===
+|Property |Detail
+|Compute |AWS Lambda (container image)
+|Runtime |Node.js 22
+|Deployment |CloudFormation stack in your AWS account
+|VPC placement |Your subnets, your security groups
+|Timeout |10 seconds per invocation
+|Invocation |Synchronous (RequestResponse)
+|Package type |Container image (from NetApp ECR)
+|===
+
+The following diagram shows the security architecture of the Lambda link.
+
+image:infosec-link-diagram.png[Diagram showing the security architecture of the Lambda link.]
+
+== Lambda link versus NetApp Console agent
+
+The Lambda link and the NetApp Console agent serve different purposes and have different security and operational implications.
+
+[cols="1,2,2",options="header"]
+|===
+|Dimension |Link (Lambda-based) |NetApp Console agent (VM/Pods-based)
+|Runtime model |Serverless (AWS Lambda), customer-deployed |Customer-deployed VM/containers; runs NetApp console service pods
+|Primary scope |Control-plane ONTAP REST operations (only when AWS APIs do not support the operation) |Orchestration plus support for data services
+|Data services support |Does not host data services |Can host data services (runs NetApp console service pods)
+|Operational overhead |No always-on VM |VM lifecycle management and upgrades
+|===
+
+== Related information
+
+For the full cross-system connectivity map, refer to link:connectivity-trust-paths.html[Connectivity and trust paths for NetApp Workload Factory].

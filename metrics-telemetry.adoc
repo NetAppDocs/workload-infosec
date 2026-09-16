@@ -1,0 +1,90 @@
+---
+sidebar: sidebar
+permalink: metrics-telemetry.html
+keywords: metrics, telemetry, CloudWatch metrics, volume-level metrics, file system-level metrics, computed metrics, throughput, retention, DynamoDB
+summary: "NetApp Workload Factory collects and stores volume-level and file system-level metrics in AWS CloudWatch to give you operational visibility into storage performance and capacity."
+---
+= Metrics and telemetry for NetApp Workload Factory
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+NetApp Workload Factory collects and stores volume-level and file system-level metrics in AWS CloudWatch to give you operational visibility into storage performance and capacity. Computed metrics, such as throughput, are derived from these collected values. Learn about the metric definitions, collection cadence, refresh behavior, and retention details.
+
+== Metrics included
+
+NetApp Workload Factory uses these metrics for operational logs and events:
+
+* Volume-level CloudWatch metrics (collected per volume)
+* File system-level CloudWatch metrics (collected per file system)
+* Computed metrics
+* Collection schedule and retention
+
+== About operational metrics
+
+Computed metrics use this formula:
+
+* Throughput (Bytes/Second) = (NetworkSentBytes + NetworkReceivedBytes) / period
+
+Refresh behavior:
+
+* Volume and cluster metrics are refreshed every 12 hours.
+* Latency metrics are refreshed every 20 minutes.
+* DynamoDB items auto-expire after 14 days.
+
+== About telemetry data collection
+
+* OpenTelemetry traces exported via OTLP HTTP to SigNoz (internal observability)
+* AI usage metering (token counts, model costs) stored in AWS Timestream
+* NetApp Console audit records (action name, status, request/response metadata, timestamps)
+
+== Volume-level CloudWatch metrics (collected per volume)
+
+[cols="2,2,1,3",options="header"]
+|===
+|Metric |AWS CloudWatch name |Unit |What it measures
+|Volume storage capacity |StorageCapacity |Bytes |Total provisioned capacity
+|Storage used |StorageUsed |Bytes |Actual data stored
+|Data read bytes |DataReadBytes |Bytes |Read throughput
+|Data write bytes |DataWriteBytes |Bytes |Write throughput
+|Data read operations |DataReadOperations |Count |Read IOPS
+|Data write operations |DataWriteOperations |Count |Write IOPS
+|Metadata operations |MetadataOperations |Count |Metadata IOPS
+|Data read operation time |DataReadOperationTime |Seconds |Read latency
+|Data write operation time |DataWriteOperationTime |Seconds |Write latency
+|Metadata operation time |MetadataOperationTime |Seconds |Metadata latency
+|===
+
+== File system-level CloudWatch metrics
+
+[cols="2,2,1,3",options="header"]
+|===
+|Metric |AWS CloudWatch name |Unit |What it measures
+|SSD storage capacity |StorageCapacity |Bytes |Total SSD tier capacity
+|SSD storage used |StorageUsed (SSD tier) |Bytes |SSD tier consumption
+|Capacity pool used |StorageUsed (Capacity Pool) |Bytes |Capacity pool consumption
+|CPU utilization |CPUUtilization |Percent |File server CPU
+|SSD capacity utilization |StorageCapacityUtilization |Percent |SSD tier percent used
+|Network throughput utilization |NetworkThroughputUtilization |Percent |Network percent utilized
+|Disk IOPS utilization |DiskIopsUtilization |Percent |Disk IOPS percent utilized
+|Disk throughput utilization |FileServerDiskThroughputUtilization |Percent |Disk throughput percent utilized
+|Disk IOPS utilization (server) |FileServerDiskIopsUtilization |Percent |Server disk IOPS percent utilized
+|Storage efficiency savings |StorageEfficiencySavings |Bytes |Space saved by efficiency
+|Network received |NetworkReceivedBytes |Bytes |Inbound network
+|Network sent |NetworkSentBytes |Bytes |Outbound network
+|===
+
+== Collection schedule and retention
+
+[cols="1,1,1,1,1",options="header"]
+|===
+|Time range |Collection period |Datapoints |Storage |Retention
+|1 day |24 minutes |~60 |DynamoDB |14 days (TTL)
+|1 week |~2.8 hours |~60 |DynamoDB |14 days (TTL)
+|1 month |12 hours |~60 |DynamoDB |14 days (TTL)
+|3 months |~1.5 days |~60 |DynamoDB |14 days (TTL)
+|1 year |~6 days |~60 |DynamoDB |14 days (TTL)
+|===

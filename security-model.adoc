@@ -1,0 +1,34 @@
+---
+sidebar: sidebar
+permalink: security-model.html
+keywords: security model, shared responsibility, IAM assume-role, STS credentials, ONTAP-native operations, VPC execution components, observability, data handling
+summary: "NetApp Workload Factory is a SaaS control plane that helps you manage and optimize workloads that run on Amazon FSx for NetApp ONTAP in your AWS environment."
+---
+= Learn about the security model for NetApp Workload Factory
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+NetApp Workload Factory is a SaaS control plane that helps you manage and optimize workloads that run on Amazon FSx for NetApp ONTAP in your AWS environment. Security outcomes depend on shared responsibilities across NetApp, AWS, and your organization.
+
+== High-level security model
+
+* Workload Factory uses an IAM assume-role model to obtain temporary AWS STS credentials to call AWS APIs in your account.
+* Some workflows require ONTAP-native operations that are not exposed through AWS APIs; you can execute those operations inside your VPC using customer-deployed execution components (for example, Lambda link).
+* Observability signals (metrics, telemetry, and operational records) support operational monitoring and investigations.
+
+== Key review questions
+
+* What access does Workload Factory require to your AWS account (role trust + permissions)?
+* Which execution paths apply to your intended workflows (AWS API-only or ONTAP-native operations via a VPC component)?
+* What data categories are handled (configuration/metadata, operational logs/events, telemetry) and where are they stored?
+* What monitoring signals exist and what are their retention characteristics?
+
+== What's next
+
+* link:shared-responsibility-boundaries.html[Shared responsibility boundaries for NetApp Workload Factory]
+* link:connectivity-trust-paths.html[Connectivity and trust paths for NetApp Workload Factory]
+* link:least-privilege-permissions.html[Least privilege permission tiers for NetApp Workload Factory]

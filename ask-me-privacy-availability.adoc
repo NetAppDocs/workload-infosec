@@ -1,0 +1,30 @@
+---
+sidebar: sidebar
+permalink: ask-me-privacy-availability.html
+keywords: Ask Me privacy, data handling, ephemeral storage, availability, multi-model fallback, audit logging, knowledge base content, feedback data, isolation controls
+summary: "In NetApp Workload Factory, Ask Me privacy controls limit data exposure, keep session processing isolated, and maintain privacy boundaries for user interactions."
+---
+= Ask Me privacy and availability for NetApp Workload Factory
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+In NetApp Workload Factory, Ask Me privacy controls limit data exposure, keep session processing isolated, and maintain privacy boundaries for user interactions. Your inputs are processed by a managed AI service that does not use them to train or improve foundation models. Retrieved operational data remains in ephemeral, in-memory storage for the duration of the session and is not persisted or shared. A multi-model fallback chain across multiple cloud regions supports availability when the primary model is throttled or unavailable, while the same security controls apply across the fallback models.
+
+== Data handling and privacy
+
+* User data in prompts: processed by a managed AI service that does not use your inputs to train or improve foundation models.
+* Knowledge base content: curated, published NetApp documentation only; your data isn't included.
+* Operational data: retrieved only when a user queries their own resources; held in ephemeral, in-memory storage for the duration of the session and not persisted or shared.
+* Audit logging: query metadata (anonymized user ID, timestamps, durations) logged, with sensitive fields scrubbed.
+* Feedback data: stored separately and linked to a query ID, not to personally identifiable information beyond the anonymized user ID.
+
+== Availability and isolation controls
+
+Ask Me employs a multi-model fallback chain across multiple cloud regions.
+
+If the primary model is throttled or unavailable, the system can fail over to alternative models.
+
+All models are subject to the same security controls, system prompt hardening, and isolation guarantees.
