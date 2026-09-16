@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: aws-account-integration.html
 keywords: AWS account integration, sts assume role, IAM role, external ID, temporary credentials, cross-account access, confused deputy attack, role trust policy, onboarding
-summary: "Workload Factory uses AWS sts:AssumeRole to obtain temporary credentials for your AWS account, so long-term AWS access keys are not stored by the service."
+summary: "Workload Factory uses AWS sts AssumeRole to obtain temporary credentials for your AWS account, so long-term AWS access keys are not stored by the service."
 ---
 = AWS account integration for NetApp Workload Factory
 :nofooter:
