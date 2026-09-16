@@ -1,0 +1,32 @@
+---
+sidebar: sidebar
+permalink: ask-me-access-control.html
+keywords: Ask Me access control, authentication, JWT, secrets vault, credential protection, log scrubbing, CORS, non-root container, user identity scoping
+summary: "In NetApp Workload Factory, Ask Me access security centers on authenticated sessions, user-level accountability, and protected secret handling during runtime operations."
+---
+= Ask Me access control for NetApp Workload Factory
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+
+In NetApp Workload Factory, Ask Me access security centers on authenticated sessions, user-level accountability, and protected secret handling during runtime operations. Authentication controls validate each session and associate interactions with a specific user. Sensitive credentials are retrieved from a managed secrets vault at runtime and redacted from logs. The service also applies infrastructure controls, including non-root container execution and a restricted CORS allowlist.
+
+== Authentication
+
+* Signed JWT authentication with cryptographic validation (including audience, issuer, and algorithm checks such as RS256)
+* Middleware-enforced authentication at the service boundary
+* User identity scoping so interactions are attributable to a specific user
+
+== Credential protection and secret handling
+
+* Secure vault storage: sensitive credentials used by the service are stored in a managed secrets vault and retrieved at runtime.
+No secrets are stored in application code, configuration files, or container images.
+* Log scrubbing: sensitive values (credentials, tokens, passwords, access keys, certificates) are redacted from logs before they are written.
+
+== Infrastructure security
+
+* Non-root container execution
+* CORS restricted to an explicit allowlist of trusted NetApp domains

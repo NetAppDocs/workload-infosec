@@ -1,0 +1,41 @@
+---
+sidebar: sidebar
+permalink: shared-responsibility-boundaries.html
+keywords: shared responsibility, NetApp responsibilities, AWS responsibilities, customer responsibilities, IAM roles, VPC controls, credential governance, encryption, evidence to capture
+summary: "NetApp Workload Factory security responsibility is shared across NetApp (SaaS operation), AWS (cloud infrastructure and managed services), and you (customer configuration)."
+---
+= Shared responsibility boundaries for NetApp Workload Factory
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+NetApp Workload Factory security responsibility is shared across NetApp (SaaS operation), AWS (cloud infrastructure and managed services), and you (customer configuration). Understanding where each party's responsibility begins and ends helps you configure your AWS environment correctly and avoid security gaps. These boundaries clarify what NetApp operates, what AWS secures, and what you must configure and maintain yourself.
+
+== NetApp responsibilities (service side)
+
+NetApp is responsible for operating and securing the Workload Factory SaaS platform. This includes service-side handling of stored configuration references and operational data.
+
+== AWS responsibilities (cloud platform)
+
+AWS is responsible for security of the cloud infrastructure and managed services used by your deployment and workflows (for example, IAM/STS, FSx for ONTAP, CloudWatch, KMS, Secrets Manager, CloudFormation, Lambda, and networking primitives).
+
+== Customer responsibilities (your configuration)
+
+You are responsible for:
+
+* AWS IAM roles, trust policies, and least-privilege permissions
+* VPC controls (subnets, security groups, routing, endpoints, and egress)
+* Credential governance (including ONTAP credentials if required by your workflows)
+* Encryption and key management decisions (for example, optional customer-managed KMS keys for FSx for ONTAP)
+* Monitoring, alerting, retention policies, and incident response processes
+
+== Evidence to capture
+
+* IAM role trust relationship (including external ID condition)
+* IAM permission tier selection and policy artifacts
+* Network boundary decision (AWS API-only vs VPC execution component such as Lambda link)
+* Observability decisions and retention expectations
+* AI enablement decision (AI diagnostics are enabled by default unless explicitly disabled)

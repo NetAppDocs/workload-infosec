@@ -1,0 +1,35 @@
+---
+sidebar: sidebar
+permalink: ai-model-parameters-billing.html
+keywords: AI model parameters, Amazon Bedrock billing, AI usage limits, model configuration, inference profile, Claude model, deterministic parameters, cost visibility, AI governance
+summary: "NetApp Workload Factory defines the model configuration and usage and billing boundaries relevant to AI governance."
+---
+
+= AI model parameters and billing for NetApp Workload Factory
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+NetApp Workload Factory defines the model configuration and usage and billing boundaries relevant to AI governance. The configured model uses deterministic parameters and returns structured JSON to support consistent analysis results. AWS bills Amazon Bedrock inference to your account, while Workload Factory tracks AI usage and provides per-account monthly cost visibility. These sections describe the model parameters and the limits that apply to AI consumption.
+
+== Model and parameters
+
+[cols="2,3",options="header"]
+|===
+|Parameter |Value
+|Model |Anthropic Claude (using a cross-region inference profile)
+|Temperature |0 (deterministic, no randomness)
+|Max output tokens |2,048
+|Max reasoning steps |15 per analysis
+|Output format |Structured JSON (summary, severity, root cause, corrective actions)
+|===
+
+== Billing and usage limits
+
+* AWS bills Bedrock inference to your account (your inference profile, your credentials).
+* Workload Factory tracks AI usage internally.
+* Workload Factory provides per-account monthly cost visibility.
++
+link:https://docs.netapp.com/us-en/workload-fsx-ontap/track-costs.html[Track storage costs in NetApp Workload Factory^]

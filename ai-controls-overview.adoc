@@ -1,0 +1,35 @@
+---
+sidebar: sidebar
+permalink: ai-controls-overview.html
+keywords: AI controls, generative AI, AI security, Ask Me assistant, latency analysis, EMS event analysis, error log analysis, Amazon Bedrock, AI diagnostics
+summary: "NetApp Workload Factory includes generative AI features that accelerate diagnosis while enforcing security controls for model access, data scope, and runtime behavior."
+---
+= Learn about AI controls in NetApp Workload Factory
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+NetApp Workload Factory includes generative AI features that accelerate diagnosis while enforcing security controls for model access, data scope, and runtime behavior.
+
+Workload Factory enables AI diagnostics by default. You can disable generative AI features at any time through the Workload Factory *Administration* settings. link:https://docs.netapp.com/us-en/workload-setup-admin/manage-genai-features.html[Learn more about managing GenAI features.^]
+
+== Security-scoped AI feature overview
+
+Workload Factory currently applies generative AI to the following features:
+
+* Ask Me assistant (RAG with curated NetApp documentation, source-backed responses)
+* Latency analysis
+* EMS event analysis
+* Error log analysis
+
+== AWS Bedrock overview for AI diagnostics
+
+Workload Factory uses Amazon Bedrock for AI inference. Inference runs in your AWS account, under your configured credentials and inference profile.
+
+== Related information
+
+* link:amazon-bedrock-opt-in.html[Amazon Bedrock opt-in for NetApp Workload Factory AI diagnostics]
+* link:ai-tool-boundaries.html[AI tool boundaries for NetApp Workload Factory]
+* link:ai-model-parameters-billing.html[AI model parameters and billing for NetApp Workload Factory]

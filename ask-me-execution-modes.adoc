@@ -1,0 +1,29 @@
+---
+sidebar: sidebar
+permalink: ask-me-execution-modes.html
+keywords: Ask Me execution modes, tool execution safeguards, ephemeral data sandbox, read-only query enforcement, tool call auditability, output controls, token limit, session scope
+summary: "Workload Factory provides multiple execution modes for Ask Me, each with different security and privacy characteristics."
+---
+= Ask Me execution modes for NetApp Workload Factory
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+NetApp Workload Factory provides multiple execution modes for Ask Me, each with different security and privacy characteristics. When Ask Me uses tool integrations, for example, querying the customer's own Workload Factory resources, tool execution is controlled through layered safeguards. Tool-enabled execution operates within the authenticated user's permissions and applies limits to the duration and scope of each operation. Retrieved data remains in an ephemeral session sandbox that blocks external access and is destroyed when the session ends. Independent prompt and code controls enforce read-only queries, while audit records capture tool activity with sensitive values scrubbed.
+
+== Tool execution safeguards
+
+* Authorization-scoped tools operate within the authenticated user's permissions.
+* Tool execution timeout limits long-running operations.
+* Ephemeral data sandbox stores tool-retrieved data in session scope, blocks external access, file I/O, network calls, and extension loading at the engine level, and is destroyed when the session ends.
+* Read-only query enforcement validates generated queries through a strict allowlist.
+* Prompt-enforced and code-enforced security are applied independently.
+* Tool call auditability logs tool name, parameters, timestamps, and result status with sensitive value scrubbing.
+
+== Output controls
+
+* Token limit enforcement
+* Deterministic output for classification/security-critical operations (temperature 0)
+* Streaming with early termination and cleanup

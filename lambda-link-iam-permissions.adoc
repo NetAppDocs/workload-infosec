@@ -1,0 +1,42 @@
+---
+sidebar: sidebar
+permalink: lambda-link-iam-permissions.html
+keywords: Lambda link, IAM permissions, execution role, Secrets Manager, ONTAP credentials, VPC networking, lambda InvokeFunction, resource-based policy
+summary: "NetApp Workload Factory uses Lambda link permission boundaries to define the IAM access required for Lambda execution and Workload Factory invocation. These permissions are optional but required for ONTAP-native operations."
+---
+= Lambda link IAM permissions for NetApp Workload Factory
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+NetApp Workload Factory uses Lambda link permission boundaries to define the IAM access required for Lambda execution and Workload Factory invocation. These permissions are optional, but they are required for ONTAP-native operations. When you configure Secrets Manager support, the link retrieves ONTAP credentials directly from your AWS Secrets Manager at runtime, and the password transits only within your VPC, from Secrets Manager to the Lambda function and then to the ONTAP endpoint.
+
+For request-path and port requirements, refer to link:lambda-link-ports-calls.html[Lambda link ports and calls].
+
+== Lambda execution role permissions
+
+The Lambda execution role requires the following permissions when deploying a link in your VPC:
+
+[cols="2,3",options="header"]
+|===
+|Permission |Purpose
+|ec2:CreateNetworkInterface / ec2:DescribeNetworkInterfaces / ec2:DeleteNetworkInterface |Standard VPC-attached Lambda networking
+|ec2:AssignPrivateIpAddresses / ec2:UnassignPrivateIpAddresses |VPC ENI IP management
+|secretsmanager:GetSecretValue (scoped to FSxSecret*) |Retrieve ONTAP credentials (only when Secrets Manager is enabled)
+|CloudWatch Logs (managed policy) |Lambda execution logging
+|===
+
+== Workload Factory invocation permissions
+
+The Lambda link resource-based policy grants the Workload Factory service principal the following permissions:
+
+[cols="2,3",options="header"]
+|===
+|Permission |Purpose
+|lambda:InvokeFunction |Execute the Lambda
+|lambda:GetFunction |Health and status checks
+|lambda:UpdateFunctionCode |Version upgrades (image updates)
+|lambda:GetFunctionConfiguration |Configuration verification
+|===

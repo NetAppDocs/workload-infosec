@@ -1,0 +1,27 @@
+---
+sidebar: sidebar
+permalink: cloudwatch-monitoring-permissions.html
+keywords: CloudWatch monitoring permissions, monitoring stack, file system metrics, CloudWatch alarms, CloudWatch dashboards, Amazon SNS, event logs, ONTAP credentials, secretsmanager
+summary: "CloudWatch monitoring permissions are optional in NetApp Workload Factory and apply only when you deploy the separate monitoring stack."
+---
+= Amazon CloudWatch monitoring permissions for NetApp Workload Factory
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+Amazon CloudWatch monitoring permissions are optional in NetApp Workload Factory and apply only when you deploy the separate monitoring stack. The monitoring stack provides operational visibility by collecting file system metrics, publishing event logs, managing CloudWatch dashboards and alarms, and sending alert notifications through Amazon SNS. The stack also requires access to retrieve ONTAP credentials when needed for monitoring.
+
+== Required CloudWatch monitoring permissions 
+The following permissions are required for the optional monitoring stack:
+
+[cols="2,3",options="header"]
+|===
+|Permission |Purpose
+|fsx:Describe* / fsx:ListTagsForResource |Collect file system metrics
+|cloudwatch:PutMetricData / cloudwatch:PutDashboard / cloudwatch:PutMetricAlarm / cloudwatch:DescribeAlarms / cloudwatch:Delete* |Manage dashboards and alarms
+|logs:CreateLogGroup / logs:CreateLogStream / logs:PutLogEvents |Publish event logs
+|sns:Publish |Send alert notifications
+|secretsmanager:GetSecretValue |Retrieve ONTAP credentials for monitoring
+|===

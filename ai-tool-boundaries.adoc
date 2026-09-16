@@ -1,0 +1,30 @@
+---
+sidebar: sidebar
+permalink: ai-tool-boundaries.html
+keywords: AI tool boundaries, read-only diagnostics, AWS CLI, ONTAP CLI, Amazon Bedrock, data retention, model training boundaries, mutating commands, tool safety controls
+summary: "NetApp Workload Factory enforces strict boundaries on how its AI features interact with your AWS and ONTAP environments, so you can trust AI-assisted diagnostics without risking unintended changes."
+---
+= AI tool boundaries for NetApp Workload Factory
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+NetApp Workload Factory enforces strict boundaries on how its AI features interact with your AWS and ONTAP environments, so you can trust AI-assisted diagnostics without risking unintended changes. Amazon Bedrock uses read-only AWS CLI and ONTAP CLI diagnostic tools that block mutating commands and limit output by size and execution, and any data used is only transient and not retained by NetApp Workload Factory or AWS. 
+
+== Tool safety controls
+
+[cols="2,3,4",options="header"]
+|===
+|Tool |Capability |Safety controls
+|AWS CLI (read-only) |Execute read-only AWS CLI commands (describe, list, get) |Blocks all mutating verbs (create, delete, modify, update, put, remove). Maximum 10 commands per step. Output truncated at 20 KB.
+|ONTAP CLI (read-only) |Execute read-only ONTAP CLI commands using SSH |Blocks all mutating verbs (delete, destroy, create, modify, move). Output truncated.
+|===
+
+The agent cannot modify, create, or delete resources. It can only observe and diagnose.
+
+== Data retention and model training boundaries
+
+Per AWS policy, Amazon Bedrock does not store or use your inputs and outputs to train or improve foundation models.
+For on-demand inference (used by Workload Factory), AWS processes your data transiently and does not retain it after returning the response.

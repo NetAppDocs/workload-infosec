@@ -1,0 +1,46 @@
+---
+sidebar: sidebar
+permalink: lambda-link-ports-calls.html
+keywords: Lambda link ports, outbound connectivity, HTTPS, SSH, ONTAP REST API, port 443, port 22, lambda InvokeFunction, health check
+summary: "NetApp Workload Factory uses Lambda link request and port boundaries to define required outbound connectivity and IAM-authorized invocation."
+---
+= Lambda link ports and calls for NetApp Workload Factory
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+NetApp Workload Factory uses Lambda link request and port boundaries to define required outbound connectivity and IAM-authorized invocation. The link supports HTTPS requests to the ONTAP management endpoint, read-only SSH commands for diagnostics, and health checks. All connectivity is outbound from the link within your VPC, so no inbound connectivity or exposed endpoints are required. Workload Factory invokes the link through the AWS Lambda API using IAM-based authorization.
+
+== Request types
+
+* HTTPS (ONTAP REST API): proxies HTTPS calls to the ONTAP management endpoint (port 443) for volume, storage VM, and cluster operations.
+* SSH (ONTAP CLI): executes read-only ONTAP CLI commands on port 22 for diagnostics and performance data.
+* Health check: returns status and supported features.
+
+== Outbound network boundaries
+
+[cols="1,1,3,3",options="header"]
+|===
+|Direction |Port |Destination |Purpose
+|Outbound |443 |ONTAP management IP (within your VPC) |REST API operations
+|Outbound |22 |ONTAP management IP (within your VPC) |SSH CLI commands
+|Outbound |443 |AWS Secrets Manager endpoint (optional) |Credential retrieval when using Secrets Manager
+|===
+
+No inbound connectivity is required. The link does not expose any endpoints. Workload Factory invokes it using the AWS `lambda:InvokeFunction` API.
+
+== Workload Factory calls Lambda link
+
+Workload Factory calls the Lambda link via the AWS Lambda API (`lambda:InvokeFunction`) using IAM-based authorization.
+
+The invocation payload contains:
+
+* target ONTAP management endpoint (IP/hostname)
+* operation to perform (REST API path or SSH command)
+* authentication information (inline credentials or a Secrets Manager ARN reference)
+
+== Related information
+
+For the full cross-system connectivity map, refer to link:connectivity-trust-paths.html[connectivity and trust paths for NetApp Workload Factory].

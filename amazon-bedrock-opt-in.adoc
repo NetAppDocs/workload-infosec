@@ -1,0 +1,47 @@
+---
+sidebar: sidebar
+permalink: amazon-bedrock-opt-in.html
+keywords: Amazon Bedrock, AI diagnostics, opt-in, inference profile, IAM permissions, Lambda link, SSH
+summary: "NetApp Workload Factory AI diagnostics use Amazon Bedrock to analyze events, and the feature is enabled by default."
+---
+= Amazon Bedrock opt-in for NetApp Workload Factory AI diagnostics
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+NetApp Workload Factory AI diagnostics use Amazon Bedrock to analyze events, and the feature is enabled by default. Before Workload Factory can invoke the selected Bedrock model and collect diagnostic data, you must configure IAM permissions, an inference profile, and a connected Lambda link with SSH capability. If any of these components is missing or the Bedrock configuration is removed, AI diagnostics become unavailable.
+
+AI diagnostics are enabled by default.
+
+== Before you begin
+
+* Make sure your account includes an AWS Bedrock inference profile.
+* Have a connected Lambda link with SSH capability for diagnostic data collection.
+
+== Steps
+
+. Grant Bedrock permissions in your IAM role:
++
+* `bedrock:InvokeModel`
+* `bedrock:InvokeModelWithResponseStream`
+* `bedrock:ListInferenceProfiles`
+* `bedrock:GetInferenceProfile`
+
+. Configure the inference profile ARN in Workload Factory settings.
+
+If any prerequisite is missing, the system reports the specific missing component and AI features remain inactive.
+
+== Disable AI diagnostics
+
+To disable AI diagnostics:
+
+* Remove the Bedrock permissions from your IAM role, or
+* Delete the Bedrock configuration in Workload Factory settings.
+
+AI diagnostics become unavailable immediately, and no residual data processing occurs.
+
+== Region and cross-region inference profiles
+
+Bedrock inference executes in the AWS region specified by your inference profile. If you use a cross-region inference profile, AWS might route the request to any region in the profile's configuration per standard AWS Bedrock behavior. Data does not leave AWS infrastructure.
