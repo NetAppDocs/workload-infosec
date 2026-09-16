@@ -13,7 +13,7 @@ summary: "NetApp Workload Factory includes generative AI features that accelerat
 [.lead]
 NetApp Workload Factory includes generative AI features that accelerate diagnosis while enforcing security controls for model access, data scope, and runtime behavior.
 
-Workload Factory enables AI diagnostics by default.
+Workload Factory enables AI diagnostics by default. You can disable generative AI features at any time through the Workload Factory *Administration* settings. link:https://docs.netapp.com/us-en/workload-setup-admin/manage-genai-features.html[Learn more about managing GenAI features.^]
 
 == Security-scoped AI feature overview
 
